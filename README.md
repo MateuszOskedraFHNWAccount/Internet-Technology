@@ -124,6 +124,7 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 
 - **UC-16 [Login with Roles]:** Users, regardless of being students or admins, can log in with different roles available on the platform, enabling personalized and role-appropriate access to features and functionalities.
 
+> use case diagram here
 
 ## Design
 > Add smth here
@@ -135,7 +136,130 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 > Add smth here
 
 ### Domain Design
-> Add smth here
+
+**Description:**
+
+- **User**
+  - UserID: INTEGER (Primary Key)
+  - Username: VARCHAR(50)
+  - Password: VARCHAR(255)  # Length to accommodate hashed passwords
+  - Role: ENUM('Student', 'Admin', 'Super Admin')
+  - Email: VARCHAR(100) *(optional)*
+  - PhoneNumber: VARCHAR(15) *(optional)*
+
+- **Tutoring Session**
+  - SessionID: INTEGER (Primary Key)
+  - Subject: VARCHAR(50)
+  - Description: TEXT
+  - TutorID: INTEGER (ForeignKey to User.UserID)
+  - StudentID: INTEGER (ForeignKey to User.UserID) *(optional)*
+  - Recurring: BOOLEAN
+  - StartTime: TIMESTAMP
+  - EndTime: TIMESTAMP
+  - Status: ENUM('Active', 'Completed', 'Cancelled')
+
+- **Mentoring for Projects**
+  - ProjectID: INTEGER (Primary Key)
+  - MentorID: INTEGER (ForeignKey to User.UserID)
+  - Subject: VARCHAR(50)
+  - Description: TEXT
+  - Recurring: BOOLEAN
+  - ProjectName: VARCHAR(100)
+  - StartTime: TIMESTAMP
+  - EndTime: TIMESTAMP
+
+- **Independent Project**
+  - ProjectID: INTEGER (Primary Key)
+  - LeaderID: INTEGER (ForeignKey to User.UserID)
+  - ProjectName: VARCHAR(100)
+  - Description: TEXT
+  - Recurring: BOOLEAN
+  - StartTime: TIMESTAMP
+  - EndTime: TIMESTAMP
+
+- **Buddy System**
+  - BuddyPairID: INTEGER (Primary Key)
+  - LocalStudentID: INTEGER (ForeignKey to User.UserID)
+  - InternationalStudentID: INTEGER (ForeignKey to User.UserID)
+  - Languages: VARCHAR(100)
+  - Status: ENUM('Active', 'Completed')
+
+- **Room Assignment** *(optional, v2.0)*
+  - RoomID: INTEGER (Primary Key)
+  - Building: VARCHAR(50)
+  - Capacity: INTEGER
+  - Resources: TEXT
+  - EventID: INTEGER (ForeignKey to Tutoring Session.SessionID or Independent Project.ProjectID)
+  - StartTime: TIMESTAMP
+  - EndTime: TIMESTAMP
+
+- **Forum Post** *(optional, v2.0)*
+  - PostID: INTEGER (Primary Key)
+  - AuthorID: INTEGER (ForeignKey to User.UserID)
+  - Content: TEXT
+  - Topic: VARCHAR(50)
+  - CreationTime: TIMESTAMP
+
+- **Forum Response** *(optional, v2.0)*
+  - ResponseID: INTEGER (Primary Key)
+  - PostID: INTEGER (ForeignKey to Forum Post.PostID)
+  - AuthorID: INTEGER (ForeignKey to User.UserID)
+  - Content: TEXT
+  - ResponseTime: TIMESTAMP
+
+- **Admin Actions**
+  - ActionID: INTEGER (Primary Key)
+  - AdminID: INTEGER (ForeignKey to User.UserID)
+  - ActionType: ENUM('Modify', 'Delete', 'Assign')
+  - TargetID: INTEGER  # This would reference various entity IDs
+  - Timestamp: TIMESTAMP
+
+- **Job Advertisement** *(optional)*
+  - JobAdID: INTEGER (Primary Key)
+  - AdminID: INTEGER (ForeignKey to User.UserID)
+  - Title: VARCHAR(100)
+  - Description: TEXT
+  - ApplicationDeadline: TIMESTAMP
+  - ContactInfo: VARCHAR(100)
+
+- **System Log**
+  - LogID: INTEGER (Primary Key)
+  - RelatedActionID: INTEGER (ForeignKey to Admin Actions.ActionID)
+  - Timestamp: TIMESTAMP
+  - Description: TEXT
+
+- **Account Management**
+  - ManagementID: INTEGER (Primary Key)
+  - AdminID: INTEGER (ForeignKey to User.UserID)
+  - TargetUserID: INTEGER (ForeignKey to User.UserID)
+  - ActionType: ENUM('Create', 'Modify', 'Delete')
+  - Timestamp: TIMESTAMP
+
+**Associations:**
+
+- Each **Tutoring Session** is related to one **Tutor** (User) and optionally to one **Student** (User).
+
+- Each **Mentoring for Projects** instance is related to one **Mentor** (User).
+
+- Each **Independent Project** is led by one **Leader** (User).
+
+- Each **Buddy System** pair links one **Local Student** (User) and one **International Student** (User).
+
+- Each **Room Assignment** is associated with either a **Tutoring Session** or an **Independent Project**.
+
+- Each **Forum Post** and **Forum Response** is authored by a **User**.
+
+- **Forum Responses** are linked to their respective **Forum Posts**.
+
+- **Admin Actions** are performed by **Admins** and target various entities within the system.
+
+- **Job Advertisements** are posted by **Admins**.
+
+- **System Logs** record **Admin Actions**.
+
+- **Account Management** actions are performed by **Admins** or **Super Admins** on **User** accounts.
+
+> Add Domain Model
 
 ## Business Logic 
 > Add smth here
