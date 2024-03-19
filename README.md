@@ -1,10 +1,8 @@
-# Educational Peer Exchange Platform for Fachhochschule Nordwestschweiz Students (EduPeerFHNW)
+# Educational Peer Exchange Platform for Fachhochschule Nordwestschweiz Students (CommunityFHNW)
 
 This project aims to facilitate a peer-to-peer learning and support environment for students at the Fachhochschule Nordwestschweiz (FHNW). It includes features for peer tutoring, project collaboration, and a buddy system for exchange students.
 
 [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-
-> 🚧: **This is a template project**: Ensure you adapt this documentation and the source code for your specific needs and use case. Guidance comments marked with "🚧" should be addressed or removed in your final documentation.
 
 #### Contents:
 - [Analysis](#analysis)
@@ -22,12 +20,22 @@ This project aims to facilitate a peer-to-peer learning and support environment 
   - [Roles](#roles)
   - [Milestones](#milestones)
 
-## Analysis
-> 🚧: Tailor the analysis to reflect the requirements and objectives of the EduPeerFHNW project.
+
+### Analysis
+
+> Add smth here
 
 ### Scenario
 
-EduPeerFHNW is conceived as a comprehensive support system for FHNW students, promoting academic excellence and social integration through peer-to-peer engagement and support for exchange students.
+CommunityFHNW is designed to be a dynamic support and learning platform for students at Fachhochschule Nordwestschweiz (FHNW), fostering a strong sense of academic and social community. It's built on the idea that every student not only seeks knowledge but also has unique insights to share, creating a vibrant cycle of learning and teaching.
+
+The platform allows students to easily find or offer tutoring across a variety of subjects, manage project collaborations, and even volunteer as buddies for international peers, helping them adjust to life at FHNW and in Switzerland. Through CommunityFHNW, students can set up one-time or recurring tutoring sessions, kick-start independent projects beyond the regular curriculum, and create real-world meetings for collaborative work, all within a framework that encourages innovation and mutual support.
+
+For international students, the buddy system is a cornerstone of the platform, providing a welcoming introduction to the academic community and Swiss culture, thanks to the local students eager to share their knowledge and experiences.
+
+Behind the scenes, admins ensure the platform runs smoothly, moderating content and managing accounts to keep the community safe and engaged. They have tools at their disposal to monitor activity, post needed advertisements for tutors or project collaborators, and pair international students with their local buddies. Super admins oversee this all, maintaining the high standards and vision of the platform.
+
+Available on various devices, CommunityFHNW ensures that whether you're on campus or on the move, you can stay connected, making learning flexible and accessible for everyone involved.
 
 ### User Stories
 
@@ -91,34 +99,34 @@ Common Use Cases:
 UC-12 [Login with Roles]: Users, regardless of being students or admins, can log in with different roles available on the platform, enabling personalized and role-appropriate access to features and functionalities.
 
 ## Design
-> 🚧: Design with consideration for FHNW's Corporate Identity, focusing on user experience and accessibility.
+> Add smth here
 
 ### Wireframe
-> 🚧: Start with wireframes to layout the web app's structure using tools like draw.io.
+> Add smth here
 
 ### Prototype
-> 🚧: Develop an interactive prototype using Budibase to test and refine the user interface and experience.
+> Add smth here
 
 ### Domain Design
-> 🚧: Describe the system's domain model, using Entity-Relationship Diagrams or UML class diagrams to illustrate entity relationships.
+> Add smth here
 
 ## Business Logic 
-> 🚧: Explain the business logic, especially the algorithm for matching students in the buddy system, including expected paths and methods.
+> Add smth here
 
 ## Implementation
-> 🚧: Detail the implementation strategy, covering both backend and frontend technologies, and any significant libraries or frameworks utilized.
+> Add smth here
 
 ### Backend Technology
-> 🚧: This project is built on Spring Boot, using H2 Database for development purposes. Document any additional libraries or frameworks integrated into the project.
+> Add smth here
 
 ### Frontend Technology
-> 🚧: The frontend is developed with Budibase, focusing on responsive design and user-friendly interfaces. Outline how the frontend interacts with the backend services.
+> Add smth here
 
 ## Execution
-> 🚧: Provide comprehensive instructions for setting up, running, and deploying the project, including necessary configurations.
+> Add smth here
 
 ## Project Management
-> 🚧: Summarize the project management approach, detailing roles, contributions, and milestones. Include descriptions of how collaborative efforts were organized and managed.
+> Add smth here
 
 ### Roles
 - Backend Developer: Responsible for API development, database management, and server-side logic.
