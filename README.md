@@ -20,7 +20,7 @@ This project aims to facilitate a peer-to-peer learning and support environment 
   - [Roles](#roles)
   - [Stakeholders](#stakeholders)
   - [Milestones](#milestones)
-
+- [Copyright](#copyright)
 
 ### Analysis
 
@@ -164,3 +164,9 @@ UC-13 [Login with Roles]: Users, regardless of being students or admins, can log
 
 #### License
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+
+### Copyright
+Copyright © 2024 Mateusz Oskedra. All rights reserved.
+
+No part of the CommunityFHNW project, including its ideas, documentation, code, and content, may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the author, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law. For permission requests, write to the author, addressed “Attention: Permissions Coordinator,” at the address below.
+
