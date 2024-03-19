@@ -40,7 +40,7 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 
 ### User Stories
 
-Student User Stories:
+**Student User Stories:**
 
 - As a student, I want to offer or find tutoring in various subjects, specifying if the session is recurring or one-time, create a title and description for the offer, and set the timeline.
 
@@ -52,7 +52,7 @@ Student User Stories:
 
 - As a student, I wish to assign rooms to the created mentoring or collaboration events.
 
-Admin User Stories:
+**Admin User Stories:**
 
 - As an admin, I need to modify or delete any tutoring offers or requests, project mentoring, collaborations, and buddy offers to ensure the platform's content remains relevant and appropriate.
 
@@ -66,11 +66,11 @@ Admin User Stories:
 
 - As an admin, I want to add FHNW job advertisements to the platform, allowing students to access employment opportunities within the university and its affiliated institutions, enhancing their career prospects and integration into the professional community.
 
-Super Admin Stories:
+**Super Admin Stories:**
 
 - As a super admin, I need to manage admin accounts, granting me the authority to create, alter, and delete admin profiles to maintain a high standard of platform oversight.
 
-Common User Story:
+**Common User Story:**
 
 - As both an admin and a student (user), I require a web application that is accessible on various mobile devices and desktop computers, ensuring wide accessibility and usability.
 
@@ -78,7 +78,7 @@ Common User Story:
 
 ### Use Case
 
-Student Use Cases:
+**Student Use Cases:**
 
 UC-1 [Offer/Find Tutoring]: Students can offer or find tutoring in various subjects, specifying whether the session is recurring or one-time, creating a title and description for the offer, and setting the timeline.
 
@@ -90,7 +90,7 @@ UC-4 [Volunteer as a Buddy]: Students can volunteer as a buddy for international
 
 UC-5 [Assign Rooms for Events]: Students can assign rooms for mentoring or collaboration events, specifying if the event is recurring or one-time, and setting specific timeframes.
 
-Admin Use Cases:
+**Admin Use Cases:**
 
 UC-6 [Modify/Delete Offers and Requests]: Admins can modify or delete any tutoring offers or requests, project mentoring, collaborations, and buddy offers to keep the platform's content appropriate and up-to-date.
 
@@ -104,13 +104,11 @@ UC-10 [Manage User Accounts]: Admins can manage user accounts, with the ability 
 
 UC-11 [Add Job Advertisements]: Admins can post job advertisements related to FHNW, including details about the role, requirements, application process, and deadlines, making it easier for students to find and apply for jobs that match their skills and interests.
 
-
-
-Super Admin Use Cases:
+**Super Admin Use Cases:**
 
 UC-12 [Manage Admin Accounts]: Super admins have the authority to manage admin accounts, including the creation, alteration, and deletion of admin profiles to ensure platform integrity and oversight.
 
-Common Use Cases:
+**Common Use Cases:**
 
 UC-13 [Login with Roles]: Users, regardless of being students or admins, can log in with different roles available on the platform, enabling personalized and role-appropriate access to features and functionalities.
 
