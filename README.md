@@ -58,9 +58,37 @@ Common User Story:
 
 ### Use Case
 
-- UC-1 [Peer Tutoring]: Facilitates students in offering or seeking tutoring services.
-- UC-2 [Project Collaboration]: Enables students to initiate or join collaborative projects.
-- UC-3 [Buddy System]: Connects incoming exchange students with local buddies for support.
+Student Use Cases:
+
+UC-1 [Offer/Find Tutoring]: Students can offer or find tutoring in various subjects, specifying whether the session is recurring or one-time, creating a title and description for the offer, and setting the timeline.
+
+UC-2 [Offer Mentoring for Projects]: Students can offer mentoring for projects in different subjects, indicating if the mentoring is recurring or not, naming the offer, providing a description, and selecting timelines.
+
+UC-3 [Initiate Independent Projects]: Students can initiate independent projects, distinct from the curriculum, deciding if they're recurring or one-time, naming the project, detailing it, and scheduling timelines.
+
+UC-4 [Volunteer as a Buddy]: Students can volunteer as a buddy for international students, specifying the languages they can speak to aid in the adaptation to the academic and cultural environment at FHNW.
+
+UC-5 [Assign Rooms for Events]: Students can assign rooms for mentoring or collaboration events, specifying if the event is recurring or one-time, and setting specific timeframes.
+
+Admin Use Cases:
+
+UC-6 [Modify/Delete Offers and Requests]: Admins can modify or delete any tutoring offers or requests, project mentoring, collaborations, and buddy offers to keep the platform's content appropriate and up-to-date.
+
+UC-7 [Access Logs]: Admins have access to logs that monitor the creation of tutoring sessions, project collaborations, etc., including their titles and timelines.
+
+UC-8 [Post Advertisements]: Admins can post advertisements seeking buddies, tutors, mentors, or project collaborators to address community needs.
+
+UC-9 [Assign International Students to Buddies]: Admins can assign international students to local buddies based on language abilities and other relevant criteria for a supportive integration.
+
+UC-10 [Manage User Accounts]: Admins can manage user accounts, with the ability to create, modify, or delete them to ensure authenticity and activity on the platform.
+
+Super Admin Use Cases:
+
+UC-11 [Manage Admin Accounts]: Super admins have the authority to manage admin accounts, including the creation, alteration, and deletion of admin profiles to ensure platform integrity and oversight.
+
+Common Use Cases:
+
+UC-12 [Login with Roles]: Users, regardless of being students or admins, can log in with different roles available on the platform, enabling personalized and role-appropriate access to features and functionalities.
 
 ## Design
 > 🚧: Design with consideration for FHNW's Corporate Identity, focusing on user experience and accessibility.
