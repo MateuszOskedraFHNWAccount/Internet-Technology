@@ -163,6 +163,12 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 
 ### Stakeholders
 
+- Students (Users) 
+- University Administration *(optional)*
+- IT Department Staff *(optional)*
+- Faculty Members
+
+
 
 ### Milestones
 1. Requirement Analysis and Planning: Defining scope, objectives, and user stories.
