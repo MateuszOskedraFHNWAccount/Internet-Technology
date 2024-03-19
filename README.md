@@ -52,6 +52,10 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 
 - As a student, I wish to assign rooms to the created mentoring or collaboration events.
 
+- (optional, v2.0) As a student, I want to create forum posts about any topic to share knowledge, seek advice, or discuss academic and non-academic matters with my peers.
+
+- (optional, v2.0) As a student, I want to respond to forum threads, allowing me to contribute to discussions, offer my insights, or seek further clarification on topics of interest. 
+
 **Admin User Stories:**
 
 - As an admin, I need to modify or delete any tutoring offers or requests, project mentoring, collaborations, and buddy offers to ensure the platform's content remains relevant and appropriate.
@@ -64,7 +68,9 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 
 - As an admin, I must manage user accounts, including the ability to create, modify, or delete them, to ensure the platform's users are genuine and active.
 
-- As an admin, I want to add FHNW job advertisements to the platform, allowing students to access employment opportunities within the university and its affiliated institutions, enhancing their career prospects and integration into the professional community.
+- (optional) As an admin, I want to add FHNW job advertisements to the platform, allowing students to access employment opportunities within the university and its affiliated institutions, enhancing their career prospects and integration into the professional community.
+
+- (optional, v2.0) As an admin, I need the ability to modify or delete any forum post or response that violates our community guidelines to ensure discussions remain productive, respectful, and relevant. 
 
 **Super Admin Stories:**
 
@@ -90,27 +96,33 @@ UC-4 [Volunteer as a Buddy]: Students can volunteer as a buddy for international
 
 UC-5 [Assign Rooms for Events]: Students can assign rooms for mentoring or collaboration events, specifying if the event is recurring or one-time, and setting specific timeframes.
 
+UC-6 [Create Forum Posts]: (optional, v2.0) Students can create forum posts on a variety of topics, setting the stage for open discussions, sharing of ideas, or solicitation of academic help.
+
+UC-7 [Respond to Forum Threads]: (optional, v2.0) Students can answer and engage in ongoing discussions within forum threads, allowing for dynamic exchanges of knowledge and perspectives.
+
 **Admin Use Cases:**
 
-UC-6 [Modify/Delete Offers and Requests]: Admins can modify or delete any tutoring offers or requests, project mentoring, collaborations, and buddy offers to keep the platform's content appropriate and up-to-date.
+UC-8 [Modify/Delete Offers and Requests]: Admins can modify or delete any tutoring offers or requests, project mentoring, collaborations, and buddy offers to keep the platform's content appropriate and up-to-date.
 
-UC-7 [Access Logs]: Admins have access to logs that monitor the creation of tutoring sessions, project collaborations, etc., including their titles and timelines.
+UC-9 [Access Logs]: Admins have access to logs that monitor the creation of tutoring sessions, project collaborations, etc., including their titles and timelines.
 
-UC-8 [Post Advertisements]: Admins can post advertisements seeking buddies, tutors, mentors, or project collaborators to address community needs.
+UC-10 [Post Advertisements]: Admins can post advertisements seeking buddies, tutors, mentors, or project collaborators to address community needs.
 
-UC-9 [Assign International Students to Buddies]: Admins can assign international students to local buddies based on language abilities and other relevant criteria for a supportive integration.
+UC-11 [Assign International Students to Buddies]: Admins can assign international students to local buddies based on language abilities and other relevant criteria for a supportive integration.
 
-UC-10 [Manage User Accounts]: Admins can manage user accounts, with the ability to create, modify, or delete them to ensure authenticity and activity on the platform.
+UC-12 [Manage User Accounts]: Admins can manage user accounts, with the ability to create, modify, or delete them to ensure authenticity and activity on the platform.
 
-UC-11 [Add Job Advertisements]: Admins can post job advertisements related to FHNW, including details about the role, requirements, application process, and deadlines, making it easier for students to find and apply for jobs that match their skills and interests.
+UC-13 [Add Job Advertisements]: (optional) Admins can post job advertisements related to FHNW, including details about the role, requirements, application process, and deadlines, making it easier for students to find and apply for jobs that match their skills and interests.
+
+UC-14 [Moderate Forum Content]: (optional, v2.0) Admins can modify or delete any forum post or response, exercising oversight to maintain the integrity and positivity of the forum environment.
 
 **Super Admin Use Cases:**
 
-UC-12 [Manage Admin Accounts]: Super admins have the authority to manage admin accounts, including the creation, alteration, and deletion of admin profiles to ensure platform integrity and oversight.
+UC-15 [Manage Admin Accounts]: Super admins have the authority to manage admin accounts, including the creation, alteration, and deletion of admin profiles to ensure platform integrity and oversight.
 
 **Common Use Cases:**
 
-UC-13 [Login with Roles]: Users, regardless of being students or admins, can log in with different roles available on the platform, enabling personalized and role-appropriate access to features and functionalities.
+UC-16 [Login with Roles]: Users, regardless of being students or admins, can log in with different roles available on the platform, enabling personalized and role-appropriate access to features and functionalities.
 
 ## Design
 > Add smth here
@@ -166,7 +178,8 @@ UC-13 [Login with Roles]: Users, regardless of being students or admins, can log
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 ### Copyright
-Copyright © 2024 Mateusz Oskedra. All rights reserved.
+Copyright © 2024 Mateusz Oskedra and Emirhan Akgün. All rights reserved.
 
-No part of the CommunityFHNW project, including its ideas, documentation, code, and content, may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the author, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law. For permission requests, write to the author, addressed “Attention: Permissions Coordinator,” at the address below.
+No part of the CommunityFHNW project, including its ideas, documentation, code, and content, may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the author, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law. For permission requests, write to the author, addressed “Copyright permission,” at the address below.
 
+oskedram@gmail.com
