@@ -84,8 +84,8 @@ EduPeerFHNW is conceived as a comprehensive support system for FHNW students, pr
 5. Deployment: Preparing and executing the deployment strategy.
 
 #### Maintainers
-- [Your Name]
-- [Team Member's Name]
+- Mateusz Oskedra (special boi)
+- Emirhan Akgün (ma man)
 
 #### License
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
