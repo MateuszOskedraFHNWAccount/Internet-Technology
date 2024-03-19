@@ -42,18 +42,28 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 Student User Stories:
 
 - As a student, I want to offer or find tutoring in various subjects, specifying if the session is recurring or one-time, create a title and description for the offer, and set the timeline.
+
 - As a student, I want to offer mentoring for projects in different subjects, indicating if the mentoring is recurring or not, naming the offer, providing a description, and selecting timelines.
+
 - As a student, I want to initiate independent projects, distinct from the curriculum, deciding if they're recurring or one-time, naming the project, detailing it, and scheduling timelines.
+
 - As a student, I want to volunteer as a buddy for international students, aiding their adaptation to the academic and cultural environment at FHNW.
+
 - As a student, I wish to assign rooms to the created mentoring or collaboration events.
 
 Admin User Stories:
 
 - As an admin, I need to modify or delete any tutoring offers or requests, project mentoring, collaborations, and buddy offers to ensure the platform's content remains relevant and appropriate.
+
 - As an admin, I want access to logs that monitor the creation of tutoring sessions, project collaborations, etc., including their titles and timelines, to maintain oversight.
+
 - As an admin, I need to post advertisements seeking buddies, tutors, mentors, or project collaborators to fill gaps in the community's needs.
+
 - As an admin, I should be able to assign international students to local buddies, ensuring a personalized and supportive integration experience.
+
 - As an admin, I must manage user accounts, including the ability to create, modify, or delete them, to ensure the platform's users are genuine and active.
+
+- As an admin, I want to add FHNW job advertisements to the platform, allowing students to access employment opportunities within the university and its affiliated institutions, enhancing their career prospects and integration into the professional community.
 
 Super Admin Stories:
 
@@ -62,6 +72,7 @@ Super Admin Stories:
 Common User Story:
 
 - As both an admin and a student (user), I require a web application that is accessible on various mobile devices and desktop computers, ensuring wide accessibility and usability.
+
 - As a user, regardless of being a student or an admin, I need to log in with different roles available on the platform, enabling personalized and role-appropriate access to features and functionalities.
 
 ### Use Case
@@ -90,13 +101,17 @@ UC-9 [Assign International Students to Buddies]: Admins can assign international
 
 UC-10 [Manage User Accounts]: Admins can manage user accounts, with the ability to create, modify, or delete them to ensure authenticity and activity on the platform.
 
+UC-11 [Add Job Advertisements]: Admins can post job advertisements related to FHNW, including details about the role, requirements, application process, and deadlines, making it easier for students to find and apply for jobs that match their skills and interests.
+
+
+
 Super Admin Use Cases:
 
-UC-11 [Manage Admin Accounts]: Super admins have the authority to manage admin accounts, including the creation, alteration, and deletion of admin profiles to ensure platform integrity and oversight.
+UC-12 [Manage Admin Accounts]: Super admins have the authority to manage admin accounts, including the creation, alteration, and deletion of admin profiles to ensure platform integrity and oversight.
 
 Common Use Cases:
 
-UC-12 [Login with Roles]: Users, regardless of being students or admins, can log in with different roles available on the platform, enabling personalized and role-appropriate access to features and functionalities.
+UC-13 [Login with Roles]: Users, regardless of being students or admins, can log in with different roles available on the platform, enabling personalized and role-appropriate access to features and functionalities.
 
 ## Design
 > Add smth here
