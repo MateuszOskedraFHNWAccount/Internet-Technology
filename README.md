@@ -379,12 +379,19 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 - **Path**: `/api/auth/login`
 
 **Associations and Further Details:**
+
 - **Tutoring Sessions**, **Mentorships**, and **Independent Projects** are directly linked to the user who creates them. Admins can manage these entities to ensure quality and appropriateness.
+
 - **Buddy System** associations are based on language preferences and other specified criteria to optimize the matching process.
+
 - **Forum Posts** and **Responses** allow for dynamic community interactions, with admin oversight to maintain community standards.
+
 - **Room Assignments** are tied to specific events, requiring details about the event and preferred timings.
+
 - **Job Advertisements** and **Advertisements** for academic collaboration are managed by admins to provide valuable opportunities and information to the student body.
+
 - **System Logs** and **Admin Actions** provide a record of significant activities within the platform, supporting transparency and accountability.
+
 - **User Account Management** involves sensitive operations such as creation, modification, and deletion, emphasizing the need for secure authentication and authorization mechanisms.
 
 ## Implementation
