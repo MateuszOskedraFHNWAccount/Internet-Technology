@@ -145,6 +145,7 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 
 *All design decisions must be made with FHNW's CI guidelines at the forefront to create a seamless and integrated user experience that resonates with the community.*
 
+> add UI Design images
 
 ### Wireframe
 > Add smth here
@@ -297,35 +298,51 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 > Add smth here
 
 ### Roles
+
 - Backend Developer: Responsible for API development, database management, and server-side logic.
+
 - Frontend Developer: Focuses on the user interface, ensuring a seamless and intuitive user experience.
+
 - Project Manager: Oversees the project timeline, ensuring milestones are met and resources are allocated efficiently.
+
 - Product Manager: Guides the platform's development strategy, focusing on aligning features with user needs and business objectives. Coordinates between users, technical teams, and stakeholders to prioritize and refine product features, ensuring CommunityFHNW meets its goals effectively.
 
 ### Stakeholders
 
 - Students (Users) 
+
 - University Administration *(optional)*
+
 - IT Department Staff *(optional)*
+
 - Faculty Members
 
 
 
 ### Milestones
+
 1. Requirement Analysis and Planning: Defining scope, objectives, and user stories.
+
 2. Design Phase: Wireframing, prototyping, and domain modeling.
+
 3. Implementation Phase: Development of backend and frontend components.
+
 4. Testing & Refinement: Iterative testing and refinement of the application.
+
 5. Deployment: Preparing and executing the deployment strategy.
 
 #### Maintainers
+
 - Mateusz Oskedra (special boi)
+
 - Emirhan Akgün (ma man)
 
 #### License
+
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 ### Copyright
+
 Copyright © 2024 Mateusz Oskedra and Emirhan Akgün. All rights reserved.
 
 No part of the CommunityFHNW project, including its ideas, documentation, code, and content, may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the author, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law. For permission requests, write to the author, addressed “Copyright permission,” at the address below.
