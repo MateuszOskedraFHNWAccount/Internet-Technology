@@ -127,7 +127,24 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 > use case diagram here
 
 ## Design
-> Add smth here
+
+**Color Scheme**
+- The color palette should reflect the official FHNW colors, ensuring a visual connection between the platform and the institution's brand identity.
+
+**Graphics**
+- Use graphics that are stylistically similar to those found on FHNW's web presence, maintaining brand consistency.
+
+**Typography**
+- Typography choices should match those used by FHNW's official communications to maintain a cohesive look and feel.
+
+**Layout**
+- The layout should be clean, organized, and navigable, much like FHNW's website, providing a user-friendly experience that aligns with the institution's standards.
+
+**User Experience (UX)**
+- UX design should prioritize ease of use and intuitive navigation, considering the familiarity of the user base with FHNW's existing digital touchpoints.
+
+*All design decisions must be made with FHNW's CI guidelines at the forefront to create a seamless and integrated user experience that resonates with the community.*
+
 
 ### Wireframe
 > Add smth here
