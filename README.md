@@ -18,6 +18,7 @@ This project aims to facilitate a peer-to-peer learning and support environment 
   - [Frontend Technology](#frontend-technology)
 - [Project Management](#project-management)
   - [Roles](#roles)
+  - [Stakeholders](#stakeholders)
   - [Milestones](#milestones)
 
 
@@ -147,6 +148,10 @@ UC-13 [Login with Roles]: Users, regardless of being students or admins, can log
 - Backend Developer: Responsible for API development, database management, and server-side logic.
 - Frontend Developer: Focuses on the user interface, ensuring a seamless and intuitive user experience.
 - Project Manager: Oversees the project timeline, ensuring milestones are met and resources are allocated efficiently.
+- Product Manager: Guides the platform's development strategy, focusing on aligning features with user needs and business objectives. Coordinates between users, technical teams, and stakeholders to prioritize and refine product features, ensuring CommunityFHNW meets its goals effectively.
+
+### Stakeholders
+
 
 ### Milestones
 1. Requirement Analysis and Planning: Defining scope, objectives, and user stories.
