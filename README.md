@@ -280,7 +280,112 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 > Add Domain Model
 
 ## Business Logic 
-> Add smth here
+
+**General Business Rules**
+- All users must be registered and logged in to access personalized features.
+- The role of the user (Student, Admin, Super Admin) determines the access level and functionalities available to them within the platform.
+
+**UC-1 [Offer/Find Tutoring]**
+- **Service Description**: Enables students to post and search for tutoring sessions in various subjects, with options for session frequency and scheduling.
+- **HTTP Method**: `POST` for offering tutoring, `GET` for finding tutoring.
+- **Path**: 
+  - Offer: `/api/tutoring/offers`
+  - Find: `/api/tutoring/search?subject={subject}&recurring={true|false}`
+
+**UC-2 [Offer Mentoring for Projects]**
+- **Service Description**: Students can propose project mentoring opportunities, specifying the project's subject, whether it's a one-time or recurring mentorship, along with details like project name and timeline.
+- **HTTP Method**: `POST` for offering mentoring, `GET` for searching.
+- **Path**:
+  - Offer: `/api/projects/mentorship/offers`
+  - Search: `/api/projects/mentorship/search?subject={subject}&recurring={true|false}`
+
+**UC-3 [Initiate Independent Projects]**
+- **Service Description**: Allows students to initiate their independent projects, detailing the project's nature, objectives, and required timeline.
+- **HTTP Method**: `POST`
+- **Path**: `/api/projects/independent`
+
+**UC-4 [Volunteer as a Buddy]**
+- **Service Description**: Facilitates the matching of local students with international students based on specified languages and other preferences for a buddy program.
+- **HTTP Method**: `POST` for volunteering, `GET` for matching.
+- **Path**:
+  - Volunteer: `/api/buddy/volunteer`
+  - Match: `/api/buddy/match?language={language}`
+
+**UC-5 [Assign Rooms for Events]**
+- **Service Description**: Enables students to book rooms for their tutoring or project collaboration events, specifying the event type and desired timeframe.
+- **HTTP Method**: `POST`
+- **Path**: `/api/rooms/assign`
+
+**UC-6 [Create Forum Posts] *(optional, v2.0)***
+- **Service Description**: Students can create forum posts to initiate discussions on various topics.
+- **HTTP Method**: `POST`
+- **Path**: `/api/forum/posts`
+
+**UC-7 [Respond to Forum Threads] *(optional, v2.0)***
+- **Service Description**: Students can respond to existing forum threads, contributing to the community discussion.
+- **HTTP Method**: `POST`
+- **Path**: `/api/forum/posts/{postId}/responses`
+
+**UC-8 [Modify/Delete Offers and Requests]**
+- **Service Description**: Admins can modify or delete tutoring and project offers and requests to ensure content relevance and appropriateness.
+- **HTTP Method**: `PUT` for modifications, `DELETE` for removals.
+- **Path**: 
+  - Modify: `/api/admin/modify/{type}/{id}`
+  - Delete: `/api/admin/delete/{type}/{id}`
+
+**UC-9 [Access Logs]**
+- **Service Description**: Admins can access logs detailing the creation and modification of platform content.
+- **HTTP Method**: `GET`
+- **Path**: `/api/admin/logs`
+
+**UC-10 [Post Advertisements]**
+- **Service Description**: Allows admins to post advertisements for buddies, tutors, mentors, or project collaborators.
+- **HTTP Method**: `POST`
+- **Path**: `/api/admin/advertisements`
+
+**UC-11 [Assign International Students to Buddies]**
+- **Service Description**: Admins can match international students with local buddies based on language skills and other criteria.
+- **HTTP Method**: `POST`
+- **Path**: `/api/admin/buddy/assign`
+
+**UC-12 [Manage User Accounts]**
+- **Service Description**: Admins have the capability to create, modify, or delete user accounts to manage platform access.
+- **HTTP Method**: `POST` for creation, `PUT` for modifications, `DELETE` for deletions.
+- **Path**: `/api/admin/users/manage`
+
+**UC-13 [Add Job Advertisements] *(optional)***
+- **Service Description**: Admins can post job opportunities related to FHNW, detailing roles and application processes.
+- **HTTP Method**: `POST`
+- **Path**: `/api/admin/jobs`
+
+**UC-14 [Moderate Forum Content] *(optional, v2.0)***
+- **Service Description**: Admins can moderate forum content, editing or removing posts and responses as necessary to maintain a respectful and productive discussion environment.
+- **HTTP Method**: `PUT` for editing, `DELETE` for removing.
+- **Path**: 
+  - Edit: `/api/forum/edit/{postId}`
+  - Remove: `/api/forum/delete/{postId}` or `/api/forum/delete/response/{responseId}`
+
+**UC-15 [Manage Admin Accounts]**
+- **Service Description**: Super admins have the authority to oversee admin accounts, including creating new admins, modifying existing admin privileges, or deleting admin accounts.
+- **HTTP Method**: `POST` for creation, `PUT` for updates, `DELETE` for deletion.
+- **Path**: 
+  - Create: `/api/superadmin/admins/create`
+  - Update: `/api/superadmin/admins/update/{adminId}`
+  - Delete: `/api/superadmin/admins/delete/{adminId}`
+
+**UC-16 [Login with Roles]**
+- **Service Description**: Facilitates a secure login process for all users, with role-based access control ensuring appropriate permissions and functionalities are available according to the user's role (Student, Admin, Super Admin).
+- **HTTP Method**: `POST`
+- **Path**: `/api/auth/login`
+
+**Associations and Further Details:**
+- **Tutoring Sessions**, **Mentorships**, and **Independent Projects** are directly linked to the user who creates them. Admins can manage these entities to ensure quality and appropriateness.
+- **Buddy System** associations are based on language preferences and other specified criteria to optimize the matching process.
+- **Forum Posts** and **Responses** allow for dynamic community interactions, with admin oversight to maintain community standards.
+- **Room Assignments** are tied to specific events, requiring details about the event and preferred timings.
+- **Job Advertisements** and **Advertisements** for academic collaboration are managed by admins to provide valuable opportunities and information to the student body.
+- **System Logs** and **Admin Actions** provide a record of significant activities within the platform, supporting transparency and accountability.
+- **User Account Management** involves sensitive operations such as creation, modification, and deletion, emphasizing the need for secure authentication and authorization mechanisms.
 
 ## Implementation
 > Add smth here
