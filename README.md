@@ -411,7 +411,18 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 > Add smth here
 
 ## Project Management
-> Add smth here
+
+The Project was split into Workpackages (Called Tasks)
+
+The Kanban method was implemented to track the project status.
+
+
+![image](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/a1f0d143-78a7-4547-a10a-d394373b41c3)
+
+
+For the Kanban Board, the ClickUp was used. The Kanban Board is accessable under the following link:
+
+https://app.clickup.com/9015494227/v/li/901503724333
 
 ### Roles
 
