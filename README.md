@@ -277,7 +277,11 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 
 - **Account Management** actions are performed by **Admins** or **Super Admins** on **User** accounts.
 
-> Add Domain Model
+**Domain Model**
+
+
+![Blank diagram](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/08f9b726-46f9-48ae-8fc9-cfadd216f411)
+
 
 ## Business Logic 
 
