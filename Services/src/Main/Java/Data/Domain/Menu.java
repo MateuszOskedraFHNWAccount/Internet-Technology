@@ -41,9 +41,5 @@ public class Menu {
     }
 
     public void setCurrentOffer(String currentOffer) {
-        this.currentOffer = currentOffer;
+        this.currentOffer = currentOffer; 
     }
-
-    
-    
-}
