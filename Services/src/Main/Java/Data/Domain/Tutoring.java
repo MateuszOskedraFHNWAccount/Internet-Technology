@@ -9,7 +9,6 @@ public class Tutoring{
         this.FrequencyOfEvent = FrequencyOfEvent;
         this.Description = Description;
         this.Timeline = Timeline;
-
     }
     public String getTitle(){
         return Title;
