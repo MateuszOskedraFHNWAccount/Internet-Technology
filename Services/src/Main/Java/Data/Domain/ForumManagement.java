@@ -1,5 +1,5 @@
 public class ForumManagement{
-    private String FrorumPost;
+    private String ForumPost;
 }
 public ForumManagement(String ForumPost){
     this.ForumPost = ForumPost;
