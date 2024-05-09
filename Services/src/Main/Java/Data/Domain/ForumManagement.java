@@ -1,4 +1,7 @@
+@Entity
+@Table(name = "ForumManagement")
 public class ForumManagement{
+    @Column(name = "ForumPost")
     private String ForumPost;
 }
 public ForumManagement(String ForumPost){

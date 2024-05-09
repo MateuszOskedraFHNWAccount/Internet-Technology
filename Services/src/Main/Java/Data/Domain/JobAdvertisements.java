@@ -1,7 +1,16 @@
+@Entity
+@Table(name = "JobAdvertisements")
 public class JobAdvertisements{
+    @Column(name = "Role")
     private String Role;
+
+    @Column(name = "Requirements")
     private String Requirements;
+
+    @Column(name = "ApplicationProcess")
     private String ApplicationProcess;
+
+    @Column(name = "Deadline")
     private Date Deadline;
 }
 public JobAdvertisements(String Role,String Requirements,String ApplicationProcess,Date Deadline){

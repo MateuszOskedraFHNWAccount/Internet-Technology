@@ -1,7 +1,16 @@
+@Entity
+@Table(name = "Mentoring")
 public class Mentoring{
+    @Column(name = "Title")
     private String Title;
+
+    @Column(name = "FrequencyOfEvent")
     private Boolean FrequencyOfEvent = false;
+    
+    @Column(name = "Description")
     private String Description;
+
+    @Column(name = "Timeline")
     private String Timeline;
 }
 public Mentoring(String Title,Boolean FrequencyOfEvent,String Description,String Timeline){

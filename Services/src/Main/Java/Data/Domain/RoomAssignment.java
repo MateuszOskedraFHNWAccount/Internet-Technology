@@ -1,5 +1,10 @@
+@Entity
+@Table(name = "RoomAssignment")
 public class RoomAssignment{
+    @Column(name = "FrequencyOfEvent")
     private Boolean FrequencyOfEvent = false;
+
+    @Column(name = "Timeline")
     private String Timeline;
 }
 public RoomAssignment(Boolean FrequencyOfEvent,String Timeline){

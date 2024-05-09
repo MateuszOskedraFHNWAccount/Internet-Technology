@@ -1,4 +1,7 @@
+@Entity
+@Table(name = "VolunteerAsBuddy")
 public class VolunteerAsBuddy{
+    @Column(name = "Language")
     private String Language;
 }
 public VolunteerAsBuddy(String Language){

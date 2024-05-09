@@ -1,7 +1,16 @@
+@Entity
+@Table(name = "ProjectInitiation")
 public class ProjectInitiation{
+    @Column(name = "Title")
     private String Title;
+
+    @Column(name = "FrequencyOfEvent")
     private Boolean FrequencyOfEvent = false;
+
+    @Column(name = "Description")
     private String Description;
+
+    @Column(name = "Timeline")
     private String Timeline;
 }
 public ProjectInitiation(String Title,Boolean FrequencyOfEvent,String Description,String Timeline){

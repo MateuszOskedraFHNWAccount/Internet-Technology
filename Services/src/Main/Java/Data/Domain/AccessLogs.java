@@ -1,5 +1,10 @@
+@Entity
+@Table(name = "AccessLogs")
 public class AccessLogs{
+    @Column(name = "Title")
     private String Title;
+
+    @Column(name = "Timeline")
     private String Timeline;
 }
 public AccessLogs(String Title,String Timeline){
