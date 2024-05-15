@@ -3,7 +3,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/projectinitiation")
+@RequestMapping("/api/projectInitiations")
 public class ProjectInitiationController {
 
     @Autowired

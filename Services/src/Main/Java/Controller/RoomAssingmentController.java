@@ -3,7 +3,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/roomassignment")
+@RequestMapping("/api/roomAssignments")
 public class RoomAssignmentController {
 
     @Autowired
