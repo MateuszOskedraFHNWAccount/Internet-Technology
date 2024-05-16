@@ -1,19 +1,48 @@
-@Entity
-@Table(name = "AccessLogs")
-public class AccessLogs{
-    @Column(name = "Title")
-    private String Title;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    @Column(name = "Timeline")
-    private String Timeline;
-}
-public AccessLogs(String Title,String Timeline){
-    this.Title = Title;
-    this.Timeline = Timeline;
-}
-public String getTitle(){
-    return Title;
-}
-public String getTimeline(){
-    return Timeline;
+@Entity
+public class AccessLogs {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String title;
+    private String timeline;
+
+    // Constructors, getters and setters
+    public AccessLogs() {
+    }
+
+    public AccessLogs(String title, String timeline) {
+        this.title = title;
+        this.timeline = timeline;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTimeline() {
+        return timeline;
+    }
+
+    public void setTimeline(String timeline) {
+        this.timeline = timeline;
+    }
 }
