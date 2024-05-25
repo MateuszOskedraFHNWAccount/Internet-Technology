@@ -28,5 +28,39 @@ public JobAdvertisement(Int JobAdID,Int AdminID,String Title,
     this.ApplicationDeadline = ApplicationDeadline;
     this.ContactInfo = ContactInfo;
 }
-
-    
+public Int getJobAdID(){
+    return JobAdID;
+}
+public void setJobAdID(Int JobAdID){
+    this.JobAdID = JobAdID;
+}
+public Int getAdminID(){
+    return AdminID;
+}
+public void setAdminID(Int AdminID){
+    this.AdminID = AdminID;
+}
+public String getTitle(){
+    return Title;
+}
+public void setTitle(String Title){
+    this.Title = Title;
+}
+public String getDescription(){
+    return Descripton;
+}
+public void setDescripton(String Description){
+    this.Description = Description;
+}
+public Timestamp getApplicationDeadline(){
+    return ApplicationDeadline;
+}
+public void setApplicationDeadline(Timestamp ApplicationDeadline){
+    this.ApplicationDeadline = ApplicationDeadline;
+}
+public String getContactInfo(){
+    return ContactInfo;
+}
+public void setContactInfo(String ContactInfo){
+    this.ContactInfo = ContactInfo;
+}
