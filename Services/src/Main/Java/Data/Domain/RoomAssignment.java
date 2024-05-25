@@ -1,29 +1,77 @@
 @Entity
-@Table(name = "RoomAssignment")
-public class RoomAssignment{
-    @Column(name = "FrequencyOfEvent")
-    private Boolean FrequencyOfEvent = false;
+@Table(name = "Room Assignment")
+public class RoomAssignment {
+    @Column(name = "RoomID")
+    private Int RoomID;
 
-    @Column(name = "Timeline")
-    private String Timeline;
+    @Column(name = "Building")
+    private String Building;
+
+    @Column(name = "Capacity")
+    private Int Capacity;
+
+    @Column(name = "Resources")
+    private String Resources;
+
+    @Column(name = "EventID")
+    private Int EventID;
+
+    @Column(name = "StartTime")
+    private Timestamp StartTime;
+
+    @Column(name = "EndTime")
+    private Timestamp EndTime;
+
 }
-public RoomAssignment(Boolean FrequencyOfEvent,String Timeline){
-    this.FrequencyOfEvent = FrequencyOfEvent;
-    this.Timeline = Timeline;
+public RoomAssignment(Int RoomID,String Building,Int Capacity,
+    String Resources,Int EventID,Timestamp StartTime,Timestamp EndTime){
+        this.RoomID = RoomID;
+        this.Building = Building;
+        this.Capacity = Capacity;
+        this.Resources = Resources;
+        this.EventID = EventID;
+        this.StartTime = StartTime;
+        this.EndTime = EndTime;
 }
-public Boolean FrequencyOfEvent(int input){
-    if(int input = 1){
-    return FrequencyOfEvent = true;
-} else if(int input = 0){
-    return FrequencyOfEvent = false;
+public Int getRoomID(){
+    return RoomID;
 }
+public void setRoomID(Int RoomID){
+    this.RoomID = RoomID;
 }
-public Boolean getFrequencyOfEvent(){
-    return FrequencyOfEvent;
+public String getBuilding(){
+    return Building;
 }
-public String getTimeline(){
-    return Timeline;
+public void setBuilding(String Building){
+    this.Building = Building;
 }
-public void setTimeline(String Timeline){
-    this.Timeline = Timeline;
+public Int getCapacity(){
+    return Capacity;
+}
+public void setCapacity(Int Capacity){
+    this.Capacity = Capacity;
+}
+public String getResources(){
+    return Resources;
+}
+public void setResources(String Resources){
+    this.Resources = Resources;
+}
+public Int getEventID(){
+    return EventID;
+}
+public void setEventID(Int EventID){
+    this.EventID = EventID;
+}
+public Timestamp getStartTime(){
+    return StartTime;
+}
+public void setStartTime(Timestamp StartTime){
+    this.StartTime = StartTime;
+}
+public Timestamp getEndTime(){
+    return EndTime;
+}
+public void setEndTime(Timestamp EndTime){
+    this.EndTime = EndTime;
 }

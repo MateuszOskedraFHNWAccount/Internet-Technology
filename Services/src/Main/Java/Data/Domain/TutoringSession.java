@@ -28,8 +28,6 @@ public class TutoringSession{
     @Column(name = "Status")
     private SessionStatus Status;
 
-    public enum SessionStatus {
-        ACTIVE, COMPLETED, CANCELLED
 }
 public TutoringSession(Int SessionID,String Subject,String Description,
     Int TutorID,Int StudentID,Boolean Reccuring,Timestamp StartTime,
@@ -97,4 +95,7 @@ public SessionStatus getStatus(){
 }
 public void setStatus(SessionStatus Status){
     this.Status = Status;
+}
+public enum SessionStatus {
+    ACTIVE, COMPLETED, CANCELLED
 }

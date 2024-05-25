@@ -19,8 +19,6 @@ public class User{
     @Column(name = "PhoneNumber")
     private String PhoneNumber;
 
-    public enum UserRole {
-        STUDENT, ADMIN, SUPER_ADMIN
 }
 public User(Int UserID,String Username,String Password,
     UserRole Role,String Email,String PhoneNumber){
@@ -54,6 +52,9 @@ public UserRole getRole(){
 }
 public void setRole(UserRole Role){
     this.Role = Role;
+}
+public enum UserRole {
+    STUDENT, ADMIN, SUPER_ADMIN
 }
 public String getEmail(){
     return Email;

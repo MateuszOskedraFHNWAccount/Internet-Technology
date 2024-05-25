@@ -16,9 +16,6 @@ public class BuddySystem {
     @Column(name = "Status")
     private BuddyStatus status;
 
-    public enum BuddyStatus {
-        ACTIVE, COMPLETED
-
 }
 public BuddySystem(Int BuddyPairID,Int LocalStudentID,Int InternationalStudentID,
     String Languages,BuddyStatus Status){
@@ -57,4 +54,7 @@ public BuddyStatus getStatus(){
 }
 public void setStatus(BuddyStatus Status){
     this.Status = Status;
+}
+public enum BuddyStatus {
+    ACTIVE, COMPLETED
 }
