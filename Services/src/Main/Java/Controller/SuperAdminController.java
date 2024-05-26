@@ -69,7 +69,7 @@ public class SuperAdminController {
             return ResponseEntity.ok(user);
         } else {
             return ResponseEntity.notFound().build();
-        }
+    }
 }
     public enum ERole {
     ROLE_STUDENT,
