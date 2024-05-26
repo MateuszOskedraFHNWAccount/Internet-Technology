@@ -26,6 +26,15 @@ public class AdminActionsService {
         if (adminAction != null) {
             entityManager.remove(ResponseEntity adminAction);
     }
+    @DeleteMapping(path = "/api/admin/delete/{type}/{id}")
+    public ResponseEntity<String> deleteAdminAction(@PathVariable String type, @PathVariable Long id) {
+        AdminActions adminAction = adminActionsRepository.findById(id).orElse(null);
+        if (adminAction != null) {
+            adminActionsRepository.delete(adminAction);
+            return ResponseEntity.ok("Admin action deleted successfully!");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Admin action not found.");
+    }
     @GetMapping(path = "/api/admin/logs",produces = "application/json")
     public List<SystemLog> getAllSystemLogs() {
         return entityManager.createQuery("SELECT sl FROM SystemLog sl", SystemLog.class)
