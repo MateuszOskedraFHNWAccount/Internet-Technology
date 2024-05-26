@@ -8,33 +8,12 @@ import java.util.List;
 
 @Service
 @Transactional
+@RestController
+@RequestMapping(path = "/mentoringforprojects")
 public class MentoringForProjectsService {
 
+    @Autowired
     @PersistenceContext
     private EntityManager entityManager;
 
-    public MentoringForProjects createMentoringForProjects(MentoringForProjects mentoringForProjects) {
-        entityManager.persist(mentoringForProjects);
-        return mentoringForProjects;
-    }
-
-    public MentoringForProjects getMentoringForProjectsById(int projectID) {
-        return entityManager.find(MentoringForProjects.class, projectID);
-    }
-
-    public List<MentoringForProjects> getAllMentoringForProjects() {
-        return entityManager.createQuery("SELECT mfp FROM MentoringForProjects mfp", MentoringForProjects.class)
-                .getResultList();
-    }
-
-    public MentoringForProjects updateMentoringForProjects(MentoringForProjects mentoringForProjects) {
-        return entityManager.merge(mentoringForProjects);
-    }
-
-    public void deleteMentoringForProjects(int projectID) {
-        MentoringForProjects mentoringForProjects = entityManager.find(MentoringForProjects.class, projectID);
-        if (mentoringForProjects != null) {
-            entityManager.remove(mentoringForProjects);
-        }
-    }
-}
+   

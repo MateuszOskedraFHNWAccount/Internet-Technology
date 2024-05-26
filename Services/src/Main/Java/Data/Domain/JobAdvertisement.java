@@ -1,9 +1,15 @@
 @Entity
 @Table(name = "Job Advertisement")
 public class JobAdvertisement {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "JobAdID")
     private Int JobAdID;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "AdminID")
     private Int AdminID;
 

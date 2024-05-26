@@ -1,12 +1,21 @@
 @Entity
 @Table(name = "Account Management")
 public class AccountManagement{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "ManagementID")
     private Int ManagementID;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "AdminID")
     private Int AdminID;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "TargetUserID")
     private Int TargetUserID;
 

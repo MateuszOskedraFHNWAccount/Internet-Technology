@@ -1,6 +1,9 @@
 @Entity
 @Table(name = "Room Assignment")
 public class RoomAssignment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "RoomID")
     private Int RoomID;
 
@@ -13,6 +16,9 @@ public class RoomAssignment {
     @Column(name = "Resources")
     private String Resources;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "EventID")
     private Int EventID;
 

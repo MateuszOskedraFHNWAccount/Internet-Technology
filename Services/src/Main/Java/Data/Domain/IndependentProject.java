@@ -1,9 +1,15 @@
 @Entity
 @Table(name = "Independent Project")
 public class IndependentProject{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "ProjectID")
     private Int ProjectId;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "LeaderID")
     private Int LeaderId;
 

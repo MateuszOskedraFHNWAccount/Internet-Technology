@@ -1,6 +1,9 @@
 @Entity
 @Table(name = "User")
 public class User{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "UserID")
     private Int UserId;
 

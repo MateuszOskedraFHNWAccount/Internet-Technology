@@ -1,12 +1,21 @@
 @Entity
 @Table(name = "Forum Response")
 public class ForumResponse{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "ResponseID")
     private Int ResponseID;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "PostID")
     private Int PostID;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "AuthorID")
     private Int AuthorID;
 

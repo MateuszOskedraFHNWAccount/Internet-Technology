@@ -1,12 +1,21 @@
 @Entity
 @Table(name = "Buddy System")
 public class BuddySystem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "BuddyPairID")
     private Int BuddyPairID;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "LocalStudentID")
     private Int LocalStudentID;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "InternationalStudentID")
     private Int InternationalStudentID;
 

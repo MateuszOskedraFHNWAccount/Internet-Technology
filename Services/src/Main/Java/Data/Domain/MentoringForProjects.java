@@ -1,9 +1,15 @@
 @Entity
 @Table(name = "Mentoring for Projects")
 public class MentoringForProjects{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "ProjectID")
     private Int ProjectID; 
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "MentorID")
     private Int MentorID;
 

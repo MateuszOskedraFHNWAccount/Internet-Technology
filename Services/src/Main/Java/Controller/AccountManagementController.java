@@ -13,19 +13,20 @@ public class AccountManagementService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public AccountManagement createAccountManagement(AccountManagement accountManagement) {
+    
+    public ResponseEntity AccountManagement createAccountManagement(@RequestBody AccountManagement accountManagement) {
         entityManager.persist(accountManagement);
         return accountManagement;
     }
-
-    public AccountManagement getAccountManagementById(int managementId) {
+    
+    public ResponseEntity AccountManagement getAccountManagementById(@PathVariable int managementId) {
         return entityManager.find(AccountManagement.class, managementId);
     }
 
-    public List<AccountManagement> getAllAccountManagements() {
-        return entityManager.createQuery("SELECT am FROM AccountManagement am", AccountManagement.class)
-                .getResultList();
-    }
+    //public List<AccountManagement> getAllAccountManagements() {
+    //    return entityManager.createQuery("SELECT am FROM AccountManagement am", AccountManagement.class)
+    //            .getResultList();
+    //}
 
     public AccountManagement updateAccountManagement(AccountManagement accountManagement) {
         return entityManager.merge(accountManagement);

@@ -8,8 +8,11 @@ import java.util.List;
 
 @Service
 @Transactional
+@RestController
+@RequestMapping(path = "/jobadvertisement")
 public class JobAdvertisementService {
 
+    @Autowired
     @PersistenceContext
     private EntityManager entityManager;
 

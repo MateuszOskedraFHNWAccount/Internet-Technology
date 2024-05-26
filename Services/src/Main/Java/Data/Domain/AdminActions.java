@@ -1,15 +1,24 @@
 @Entity
 @Table(name = "Admin Actions")
 public class AdminActions{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "ActionID")
     private Int ActionID;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "AdminID")
     private Int AdminID;
 
     @Column(name = "ActionType")
     private Actiontype ActionType;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "TargetID")
     private Int TargetID;
 

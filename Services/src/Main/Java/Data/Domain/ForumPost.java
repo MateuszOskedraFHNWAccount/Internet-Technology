@@ -1,9 +1,15 @@
 @Entity
 @Table(name = "Forum Post")
 public class ForumPost{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "PostID")
     private Int PostID;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "AuthorID")
     private Int AuthorID;
 

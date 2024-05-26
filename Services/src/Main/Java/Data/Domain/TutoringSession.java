@@ -1,6 +1,9 @@
 @Entity
 @Table(name = "Tutoring Session")
 public class TutoringSession{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "SessionID")
     private Int SessionId;
 
@@ -10,9 +13,15 @@ public class TutoringSession{
     @Column(name = "Description")
     private String Description;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "TutorID")
     private Int TutorId;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "StudentID")
     private Int StudentId;
 

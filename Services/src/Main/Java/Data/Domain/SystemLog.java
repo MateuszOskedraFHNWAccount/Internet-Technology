@@ -1,9 +1,15 @@
 @Entity
 @Table(name = "System Log")
 public class SystemLog{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "LogID")
     private Int LogID;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Hidden
     @Column(name = "RelatedActionID")
     private Int RelatedActionID;
 
