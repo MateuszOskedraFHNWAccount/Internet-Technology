@@ -9,8 +9,8 @@ import java.util.List;
 @Service
 @Transactional
 @RestController
-@RequestMapping(path = "/superadmin")
-public class SuperAdminController {
+@RequestMapping(path = "/accountmanagement")
+public class AccountManagementController {
 
     @Autowired
     @PersistenceContext
