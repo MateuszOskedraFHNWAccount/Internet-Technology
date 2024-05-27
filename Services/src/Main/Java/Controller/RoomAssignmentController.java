@@ -12,10 +12,6 @@ import java.util.List;
 @RequestMapping(path = "/roomassignment")
 public class RoomAssignmentController {
 
-    @Autowired
-    @PersistenceContext
-    private EntityManager entityManager;
-
     @PostMapping(path = "/api/rooms/assign",consumes = "application/json",produces = "application/json")
     public ResponseEntity<RoomAssignment> createRoomAssignment(@RequestBody RoomAssignment roomAssignment) {
         RoomAssignment savedAssignment = roomAssignmentRepository.save(roomAssignment);

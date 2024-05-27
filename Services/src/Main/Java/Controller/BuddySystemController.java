@@ -12,10 +12,6 @@ import java.util.List;
 @RequestMapping(path = "/buddysystem")
 public class BuddySystemController {
 
-    @Autowired
-    @PersistenceContext
-    private EntityManager entityManager;
-
     @PostMapping(path = "/api/buddy/volunteer",consumes = "application/json",produces = "application/json")
     public ResponseEntity<BuddySystem> createBuddySystem(@RequestBody BuddySystem buddySystem) {
         BuddySystem savedBuddySystem = buddySystemRepository.save(buddySystem);

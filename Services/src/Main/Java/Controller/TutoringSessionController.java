@@ -11,10 +11,6 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/tutoringsession")
 public class TutoringSessionController {
-
-    @Autowired
-    @PersistenceContext
-    private EntityManager entityManager;   
     
     @PostMapping(path = "/api/tutoring/offers",consumes = "application/json",produces = "application/json")
     public ResponseEntity<TutoringSession> createTutoringSession(@RequestBody TutoringSession tutoringSession) {

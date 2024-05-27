@@ -12,10 +12,6 @@ import java.util.List;
 @RequestMapping(path = "/independentproject")
 public class IndependentProjectController {
 
-    @Autowired
-    @PersistenceContext
-    private EntityManager entityManager;   
-    
     @PostMapping(path = "/api/projects/independent",consumes = "application/json",produces = "application/json")
     public ResponseEntity<IndependentProject> createIndependentProject(@RequestBody IndependentProject independentProject) {
         IndependentProject savedProject = independentProjectRepository.save(independentProject);

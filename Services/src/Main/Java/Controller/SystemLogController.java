@@ -12,10 +12,6 @@ import java.util.List;
 @RequestMapping(path = "/systemlog")
 public class JobAdvertisementController {
 
-    @Autowired
-    @PersistenceContext
-    private EntityManager entityManager;
-
     @GetMapping(path = "/api/admin/logs",produces = "application/json")
     public ResponseEntity<List<SystemLog>> getAllSystemLogs() {
         List<SystemLog> systemLogs = systemLogRepository.findAll();

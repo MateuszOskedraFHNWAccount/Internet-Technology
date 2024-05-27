@@ -5,8 +5,3 @@ import org.springframework.stereotype.Repository;
 public interface AccountManagementRepository extends JpaRepository<AccountManagement, Long> {
     // You can add custom query methods here if needed
 }
-@Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    // You can add custom query methods here if needed
-}
-

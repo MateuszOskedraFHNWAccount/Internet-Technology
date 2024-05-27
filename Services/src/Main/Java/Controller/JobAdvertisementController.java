@@ -12,10 +12,6 @@ import java.util.List;
 @RequestMapping(path = "/jobadvertisement")
 public class JobAdvertisementController {
 
-    @Autowired
-    @PersistenceContext
-    private EntityManager entityManager;
-
     @PostMapping(path = "/api/admin/jobs",consumes = "application/json",produces = "application/json")
     public ResponseEntity<?> createJobAdvertisement(@RequestBody JobAdvertisement jobAdvertisement) {
     try {
@@ -29,5 +25,5 @@ public class JobAdvertisementController {
     public ResponseEntity<Advertisement> createAdvertisement(@RequestBody Advertisement advertisement) {
         Advertisement savedAdvertisement = advertisementService.saveAdvertisement(advertisement);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedAdvertisement);
-}
+    }
 }

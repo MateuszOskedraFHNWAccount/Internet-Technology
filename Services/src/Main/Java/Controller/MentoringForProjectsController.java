@@ -12,10 +12,6 @@ import java.util.List;
 @RequestMapping(path = "/mentoringforprojects")
 public class MentoringForProjectsController {
 
-    @Autowired
-    @PersistenceContext
-    private EntityManager entityManager;
-
     @PostMapping(path = "/api/projects/mentorship/offers",consumes = "application/json",produces = "application/json")
     public ResponseEntity<MentoringForProjects> createMentoringForProjects(@RequestBody MentoringForProjects mentoringForProjects) {
         MentoringForProjects savedMentoring = mentoringRepository.save(mentoringForProjects);

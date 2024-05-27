@@ -12,10 +12,6 @@ import java.util.List;
 @RequestMapping(path = "/user")
 public class UserController {
 
-    @Autowired
-    @PersistenceContext
-    private EntityManager entityManager;
-
     @PostMapping(path = "/api/admin/users/manage",consumes = "application/json",produces = "application/json")
     public ResponseEntity<?> createUser(@RequestBody User user) {
     try {
