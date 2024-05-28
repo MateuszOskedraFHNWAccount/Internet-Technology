@@ -68,47 +68,41 @@ public class CollaborationsList {
     @Autowired
     private UserRepository userRepository;
 
-    
-    @PutMapping(path = "/api/superadmin/admins/update/{adminId}", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<?> updateAccountManagement(@PathVariable Long adminId, @RequestBody AccountManagement updatedAccount) {
+    public <?> updateAccountManagement(Long adminId,AccountManagement updatedAccount) {
     try {
         AccountManagement existingAccount = accountManagementRepository.findById(adminId)
         .orElseThrow(() -> new ResourceNotFoundException("Account not found with ID: " + adminId));
         existingAccount.setSomeProperty(updatedAccount.getSomeProperty());
         AccountManagement savedAccount = accountManagementRepository.save(existingAccount);
-        return ResponseEntity.ok(savedAccount);
+        return accountManagementRepository.ok(savedAccount);
     } catch (ResourceNotFoundException e) {
-        return ResponseEntity.notFound().build();
+        return savedAccount.notFound().build();
     } catch (Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        return savedAccount.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 }
-    @DeleteMapping(path = "/api/superadmin/admins/delete/{adminId}")
-    public ResponseEntity<?> deleteAccountManagement(@PathVariable Long adminId) {
+    public <?> deleteAccountManagement(Long adminId) {
     try {
         Optional<AccountManagement> optionalAccount = accountManagementRepository.findById(adminId);
         if (optionalAccount.isPresent()) {
             AccountManagement accountManagement = optionalAccount.get();
             accountManagementRepository.delete(accountManagement);
-            return ResponseEntity.ok("Account management record deleted successfully.");
+            return accountManagement.ok("Account management record deleted successfully.");
         } else {
-            return ResponseEntity.notFound().build();
+            return accountManagement.notFound().build();
         }
     } catch (Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting account management record.");
+        return accountManagement.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting account management record.");
     }
 }
-    @PostMapping(path = "/api/superadmin/admins/create",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<?> createAccountManagement(@RequestBody AccountManagement accountManagement) {
+    public <?> createAccountManagement(AccountManagement accountManagement) {
     try {
         AccountManagement savedAccount = accountManagementRepository.save(accountManagement);
-        return ResponseEntity.ok("Account management record created successfully.");
+        return savedAccount.ok("Account management record created successfully.");
     } catch (Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        return savedAccount.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 }
-    @PostMapping(path = "/api/auth/login/{superadminId}",consumes = "application/json",produces = "application/json")
-    @PreAuthorize("hasRole('SUPERADMIN')")
-    public ResponseEntity<User> setRole(@PathVariable("superadminId") Long superadminId,@RequestParam ERole role) {
+    public <User> setRole(Long superadminId,ERole role) {
         Optional<User> userOptional = userRepository.findById(superadminId);
         Optional<Role> roleOptional = roleRepository.findByName(role);
 
@@ -119,9 +113,9 @@ public class CollaborationsList {
             user.getRoles().add(assignedRole);
             userRepository.save(user);
 
-            return ResponseEntity.ok(user);
+            return user.ok(user);
         } else {
-            return ResponseEntity.notFound().build();
+            return user.notFound().build();
     }
 }
     public enum ERole {
