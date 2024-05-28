@@ -3,270 +3,329 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import Services.src.Main.Java.Data.Domain.AccesLogs;
-import Services.src.Main.Java.Data.Domain.ForumManagement;
+import Services.src.Main.Java.Data.Domain.AccountManagement;
+import Services.src.Main.Java.Data.Domain.AdminActions;
+import Services.src.Main.Java.Data.Domain.BuddySystem;
+import Services.src.Main.Java.Data.Domain.ForumPost;
+import Services.src.Main.Java.Data.Domain.ForumResponse;
+import Services.src.Main.Java.Data.Domain.IndependentProject;
 import Services.src.Main.Java.Data.Domain.JobAdvertisement;
-import Services.src.Main.Java.Data.Domain.Mentoring;
-import Services.src.Main.Java.Data.Domain.ProjectInitiation;
+import Services.src.Main.Java.Data.Domain.MentoringForProjects;
 import Services.src.Main.Java.Data.Domain.RoomAssignment;
-import Services.src.Main.Java.Data.Domain.Tutoring;
-import Services.src.Main.Java.Data.Domain.VolunteerAsBuddy;
+import Services.src.Main.Java.Data.Domain.SystemLog;
+import Services.src.Main.Java.Data.Domain.TutoringSession;
+import Services.src.Main.Java.Data.Domain.User;
 
-import Services.src.Main.Java.Data.Repository.AccessLogsRepository;
-import Services.src.Main.Java.Data.Repository.ForumManagementRepository;
+import Services.src.Main.Java.Data.Repository.AccountManagementRepository;
+import Services.src.Main.Java.Data.Repository.AdminActionsRepository;
+import Services.src.Main.Java.Data.Repository.BuddySystemRepository;
+import Services.src.Main.Java.Data.Repository.ForumPostRepository;
+import Services.src.Main.Java.Data.Repository.ForumResponseRepository;
+import Services.src.Main.Java.Data.Repository.IndependentProjectRepository;
 import Services.src.Main.Java.Data.Repository.JobAdvertisementRepository;
-import Services.src.Main.Java.Data.Repository.MentoringRepository;
-import Services.src.Main.Java.Data.Repository.ProjectInitiationRepository;
+import Services.src.Main.Java.Data.Repository.MentoringForProjectsRepository;
 import Services.src.Main.Java.Data.Repository.RoomAssignmentRepository;
-import Services.src.Main.Java.Data.Repository.TutoringRepository;
-import Services.src.Main.Java.Data.Repository.VolunteerAsBuddyRepository;
+import Services.src.Main.Java.Data.Repository.SystemLogRepository;
+import Services.src.Main.Java.Data.Repository.TutoringSessionRepository;
+import Services.src.Main.Java.Data.Repository.UserRepository;
 
 @Service
 public class CollaborationsList {
 
     @Autowired
-    private AccessLogsRepository accessLogsRepository;
+    private AccountManagementRepository accountManagementRepository;
 
     @Autowired
-    private ForumManagementRepository forumManagementRepository;
+    private AdminActionsRepository adminActionsRepository;
 
     @Autowired
-    private JobAdvertisementRepository jobAdvertisementsRepository;
+    private BuddySystemRepository buddySystemRepository;
 
     @Autowired
-    private MentoringRepository mentoringRepository;
+    private ForumPostRepository forumPostRepository;
 
     @Autowired
-    private ProjectInitiationRepository projectInitiationRepository;
+    private ForumResponseRepository forumResponseRepository;
+
+    @Autowired
+    private IndependentProjectRepository independentProjectRepository;
+
+    @Autowired 
+    private JobAdvertisementRepository jobAdvertisementRepository;
+
+    @Autowired
+    private MentoringForProjectsRepository mentoringForProjectsRepository;
 
     @Autowired
     private RoomAssignmentRepository roomAssignmentRepository;
 
-    @Autowired 
-    private TutoringRepository tutoringRepository;
+    @Autowired
+    private SystemLogRepository systemLogRepository;
 
     @Autowired
-    private VolunteerAsBuddyRepository volunteerAsBuddyRepository;
+    private TutoringSessionRepository tutoringSessionRepository;
 
-    public List<AccessLogs> getAllAccessLogs() {
-        return accessLogsRepository.findAll();
+    @Autowired
+    private UserRepository userRepository;
+
+    
+    @PutMapping(path = "/api/superadmin/admins/update/{adminId}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<?> updateAccountManagement(@PathVariable Long adminId, @RequestBody AccountManagement updatedAccount) {
+    try {
+        AccountManagement existingAccount = accountManagementRepository.findById(adminId)
+        .orElseThrow(() -> new ResourceNotFoundException("Account not found with ID: " + adminId));
+        existingAccount.setSomeProperty(updatedAccount.getSomeProperty());
+        AccountManagement savedAccount = accountManagementRepository.save(existingAccount);
+        return ResponseEntity.ok(savedAccount);
+    } catch (ResourceNotFoundException e) {
+        return ResponseEntity.notFound().build();
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
-
-    public AccessLogs createAccessLog(AccessLogs accessLog) {
-        return accessLogsRepository.save(accessLog);
-    }
-
-    public AccessLogs getAccessLogById(Long id) {
-        return accessLogsRepository.findById(id).orElse(null);
-    }
-
-    public AccessLogs updateAccessLog(Long id, AccessLogs accessLogDetails) {
-        AccessLogs accessLog = accessLogsRepository.findById(id).orElse(null);
-
-        if (accessLog != null) {
-            accessLog.setTitle(accessLogDetails.getTitle());
-            accessLog.setTimeline(accessLogDetails.getTimeline());
-
-            return accessLogsRepository.save(accessLog);
+}
+    @DeleteMapping(path = "/api/superadmin/admins/delete/{adminId}")
+    public ResponseEntity<?> deleteAccountManagement(@PathVariable Long adminId) {
+    try {
+        Optional<AccountManagement> optionalAccount = accountManagementRepository.findById(adminId);
+        if (optionalAccount.isPresent()) {
+            AccountManagement accountManagement = optionalAccount.get();
+            accountManagementRepository.delete(accountManagement);
+            return ResponseEntity.ok("Account management record deleted successfully.");
+        } else {
+            return ResponseEntity.notFound().build();
         }
-
-        return null;
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting account management record.");
     }
+}
+    @PostMapping(path = "/api/superadmin/admins/create",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<?> createAccountManagement(@RequestBody AccountManagement accountManagement) {
+    try {
+        AccountManagement savedAccount = accountManagementRepository.save(accountManagement);
+        return ResponseEntity.ok("Account management record created successfully.");
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+}
+    @PostMapping(path = "/api/auth/login/{superadminId}",consumes = "application/json",produces = "application/json")
+    @PreAuthorize("hasRole('SUPERADMIN')")
+    public ResponseEntity<User> setRole(@PathVariable("superadminId") Long superadminId,@RequestParam ERole role) {
+        Optional<User> userOptional = userRepository.findById(superadminId);
+        Optional<Role> roleOptional = roleRepository.findByName(role);
 
-    public void deleteAccessLog(Long id) {
-        accessLogsRepository.deleteById(id);
+        if (userOptional.isPresent() && roleOptional.isPresent()) {
+            User user = userOptional.get();
+            Role assignedRole = roleOptional.get();
+
+            user.getRoles().add(assignedRole);
+            userRepository.save(user);
+
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
     }
-    
-    public List<ForumManagement> getAllForumPosts() {
-        return forumManagementRepository.findAll();
+}
+    public enum ERole {
+    ROLE_STUDENT,
+    ROLE_SUPERADMIN,
+    ROLE_ADMIN
+}
+    @PutMapping(path = "/api/admin/modify/{type}/{id}",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<AdminActions> updateAdminAction(@PathVariable String type, @PathVariable Long id, @RequestBody AdminActions adminAction) {
+        AdminActions existingAction = adminActionsRepository.findById(id).orElse(null);
+        if (existingAction != null) {
+            existingAction.setType(type);
+            AdminActions updatedAction = adminActionsRepository.save(existingAction);
+            return ResponseEntity.ok(updatedAction);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
-
-    public ForumManagement createForumPost(ForumManagement forumPost) {
-        return forumManagementRepository.save(forumPost);
+}
+    @DeleteMapping(path = "/api/admin/delete/{type}/{id}")
+    public ResponseEntity<String> deleteAdminAction(@PathVariable String type, @PathVariable Long id) {
+        AdminActions adminAction = adminActionsRepository.findById(id).orElse(null);
+        if (adminAction != null) {
+            adminActionsRepository.delete(adminAction);
+            return ResponseEntity.ok("Admin action deleted successfully!");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Admin action not found.");
     }
-
-    public ForumManagement getForumPostById(Long id) {
-        return forumManagementRepository.findById(id).orElse(null);
-    }
-
-    public ForumManagement updateForumPost(Long id, ForumManagement forumPostDetails) {
-        ForumManagement forumPost = forumManagementRepository.findById(id).orElse(null);
-
-        if (forumPost != null) {
-            forumPost.setForumPost(forumPostDetails.getForumPost());
-
-            return forumManagementRepository.save(forumPost);
+}
+    @DeleteMapping("/api/forum/delete/{postId}")
+    public ResponseEntity<String> deleteForumPost(@PathVariable Long postId) {
+        try {
+            postRepository.deleteByPostId(postId);
+            return ResponseEntity.ok("Forum post deleted successfully");
+        } catch (EmptyResultDataAccessException e) {
+            return ResponseEntity.notFound().build();
         }
+}
+    @PutMapping(path = "/api/forum/edit/{postId}")
+    public ResponseEntity<ForumPost> updateForumPost(@PathVariable Long postId, @RequestBody ForumPost updatedPost) {
+        ForumPost existingPost = postRepository.findById(postId)
+        .orElseThrow(() -> new ResourceNotFoundException("ForumPost not found with ID: " + postId));
+        ForumPost savedPost = postRepository.save(existingPost);
+        return ResponseEntity.ok(savedPost);
+}
+    @PosttMapping(path = "/api/auth/login/{adminId}",consumes = "application/json",produces = "application/json")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<User> setRole(@PathVariable("adminId") Long adminId,@RequestParam ERole role) {
+        Optional<User> userOptional = userRepository.findById(adminId);
+        Optional<Role> roleOptional = roleRepository.findByName(role);
 
-        return null;
-    }
+        if (userOptional.isPresent() && roleOptional.isPresent()) {
+            User user = userOptional.get();
+            Role assignedRole = roleOptional.get();
 
-    public void deleteForumPost(Long id) {
-        forumManagementRepository.deleteById(id);
-    }
-    
-    public List<JobAdvertisements> getAllJobAdvertisements() {
-        return jobAdvertisementsRepository.findAll();
-    }
+            user.getRoles().add(assignedRole);
+            userRepository.save(user);
 
-    public JobAdvertisements createJobAdvertisement(JobAdvertisements jobAdvertisement) {
-        return jobAdvertisementsRepository.save(jobAdvertisement);
-    }
-
-    public JobAdvertisements getJobAdvertisementById(Long id) {
-        return jobAdvertisementsRepository.findById(id).orElse(null);
-    }
-
-    public JobAdvertisements updateJobAdvertisement(Long id, JobAdvertisements jobAdvertisementDetails) {
-        JobAdvertisements jobAdvertisement = jobAdvertisementsRepository.findById(id).orElse(null);
-
-        if (jobAdvertisement != null) {
-            jobAdvertisement.setRole(jobAdvertisementDetails.getRole());
-            jobAdvertisement.setRequirements(jobAdvertisementDetails.getRequirements());
-            jobAdvertisement.setApplicationProcess(jobAdvertisementDetails.getApplicationProcess());
-            jobAdvertisement.setDeadline(jobAdvertisementDetails.getDeadline());
-
-            return jobAdvertisementsRepository.save(jobAdvertisement);
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
         }
-
-        return null;
+}
+    public enum ERole {
+    ROLE_STUDENT,
+    ROLE_SUPERADMIN,
+    ROLE_ADMIN
+}
+    @PostMapping(path = "/api/buddy/volunteer",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<BuddySystem> createBuddySystem(@RequestBody BuddySystem buddySystem) {
+        BuddySystem savedBuddySystem = buddySystemRepository.save(buddySystem);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedBuddySystem);
+}
+    @GetMapping(path = "/api/buddy/match?language={language}",produces = "application/json")
+    public ResponseEntity<List<BuddySystem>> getAllBuddySystems(@RequestParam(name = "language") String language) {
+        List<BuddySystem> buddySystems = buddySystemRepository.findByLanguage(language);
+        return ResponseEntity.ok(buddySystems);
     }
-
-    public void deleteJobAdvertisement(Long id) {
-        jobAdvertisementsRepository.deleteById(id);
+    @PostMapping(value = "/api/admin/buddy/assign",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<String> assignBuddyToInternationalStudent(@RequestBody BuddyAssignmentRequest request) {
+        boolean assignmentSuccessful = buddyAssignmentService.assignBuddy(request.getInternationalStudentId(), request.getBuddyId());
+        if (assignmentSuccessful) {
+            return ResponseEntity.status(HttpStatus.CREATED).body("Buddy assigned successfully!");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Failed to assign buddy.");
     }
-    
-    public List<Mentoring> getAllMentorings() {
-        return mentoringRepository.findAll();
+}
+    @PostMapping(path = "/api/forum/posts",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<ForumPost> createForumPost(@RequestBody ForumPost forumPost) {
+        ForumPost savedPost = forumPostRepository.save(forumPost);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedPost);
     }
-
-    public Mentoring createMentoring(Mentoring mentoring) {
-        return mentoringRepository.save(mentoring);
+}
+    @PostMapping(path = "/api/forum/posts/{postId}/responses", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<ForumResponse> createForumResponse(@PathVariable Long postId, @RequestBody ForumResponse forumResponse) {
+        forumResponse.setPostId(postId);
+        ForumResponse savedResponse = forumResponseRepository.save(forumResponse);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedResponse);
     }
-
-    public Mentoring getMentoringById(Long id) {
-        return mentoringRepository.findById(id).orElse(null);
+}
+    @PostMapping(path = "/api/projects/independent",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<IndependentProject> createIndependentProject(@RequestBody IndependentProject independentProject) {
+        IndependentProject savedProject = independentProjectRepository.save(independentProject);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedProject);
+}
+    @PostMapping(path = "/api/admin/jobs",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<?> createJobAdvertisement(@RequestBody JobAdvertisement jobAdvertisement) {
+    try {
+        entityManager.persist(jobAdvertisement);
+        return ResponseEntity.ok("Job advertisement created successfully.");
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
-
-    public Mentoring updateMentoring(Long id, Mentoring mentoringDetails) {
-        Mentoring mentoring = mentoringRepository.findById(id).orElse(null);
-
-        if (mentoring != null) {
-            mentoring.setTitle(mentoringDetails.getTitle());
-            mentoring.setFrequencyOfEvent(mentoringDetails.getFrequencyOfEvent());
-            mentoring.setDescription(mentoringDetails.getDescription());
-            mentoring.setTimeline(mentoringDetails.getTimeline());
-
-            return mentoringRepository.save(mentoring);
+}
+    @PostMapping(path = "/api/admin/advertisements".consumes = "application/json",produces = "application/json")
+    public ResponseEntity<Advertisement> createAdvertisement(@RequestBody Advertisement advertisement) {
+        Advertisement savedAdvertisement = advertisementService.saveAdvertisement(advertisement);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedAdvertisement);
+}
+    @PostMapping(path = "/api/projects/mentorship/offers",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<MentoringForProjects> createMentoringForProjects(@RequestBody MentoringForProjects mentoringForProjects) {
+        MentoringForProjects savedMentoring = mentoringRepository.save(mentoringForProjects);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedMentoring);
+}
+    @GetMapping(path = "/api/projects/mentorship/search?subject={subject}&recurring={true|false}", produces = "application/json")
+    public ResponseEntity<List<MentoringForProjects>> getAllMentoringForProjects() {
+        List<MentoringForProjects> mentoringList = mentoringRepository.findAll();
+        return ResponseEntity.ok(mentoringList);
+}
+    @PostMapping(path = "/api/rooms/assign",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<RoomAssignment> createRoomAssignment(@RequestBody RoomAssignment roomAssignment) {
+        RoomAssignment savedAssignment = roomAssignmentRepository.save(roomAssignment);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedAssignment);
+}
+    @GetMapping(path = "/api/admin/logs",produces = "application/json")
+    public ResponseEntity<List<SystemLog>> getAllSystemLogs() {
+        List<SystemLog> systemLogs = systemLogRepository.findAll();
+        return ResponseEntity.ok(systemLogs);
+}
+    @PostMapping(path = "/api/tutoring/offers",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<TutoringSession> createTutoringSession(@RequestBody TutoringSession tutoringSession) {
+        TutoringSession savedSession = tutoringSessionRepository.save(tutoringSession);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedSession);
+}
+    @GetMapping(path = "/api/tutoring/search?subject={subject}&recurring={true|false}",produces = "application/json")
+    public ResponseEntity<List<TutoringSession>> getAllTutoringSessions(@RequestParam(name = "subject") String subject,
+        @RequestParam(name = "recurring", defaultValue = "false") boolean recurring) {
+        List<TutoringSession> tutoringSessions = tutoringSessionRepository.findBySubjectAndRecurring(subject, recurring);
+        return ResponseEntity.ok(tutoringSessions); 
+}
+    @PostMapping(path = "/api/admin/users/manage",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<?> createUser(@RequestBody User user) {
+    try {
+        entityManager.persist(user);
+        return ResponseEntity.ok("User created successfully.");
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+}
+    @PutMapping(path = "/api/admin/users/manage",consumes = "application/json",produces = "application/json")
+    public ResponseEntity<?> updateUser(@RequestBody User updatedUser) {
+    try {
+        User existingUser = userRepository.findById(updatedUser.getId())
+        .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + updatedUser.getId()));
+        existingUser.setSomeProperty(updatedUser.getSomeProperty());
+        userRepository.save(existingUser);
+        return ResponseEntity.ok("User updated successfully.");
+    } catch (ResourceNotFoundException e) {
+        return ResponseEntity.notFound().build();
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+}
+    @DeleteMapping(path = "/api/admin/users/manage")
+    public ResponseEntity<?> deleteUser(@RequestBody int userID) {
+    try {
+        Optional<User> optionalUser = userRepository.findById(userID);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            userRepository.delete(user);
+            return ResponseEntity.ok("User deleted successfully.");
+        } else {
+            return ResponseEntity.notFound().build();
         }
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+}
+    @PosttMapping(path = "/api/auth/login/{studentId}",consumes = "application/json",produces = "application/json")
+    @PreAuthorize("hasRole('STUDENT')")
+    public ResponseEntity<User> setRole(@PathVariable("studentId") Long studentId,@RequestParam ERole role) {
+        Optional<User> userOptional = userRepository.findById(studentId);
+        Optional<Role> roleOptional = roleRepository.findByName(role);
 
-        return null;
-    }
+        if (userOptional.isPresent() && roleOptional.isPresent()) {
+            User user = userOptional.get();
+            Role assignedRole = roleOptional.get();
 
-    public void deleteMentoring(Long id) {
-        mentoringRepository.deleteById(id);
-    }
+            user.getRoles().add(assignedRole);
+            userRepository.save(user);
 
-    public List<ProjectInitiation> getAllProjectInitiations() {
-        return projectInitiationRepository.findAll();
-    }
-
-    public ProjectInitiation createProjectInitiation(ProjectInitiation projectInitiation) {
-        return projectInitiationRepository.save(projectInitiation);
-    }
-
-    public ProjectInitiation getProjectInitiationById(Long id) {
-        return projectInitiationRepository.findById(id).orElse(null);
-    }
-
-    public ProjectInitiation updateProjectInitiation(Long id,ProjectInitiation projectInitiationDetails) {
-        ProjectInitiation projectInitiation = projectInitiationRepository.findById(id).orElse(null);
-
-        projectInitiation.setTitle(projectInitiationDetails.getTitle());
-        projectInitiation.setFrequencyOfEvent(projectInitiationDetails.getFrequencyOfEvent());
-        projectInitiation.setDescription(projectInitiationDetails.getDescription());
-        projectInitiation.setTimeline(projectInitiationDetails.getTimeline());
-
-        return projectInitiationRepository.save(projectInitiation);
-    }
-
-    public void deleteProjectInitiation(Long id) {
-        projectInitiationRepository.deleteById(id);
-    }
-    
-    public List<RoomAssignment> getAllRoomAssignments() {
-        return roomAssignmentRepository.findAll();
-    }
-
-    public RoomAssignment createRoomAssignment(RoomAssignment roomAssignment) {
-        return roomAssignmentRepository.save(roomAssignment);
-    }
-
-    public RoomAssignment getRoomAssignmentById(Long id) {
-        return roomAssignmentRepository.findById(id).orElse(null);
-    }
-
-    public RoomAssignment updateRoomAssignment(Long id,RoomAssignment roomAssignmentDetails) {
-        RoomAssignment roomAssignment = roomAssignmentRepository.findById(id).orElse(null);
-
-        roomAssignment.setFrequencyOfEvent(roomAssignmentDetails.getFrequencyOfEvent());
-        roomAssignment.setTimeline(roomAssignmentDetails.getTimeline());
-
-        return roomAssignmentRepository.save(roomAssignment);
-    }
-
-    public void deleteRoomAssignment(Long id) {
-        roomAssignmentRepository.deleteById(id);
-    }
-    
-    public List<Tutoring> getAllTutorings() {
-        return tutoringRepository.findAll();
-    }
-
-    public Tutoring createTutoring(Tutoring tutoring) {
-        return tutoringRepository.save(tutoring);
-    }
-
-    public Tutoring getTutoringById(Long id) {
-        return tutoringRepository.findById(id).orElse(null);
-    }
-
-    public Tutoring updateTutoring(Long id,Tutoring tutoringDetails) {
-        Tutoring tutoring = tutoringRepository.findById(id).orElse(null);
-
-        tutoring.setTitle(tutoringDetails.getTitle());
-        tutoring.setFrequencyOfEvent(tutoringDetails.getFrequencyOfEvent());
-        tutoring.setDescription(tutoringDetails.getDescription());
-        tutoring.setTimeline(tutoringDetails.getTimeline());
-
-        return tutoringRepository.save(tutoring);
-    }
-
-    public void deleteTutoring(Long id) {
-        tutoringRepository.deleteById(id);
-    }
-
-    public List<VolunteerAsBuddy> getAllVolunteerAsBuddies() {
-        return volunteerAsBuddyRepository.findAll();
-    }
-
-    public VolunteerAsBuddy createVolunteerAsBuddy(VolunteerAsBuddy volunteerAsBuddy) {
-        return volunteerAsBuddyRepository.save(volunteerAsBuddy);
-    }
-
-    public VolunteerAsBuddy getVolunteerAsBuddyById(Long id) {
-        return volunteerAsBuddyRepository.findById(id).orElse(null);
-    }
-
-    public VolunteerAsBuddy updateVolunteerAsBuddy(Long id,VolunteerAsBuddy volunteerAsBuddyDetails) {
-        VolunteerAsBuddy volunteerAsBuddy = volunteerAsBuddyRepository.findById(id).orElse(null);
-
-        volunteerAsBuddy.setLanguage(volunteerAsBuddyDetails.getLanguage());
-
-        return volunteerAsBuddyRepository.save(volunteerAsBuddy);
-    }
-
-    public void deleteVolunteerAsBuddy(Long id) {
-        volunteerAsBuddyRepository.deleteById(id);
-    }
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+}
+    public enum ERole {
+    ROLE_STUDENT,
+    ROLE_SUPERADMIN,
+    ROLE_ADMIN
 }

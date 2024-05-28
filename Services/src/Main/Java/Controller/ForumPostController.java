@@ -12,10 +12,6 @@ import java.util.List;
 @RequestMapping(path = "/forumpost")
 public class ForumPostController {
 
-    @Autowired
-    @PersistenceContext
-    private EntityManager entityManager;   
-    
     @PostMapping(path = "/api/forum/posts",consumes = "application/json",produces = "application/json")
     public ResponseEntity<ForumPost> createForumPost(@RequestBody ForumPost forumPost) {
         ForumPost savedPost = forumPostRepository.save(forumPost);

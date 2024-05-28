@@ -12,10 +12,6 @@ import java.util.List;
 @RequestMapping(path = "/adminactions")
 public class AdminActionsController {
 
-    @Autowired
-    @PersistenceContext
-    private EntityManager entityManager;    
-    
     @PutMapping(path = "/api/admin/modify/{type}/{id}",consumes = "application/json",produces = "application/json")
     public ResponseEntity<AdminActions> updateAdminAction(@PathVariable String type, @PathVariable Long id, @RequestBody AdminActions adminAction) {
         AdminActions existingAction = adminActionsRepository.findById(id).orElse(null);

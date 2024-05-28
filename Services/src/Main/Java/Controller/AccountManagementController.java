@@ -12,10 +12,6 @@ import java.util.List;
 @RequestMapping(path = "/accountmanagement")
 public class AccountManagementController {
 
-    @Autowired
-    @PersistenceContext
-    private EntityManager entityManager;
-   
     @PutMapping(path = "/api/superadmin/admins/update/{adminId}", consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> updateAccountManagement(@PathVariable Long adminId, @RequestBody AccountManagement updatedAccount) {
     try {

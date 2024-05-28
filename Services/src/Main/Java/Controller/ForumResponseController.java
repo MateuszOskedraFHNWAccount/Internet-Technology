@@ -12,7 +12,6 @@ import java.util.List;
 @RequestMapping(path = "/forumresponse")
 public class ForumResponseController {
 
-
     @PostMapping(path = "/api/forum/posts/{postId}/responses", consumes = "application/json", produces = "application/json")
     public ResponseEntity<ForumResponse> createForumResponse(@PathVariable Long postId, @RequestBody ForumResponse forumResponse) {
         forumResponse.setPostId(postId);
