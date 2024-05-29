@@ -68,7 +68,7 @@ public class CollaborationsList {
     @Autowired
     private UserRepository userRepository;
 
-    public <?> updateAccountManagement(Long adminId,AccountManagement updatedAccount) {
+    public AccountManagement<?> updateAccountManagement(Long adminId,AccountManagement updatedAccount) {
     try {
         AccountManagement existingAccount = accountManagementRepository.findById(adminId)
         .orElseThrow(() -> new ResourceNotFoundException("Account not found with ID: " + adminId));
@@ -81,7 +81,7 @@ public class CollaborationsList {
         return savedAccount.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 }
-    public <?> deleteAccountManagement(Long adminId) {
+    public AccountManagement<?> deleteAccountManagement(Long adminId) {
     try {
         Optional<AccountManagement> optionalAccount = accountManagementRepository.findById(adminId);
         if (optionalAccount.isPresent()) {
@@ -95,14 +95,14 @@ public class CollaborationsList {
         return accountManagement.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting account management record.");
     }
 }
-    public <?> createAccountManagement(AccountManagement accountManagement) {
+    public AccountManagement<?> createAccountManagement(AccountManagement accountManagement) {
     try {
         AccountManagement savedAccount = accountManagementRepository.save(accountManagement);
         return savedAccount.ok("Account management record created successfully.");
     } catch (Exception e) {
         return savedAccount.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 }
-    public <User> setRole(Long superadminId,ERole role) {
+    public User setRole(Long superadminId,ERole role) {
         Optional<User> userOptional = userRepository.findById(superadminId);
         Optional<Role> roleOptional = roleRepository.findByName(role);
 
@@ -113,7 +113,7 @@ public class CollaborationsList {
             user.getRoles().add(assignedRole);
             userRepository.save(user);
 
-            return user.ok(user);
+            return userRepository.ok(user);
         } else {
             return user.notFound().build();
     }
@@ -123,46 +123,40 @@ public class CollaborationsList {
     ROLE_SUPERADMIN,
     ROLE_ADMIN
 }
-    @PutMapping(path = "/api/admin/modify/{type}/{id}",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<AdminActions> updateAdminAction(@PathVariable String type, @PathVariable Long id, @RequestBody AdminActions adminAction) {
+    public AdminActions updateAdminAction(String type,Long id,AdminActions adminAction) {
         AdminActions existingAction = adminActionsRepository.findById(id).orElse(null);
         if (existingAction != null) {
             existingAction.setType(type);
             AdminActions updatedAction = adminActionsRepository.save(existingAction);
-            return ResponseEntity.ok(updatedAction);
+            return adminActionsRepository.ok(updatedAction);
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return updatedAction.status(HttpStatus.NOT_FOUND).body(null);
     }
 }
-    @DeleteMapping(path = "/api/admin/delete/{type}/{id}")
-    public ResponseEntity<String> deleteAdminAction(@PathVariable String type, @PathVariable Long id) {
+    public AdminActions<String> deleteAdminAction(String type,Long id) {
         AdminActions adminAction = adminActionsRepository.findById(id).orElse(null);
         if (adminAction != null) {
             adminActionsRepository.delete(adminAction);
-            return ResponseEntity.ok("Admin action deleted successfully!");
+            return adminAction.ok("Admin action deleted successfully!");
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Admin action not found.");
+            return adminAction.status(HttpStatus.NOT_FOUND).body("Admin action not found.");
     }
 }
-    @DeleteMapping("/api/forum/delete/{postId}")
-    public ResponseEntity<String> deleteForumPost(@PathVariable Long postId) {
+    public ForumPost<String> deleteForumPost(Long postId) {
         try {
-            postRepository.deleteByPostId(postId);
-            return ResponseEntity.ok("Forum post deleted successfully");
+            forumPostRepository.deleteByPostId(postId);
+            return postId.ok("Forum post deleted successfully");
         } catch (EmptyResultDataAccessException e) {
-            return ResponseEntity.notFound().build();
+            return postId.notFound().build();
         }
 }
-    @PutMapping(path = "/api/forum/edit/{postId}")
-    public ResponseEntity<ForumPost> updateForumPost(@PathVariable Long postId, @RequestBody ForumPost updatedPost) {
-        ForumPost existingPost = postRepository.findById(postId)
+    public ForumPost updateForumPost(Long postId,ForumPost updatedPost) {
+        ForumPost existingPost = forumPostRepository.findById(postId)
         .orElseThrow(() -> new ResourceNotFoundException("ForumPost not found with ID: " + postId));
-        ForumPost savedPost = postRepository.save(existingPost);
-        return ResponseEntity.ok(savedPost);
+        ForumPost savedPost = forumPostRepository.save(existingPost);
+        return forumPostRepository.ok(savedPost);
 }
-    @PosttMapping(path = "/api/auth/login/{adminId}",consumes = "application/json",produces = "application/json")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<User> setRole(@PathVariable("adminId") Long adminId,@RequestParam ERole role) {
+    public User setRole(Long adminId,ERole role) {
         Optional<User> userOptional = userRepository.findById(adminId);
         Optional<Role> roleOptional = roleRepository.findByName(role);
 
@@ -173,9 +167,9 @@ public class CollaborationsList {
             user.getRoles().add(assignedRole);
             userRepository.save(user);
 
-            return ResponseEntity.ok(user);
+            return userRepository.ok(user);
         } else {
-            return ResponseEntity.notFound().build();
+            return user.notFound().build();
         }
 }
     public enum ERole {
@@ -183,10 +177,9 @@ public class CollaborationsList {
     ROLE_SUPERADMIN,
     ROLE_ADMIN
 }
-    @PostMapping(path = "/api/buddy/volunteer",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<BuddySystem> createBuddySystem(@RequestBody BuddySystem buddySystem) {
+    public BuddySystem createBuddySystem(BuddySystem buddySystem) {
         BuddySystem savedBuddySystem = buddySystemRepository.save(buddySystem);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedBuddySystem);
+        return saveBuddySystem.status(HttpStatus.CREATED).body(savedBuddySystem);
 }
     @GetMapping(path = "/api/buddy/match?language={language}",produces = "application/json")
     public ResponseEntity<List<BuddySystem>> getAllBuddySystems(@RequestParam(name = "language") String language) {

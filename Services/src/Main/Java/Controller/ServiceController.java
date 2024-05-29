@@ -37,7 +37,7 @@ public class MenuController {
         return pizzaList;
     }
 
-    @PostMapping(path="/pizzas", consumes="application/json", produces = "application/json")
+    @PostMapping(path="/pizzas", consumes = "application/json", produces = "application/json")
     public ResponseEntity addPizza(@RequestBody Pizza pizza) {
         try{
             pizza = menuService.addPizza(pizza);
