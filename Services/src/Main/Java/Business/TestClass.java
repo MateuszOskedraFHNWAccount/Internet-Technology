@@ -3,6 +3,9 @@ public AccountManagement<?> updateAccountManagement(Long adminId,AccountManageme
         AccountManagement existingAccount = accountManagementRepository.findById(adminId)
         .orElseThrow(() -> new ResourceNotFoundException("Account not found with ID: " + adminId));
         existingAccount.setSomeProperty(updatedAccount.getSomeProperty());
+        if(existingAccount = != null){
+            if(updatedAccount.)
+        }
         AccountManagement savedAccount = accountManagementRepository.save(existingAccount);
         return accountManagementRepository.ok(savedAccount);
     } catch (ResourceNotFoundException e) {
