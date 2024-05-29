@@ -7,18 +7,6 @@ public class BuddySystem {
     @Column(name = "BuddyPairID")
     private Int BuddyPairID;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Hidden
-    @Column(name = "LocalStudentID")
-    private Int LocalStudentID;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Hidden
-    @Column(name = "InternationalStudentID")
-    private Int InternationalStudentID;
-
     @Column(name = "Languages")
     private String Languages;
 
@@ -26,11 +14,9 @@ public class BuddySystem {
     private BuddyStatus status;
 
 }
-public BuddySystem(Int BuddyPairID,Int LocalStudentID,Int InternationalStudentID,
-    String Languages,BuddyStatus Status){
+public BuddySystem(Int BuddyPairID,String Languages,
+    BuddyStatus Status){
     this.BuddyPairID = BuddyPairID;
-    this.LocalStudentID = LocalStudentID;
-    this.InternationalStudentID = InternationalStudentID;
     this.Languages = Languages;
     this.Status = Status;
 }
@@ -39,18 +25,6 @@ public Int getBuddyPairID(){
 }
 public void setBuddyPairID(Int BuddyPairID){
     this.BuddyPairID = BuddyPairID;
-}
-public Int getLocalStudentID(){
-    return LocalStudentID;
-}
-public void setLocalStudentID(Int LocalStudentID){
-    this.LocalStudentID = LocalStudentID;
-}
-public Int getInternationalStudentID(){
-    return InternationalStudentID;
-}
-public void setInternationalStudentID(Int InternationalStudentID){
-    this.InternationalStudentID = InternationalStudentID;
 }
 public String getLanguages(){
     return Languages;

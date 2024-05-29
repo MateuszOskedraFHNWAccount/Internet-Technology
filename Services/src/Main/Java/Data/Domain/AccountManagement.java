@@ -7,18 +7,6 @@ public class AccountManagement{
     @Column(name = "ManagementID")
     private Int ManagementID;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Hidden
-    @Column(name = "AdminID")
-    private Int AdminID;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Hidden
-    @Column(name = "TargetUserID")
-    private Int TargetUserID;
-
     @Column(name = "ActionType")
     private Actiontype ActionType;
 
@@ -26,11 +14,9 @@ public class AccountManagement{
     private Timestamp TimeStamp;
 
 }
-public AccountManagement(Int ManagementID,Int AdminID,Int TargetUserID,
-    Actiontype ActionType,Timestamp TimeStamp){
+public AccountManagement(Int ManagementID,Actiontype ActionType,
+    Timestamp TimeStamp){
     this.ManagementID = ManagementID;
-    this.AdminID = AdminID;
-    this.TargetUserID = TargetUserID;
     this.ActionType = ActionType;
     this.TimeStamp = TimeStamp;
 }
@@ -39,18 +25,6 @@ public Int getManagementID(){
 }
 public void setManagementID(Int ManagementID){
     this.ManagementID = ManagementID;
-}
-public Int getAdminID(){
-    return AdminID;
-}
-public void setAdminID(Int AdminID){
-    this.AdminID = AdminID;
-}
-public Int getTargetUserID(){
-    return TargetUserID;
-}
-public void setTargetUserID(Int TargetUserID){
-    this.TargetUserID = TargetUserID;
 }
 public Actiontype getActionType(){
     return ActionType;

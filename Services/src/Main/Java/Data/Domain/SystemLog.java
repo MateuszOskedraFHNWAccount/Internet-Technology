@@ -7,21 +7,14 @@ public class SystemLog{
     @Column(name = "LogID")
     private Int LogID;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Hidden
-    @Column(name = "RelatedActionID")
-    private Int RelatedActionID;
-
     @Column(name = "TimeStamp")
     private Timestamp TimeStamp;
 
     @Column(name = "Description")
     private String Description;
 }
-public SystemLog(Int LogID,Int RelatedActionID,Timestamp TimeStamp,String Description){
+public SystemLog(Int LogID,Timestamp TimeStamp,String Description){
     this.LogID = LogID;
-    this.RelatedActionID = RelatedActionID;
     this.TimeStamp = TimeStamp;
     this.Description = Description;
 }
@@ -30,12 +23,6 @@ public Int getLogID(){
 }
 public void setLogID(Int LogID){
     this.LogID = LogID;
-}
-public Int getRelatedActionID(){
-    return RelatedActionID;
-}
-public void setRelatedActionID(Int RelatedActionID){
-    this.RelatedActionID = RelatedActionID;
 }
 public Timestamp getTimeStamp(){
     return TimeStamp;

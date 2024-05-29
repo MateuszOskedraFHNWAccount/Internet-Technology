@@ -13,18 +13,6 @@ public class TutoringSession{
     @Column(name = "Description")
     private String Description;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Hidden
-    @Column(name = "TutorID")
-    private Int TutorId;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Hidden
-    @Column(name = "StudentID")
-    private Int StudentId;
-
     @Column(name = "Reccuring")
     private Boolean Reccuring;
 
@@ -38,14 +26,12 @@ public class TutoringSession{
     private SessionStatus Status;
 
 }
-public TutoringSession(Int SessionID,String Subject,String Description,
-    Int TutorID,Int StudentID,Boolean Reccuring,Timestamp StartTime,
+public TutoringSession(Int SessionID,String Subject,
+    String Description,Boolean Reccuring,Timestamp StartTime,
     Timestamp EndTime,SessionStatus Status){
     this.SessionID = SessionID;
     this.Subject = Subject;
     this.Description = Description;
-    this.TutorID = TutorID;
-    this.StudentID = StudentID;
     this.Reccuring = Reccuring;
     this.StartTime = StartTime;
     this.EndTime = EndTime;
@@ -68,18 +54,6 @@ public String getDescription(){
 }
 public void setDescription(String Description){
     this.Description = Description;
-}
-public Int getTutorID(){
-    return TutorID;
-}
-public void setTutorID(Int TutorID){
-    this.TutorID = TutorID;
-}
-public Int getStudentID(){
-    return StudentID;
-}
-public void setStudentID(Int StudentID){
-    this.StudentID = StudentID;
 }
 public Boolean getReccuring(){
     return Reccuring;

@@ -68,10 +68,10 @@ public class CollaborationsList {
     @Autowired
     private UserRepository userRepository;
 
-    public AccountManagement<?> updateAccountManagement(Long adminId,AccountManagement updatedAccount) {
+    public AccountManagement updateAccountManagement(Int ManagementID,AccountManagement updatedAccount) {
     try {
-        AccountManagement existingAccount = accountManagementRepository.findById(adminId)
-        .orElseThrow(() -> new ResourceNotFoundException("Account not found with ID: " + adminId));
+        AccountManagement existingAccount = accountManagementRepository.findById(ManagementID)
+        .orElseThrow(() -> new ResourceNotFoundException("Account not found with ID: " + ManagementID));
         existingAccount.setSomeProperty(updatedAccount.getSomeProperty());
         AccountManagement savedAccount = accountManagementRepository.save(existingAccount);
         return accountManagementRepository.ok(savedAccount);
@@ -81,9 +81,9 @@ public class CollaborationsList {
         return savedAccount.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 }
-    public AccountManagement<?> deleteAccountManagement(Long adminId) {
+    public AccountManagement deleteAccountManagement(Int ManagementID) {
     try {
-        Optional<AccountManagement> optionalAccount = accountManagementRepository.findById(adminId);
+        Optional<AccountManagement> optionalAccount = accountManagementRepository.findById(ManagementID);
         if (optionalAccount.isPresent()) {
             AccountManagement accountManagement = optionalAccount.get();
             accountManagementRepository.delete(accountManagement);
@@ -95,7 +95,7 @@ public class CollaborationsList {
         return accountManagement.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting account management record.");
     }
 }
-    public AccountManagement<?> createAccountManagement(AccountManagement accountManagement) {
+    public AccountManagement createAccountManagement(AccountManagement accountManagement) {
     try {
         AccountManagement savedAccount = accountManagementRepository.save(accountManagement);
         return savedAccount.ok("Account management record created successfully.");
@@ -123,18 +123,18 @@ public class CollaborationsList {
     ROLE_SUPERADMIN,
     ROLE_ADMIN
 }
-    public AdminActions updateAdminAction(String type,Long id,AdminActions adminAction) {
-        AdminActions existingAction = adminActionsRepository.findById(id).orElse(null);
+    public AdminActions updateAdminAction(Actiontype ActionType,Int ActionID,AdminActions adminAction) {
+        AdminActions existingAction = adminActionsRepository.findById(ActionID).orElse(null);
         if (existingAction != null) {
-            existingAction.setType(type);
+            existingAction.setType(ActionType);
             AdminActions updatedAction = adminActionsRepository.save(existingAction);
             return adminActionsRepository.ok(updatedAction);
         } else {
             return updatedAction.status(HttpStatus.NOT_FOUND).body(null);
     }
 }
-    public AdminActions<String> deleteAdminAction(String type,Long id) {
-        AdminActions adminAction = adminActionsRepository.findById(id).orElse(null);
+    public AdminActions<String> deleteAdminAction(Actiontype ActionType,Int ActionID) {
+        AdminActions adminAction = adminActionsRepository.findById(ActionID).orElse(null);
         if (adminAction != null) {
             adminActionsRepository.delete(adminAction);
             return adminAction.ok("Admin action deleted successfully!");
@@ -142,17 +142,17 @@ public class CollaborationsList {
             return adminAction.status(HttpStatus.NOT_FOUND).body("Admin action not found.");
     }
 }
-    public ForumPost<String> deleteForumPost(Long postId) {
+    public ForumPost deleteForumPost(Int PostID) {
         try {
-            forumPostRepository.deleteByPostId(postId);
-            return postId.ok("Forum post deleted successfully");
+            forumPostRepository.deleteByPostId(PostID);
+            return PostID.ok("Forum post deleted successfully");
         } catch (EmptyResultDataAccessException e) {
-            return postId.notFound().build();
+            return PostID.notFound().build();
         }
 }
-    public ForumPost updateForumPost(Long postId,ForumPost updatedPost) {
-        ForumPost existingPost = forumPostRepository.findById(postId)
-        .orElseThrow(() -> new ResourceNotFoundException("ForumPost not found with ID: " + postId));
+    public ForumPost updateForumPost(Int PostID,ForumPost updatedPost) {
+        ForumPost existingPost = forumPostRepository.findById(PostID)
+        .orElseThrow(() -> new ResourceNotFoundException("ForumPost not found with ID: " + PostID));
         ForumPost savedPost = forumPostRepository.save(existingPost);
         return forumPostRepository.ok(savedPost);
 }
@@ -170,132 +170,104 @@ public class CollaborationsList {
             return userRepository.ok(user);
         } else {
             return user.notFound().build();
-        }
+    }
 }
     public enum ERole {
     ROLE_STUDENT,
     ROLE_SUPERADMIN,
     ROLE_ADMIN
+    }
 }
     public BuddySystem createBuddySystem(BuddySystem buddySystem) {
         BuddySystem savedBuddySystem = buddySystemRepository.save(buddySystem);
         return saveBuddySystem.status(HttpStatus.CREATED).body(savedBuddySystem);
-}
-    @GetMapping(path = "/api/buddy/match?language={language}",produces = "application/json")
-    public ResponseEntity<List<BuddySystem>> getAllBuddySystems(@RequestParam(name = "language") String language) {
-        List<BuddySystem> buddySystems = buddySystemRepository.findByLanguage(language);
-        return ResponseEntity.ok(buddySystems);
-    }
-    @PostMapping(value = "/api/admin/buddy/assign",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<String> assignBuddyToInternationalStudent(@RequestBody BuddyAssignmentRequest request) {
-        boolean assignmentSuccessful = buddyAssignmentService.assignBuddy(request.getInternationalStudentId(), request.getBuddyId());
-        if (assignmentSuccessful) {
-            return ResponseEntity.status(HttpStatus.CREATED).body("Buddy assigned successfully!");
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Failed to assign buddy.");
     }
 }
-    @PostMapping(path = "/api/forum/posts",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<ForumPost> createForumPost(@RequestBody ForumPost forumPost) {
+    public List<BuddySystem> getAllBuddySystems(String Languages) {
+        List<BuddySystem> buddySystems = buddySystemRepository.findByLanguage(Languages);
+        return buddySystemRepository.ok(buddySystems);
+    }
+}
+    public ForumPost createForumPost(ForumPost forumPost) {
         ForumPost savedPost = forumPostRepository.save(forumPost);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedPost);
+        return savedPost.status(HttpStatus.CREATED).body(savedPost);
     }
 }
-    @PostMapping(path = "/api/forum/posts/{postId}/responses", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<ForumResponse> createForumResponse(@PathVariable Long postId, @RequestBody ForumResponse forumResponse) {
-        forumResponse.setPostId(postId);
+    public ForumResponse createForumResponse(Int ResponseID,ForumResponse forumResponse) {
+        forumResponse.setResponseID(ResponseID);
         ForumResponse savedResponse = forumResponseRepository.save(forumResponse);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedResponse);
+        return savedResponse.status(HttpStatus.CREATED).body(savedResponse);
     }
 }
-    @PostMapping(path = "/api/projects/independent",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<IndependentProject> createIndependentProject(@RequestBody IndependentProject independentProject) {
+    public IndependentProject createIndependentProject(IndependentProject independentProject) {
         IndependentProject savedProject = independentProjectRepository.save(independentProject);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedProject);
+        return savedProject.status(HttpStatus.CREATED).body(savedProject);
 }
-    @PostMapping(path = "/api/admin/jobs",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<?> createJobAdvertisement(@RequestBody JobAdvertisement jobAdvertisement) {
+    public ResponseEntity createJobAdvertisement(JobAdvertisement jobAdvertisement) {
     try {
         entityManager.persist(jobAdvertisement);
-        return ResponseEntity.ok("Job advertisement created successfully.");
+        return jobAdvertisement.ok("Job advertisement created successfully.");
     } catch (Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        return jobAdvertisement.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 }
-    @PostMapping(path = "/api/admin/advertisements".consumes = "application/json",produces = "application/json")
-    public ResponseEntity<Advertisement> createAdvertisement(@RequestBody Advertisement advertisement) {
-        Advertisement savedAdvertisement = advertisementService.saveAdvertisement(advertisement);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedAdvertisement);
-}
-    @PostMapping(path = "/api/projects/mentorship/offers",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<MentoringForProjects> createMentoringForProjects(@RequestBody MentoringForProjects mentoringForProjects) {
+    public MentoringForProjects createMentoringForProjects(MentoringForProjects mentoringForProjects) {
         MentoringForProjects savedMentoring = mentoringRepository.save(mentoringForProjects);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedMentoring);
+        return savedMentoring.status(HttpStatus.CREATED).body(savedMentoring);
 }
-    @GetMapping(path = "/api/projects/mentorship/search?subject={subject}&recurring={true|false}", produces = "application/json")
-    public ResponseEntity<List<MentoringForProjects>> getAllMentoringForProjects() {
+    public List<MentoringForProjects> getAllMentoringForProjects() {
         List<MentoringForProjects> mentoringList = mentoringRepository.findAll();
-        return ResponseEntity.ok(mentoringList);
+        return mentoringList.ok(mentoringList);
 }
-    @PostMapping(path = "/api/rooms/assign",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<RoomAssignment> createRoomAssignment(@RequestBody RoomAssignment roomAssignment) {
+    public RoomAssignment createRoomAssignment(RoomAssignment roomAssignment) {
         RoomAssignment savedAssignment = roomAssignmentRepository.save(roomAssignment);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedAssignment);
+        return savedAssignment.status(HttpStatus.CREATED).body(savedAssignment);
 }
-    @GetMapping(path = "/api/admin/logs",produces = "application/json")
-    public ResponseEntity<List<SystemLog>> getAllSystemLogs() {
+    public List<SystemLog> getAllSystemLogs() {
         List<SystemLog> systemLogs = systemLogRepository.findAll();
-        return ResponseEntity.ok(systemLogs);
+        return systemLogs.ok(systemLogs);
 }
-    @PostMapping(path = "/api/tutoring/offers",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<TutoringSession> createTutoringSession(@RequestBody TutoringSession tutoringSession) {
+    public TutoringSession createTutoringSession(TutoringSession tutoringSession) {
         TutoringSession savedSession = tutoringSessionRepository.save(tutoringSession);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedSession);
+        return savedSession.status(HttpStatus.CREATED).body(savedSession);
 }
-    @GetMapping(path = "/api/tutoring/search?subject={subject}&recurring={true|false}",produces = "application/json")
-    public ResponseEntity<List<TutoringSession>> getAllTutoringSessions(@RequestParam(name = "subject") String subject,
-        @RequestParam(name = "recurring", defaultValue = "false") boolean recurring) {
+    public List<TutoringSession> getAllTutoringSession(String Subject,boolean Recurring) {
         List<TutoringSession> tutoringSessions = tutoringSessionRepository.findBySubjectAndRecurring(subject, recurring);
-        return ResponseEntity.ok(tutoringSessions); 
+        return tutoringSessions.ok(tutoringSessions);
 }
-    @PostMapping(path = "/api/admin/users/manage",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<?> createUser(@RequestBody User user) {
+    public User createUser(User user) {
     try {
         entityManager.persist(user);
-        return ResponseEntity.ok("User created successfully.");
+        return user.ok("User created successfully.");
     } catch (Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        return user.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 }
-    @PutMapping(path = "/api/admin/users/manage",consumes = "application/json",produces = "application/json")
-    public ResponseEntity<?> updateUser(@RequestBody User updatedUser) {
+    public User updateUser(User updatedUser) {
     try {
-        User existingUser = userRepository.findById(updatedUser.getId())
-        .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + updatedUser.getId()));
+        User existingUser = userRepository.findById(updatedUser.getId(UserID))
+        .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + updatedUser.getId(UserID)));
         existingUser.setSomeProperty(updatedUser.getSomeProperty());
         userRepository.save(existingUser);
-        return ResponseEntity.ok("User updated successfully.");
+        return existingUser.ok("User updated successfully.");
     } catch (ResourceNotFoundException e) {
-        return ResponseEntity.notFound().build();
+        return existingUser.notFound().build();
     } catch (Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        return existingUser.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 }
-    @DeleteMapping(path = "/api/admin/users/manage")
-    public ResponseEntity<?> deleteUser(@RequestBody int userID) {
+    public User deleteUser(Int UserID) {
     try {
-        Optional<User> optionalUser = userRepository.findById(userID);
+        Optional<User> optionalUser = userRepository.findById(UserID);
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             userRepository.delete(user);
-            return ResponseEntity.ok("User deleted successfully.");
+            return user.ok("User deleted successfully.");
         } else {
-            return ResponseEntity.notFound().build();
+            return user.notFound().build();
         }
     } catch (Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        return user.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 }
-    @PosttMapping(path = "/api/auth/login/{studentId}",consumes = "application/json",produces = "application/json")
-    @PreAuthorize("hasRole('STUDENT')")
-    public ResponseEntity<User> setRole(@PathVariable("studentId") Long studentId,@RequestParam ERole role) {
+    public User setRole(Long studentId,ERole role) {
         Optional<User> userOptional = userRepository.findById(studentId);
         Optional<Role> roleOptional = roleRepository.findByName(role);
 
@@ -306,9 +278,9 @@ public class CollaborationsList {
             user.getRoles().add(assignedRole);
             userRepository.save(user);
 
-            return ResponseEntity.ok(user);
+            return user.ok(user);
         } else {
-            return ResponseEntity.notFound().build();
+            return user.notFound().build();
         }
 }
     public enum ERole {

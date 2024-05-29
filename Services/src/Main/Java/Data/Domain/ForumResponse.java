@@ -7,29 +7,15 @@ public class ForumResponse{
     @Column(name = "ResponseID")
     private Int ResponseID;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Hidden
-    @Column(name = "PostID")
-    private Int PostID;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Hidden
-    @Column(name = "AuthorID")
-    private Int AuthorID;
-
     @Column(name = "Content")
     private String Content;
 
     @Column(name = "ResponseTime")
     private Timestamp ResponseTime;
 }
-public ForumResponse(Int ResponseID,Int PostID,Int AuthorID,String Content,
+public ForumResponse(Int ResponseID,String Content,
     Timestamp ResponseTime){
     this.ResponseID = ResponseID;
-    this.PostID = PostID;
-    this.AuthorID = AuthorID;
     this.Content = Content;
     this.ResponseTime = ResponseTime;
 }
@@ -38,18 +24,6 @@ public Int getResponseID(){
 }
 public void setResponseID(Int ResponseID){
     this.ResponseID = ResponseID;
-}
-public Int getPostID(){
-    return PostID;
-}
-public void setPostID(Int PostID){
-    this.PostID = PostID;
-}
-public Int getAuthorID(){
-    return AuthorID;
-}
-public void setAuthorID(Int AuthorID){
-    this.AuthorID = AuthorID;
 }
 public String getContent(){
     return Content;

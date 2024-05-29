@@ -7,12 +7,6 @@ public class ForumPost{
     @Column(name = "PostID")
     private Int PostID;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Hidden
-    @Column(name = "AuthorID")
-    private Int AuthorID;
-
     @Column(name = "Content")
     private String Content;
 
@@ -22,10 +16,9 @@ public class ForumPost{
     @Column(name = "CreationTime")
     private Timestamp CreationTime;
 }
-public ForumPost(Int PostID,Int AuthorID,String Content,String Topic,
+public ForumPost(Int PostID,String Content,String Topic,
     Timestamp CreationTime){
     this.PostID = PostID;
-    this.AuthorID = AuthorID;
     this.Content = Content;
     this.Topic = Topic;
     this.CreationTime = CreationTime;
@@ -35,12 +28,6 @@ public Int getPostID(){
 }
 public void setPostID(Int PostID){
     this.PostID = PostID;
-}
-public Int getAuthorID(){
-    return AuthorID;
-}
-public void setAuthorID(Int AuthorID){
-    this.AuthorID = AuthorID;
 }
 public String getContent(){
     return Content;

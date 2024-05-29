@@ -16,12 +16,6 @@ public class RoomAssignment {
     @Column(name = "Resources")
     private String Resources;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Hidden
-    @Column(name = "EventID")
-    private Int EventID;
-
     @Column(name = "StartTime")
     private Timestamp StartTime;
 
@@ -30,12 +24,11 @@ public class RoomAssignment {
 
 }
 public RoomAssignment(Int RoomID,String Building,Int Capacity,
-    String Resources,Int EventID,Timestamp StartTime,Timestamp EndTime){
+    String Resources,Timestamp StartTime,Timestamp EndTime){
         this.RoomID = RoomID;
         this.Building = Building;
         this.Capacity = Capacity;
         this.Resources = Resources;
-        this.EventID = EventID;
         this.StartTime = StartTime;
         this.EndTime = EndTime;
 }
@@ -62,12 +55,6 @@ public String getResources(){
 }
 public void setResources(String Resources){
     this.Resources = Resources;
-}
-public Int getEventID(){
-    return EventID;
-}
-public void setEventID(Int EventID){
-    this.EventID = EventID;
 }
 public Timestamp getStartTime(){
     return StartTime;
