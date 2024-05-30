@@ -68,40 +68,32 @@ public class CollaborationsList {
     @Autowired
     private UserRepository userRepository;
 
-    public AccountManagement updateAccountManagement(Int ManagementID,AccountManagement updatedAccount) {
-    try {
-        AccountManagement existingAccount = accountManagementRepository.findById(ManagementID)
-        .orElseThrow(() -> new ResourceNotFoundException("Account not found with ID: " + ManagementID));
-        existingAccount.setSomeProperty(updatedAccount.getSomeProperty());
-        AccountManagement savedAccount = accountManagementRepository.save(existingAccount);
-        return accountManagementRepository.ok(savedAccount);
-    } catch (ResourceNotFoundException e) {
-        return savedAccount.notFound().build();
-    } catch (Exception e) {
-        return savedAccount.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    public AccountManagement updateAccountManagement(Int ManagementID, AccountManagement updatedAccount) throws ResourceNotFoundException {
+        AccountManagement existingAccount = accountManagementRepository.findById(ManagementID);
+        if(existingAccount != null){
+            if(updatedAccount.getActionType() != null)
+                existingAccount.setActionType(updatedAccount.getActionType());
+            if(updatedAccount.getTimeStamp() != null)
+                existingAccount.setTimeStamp(updatedAccount.getTimeStamp());
+                return accountManagementRepository.save(existingAccount)
+            }
+            throw new ResourceNotFoundException("Account not found with ID: " + ManagementID));
     }
 }
-    public AccountManagement deleteAccountManagement(Int ManagementID) {
-    try {
-        Optional<AccountManagement> optionalAccount = accountManagementRepository.findById(ManagementID);
-        if (optionalAccount.isPresent()) {
-            AccountManagement accountManagement = optionalAccount.get();
-            accountManagementRepository.delete(accountManagement);
-            return accountManagement.ok("Account management record deleted successfully.");
-        } else {
-            return accountManagement.notFound().build();
-        }
-    } catch (Exception e) {
-        return accountManagement.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting account management record.");
-    }
+    public void deleteAccountManagement(Int ManagementID) throws Exception{
+        if(accountManagementRepository.existsById(ManagementID)){
+            accountManagementRepository.deleteById(ManagementID);
+        } else 
+            throw new Exception("Account management record " + ManagementID + " was deleted successfully.");
 }
-    public AccountManagement createAccountManagement(AccountManagement accountManagement) {
-    try {
-        AccountManagement savedAccount = accountManagementRepository.save(accountManagement);
-        return savedAccount.ok("Account management record created successfully.");
-    } catch (Exception e) {
-        return savedAccount.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-}
+    public AccountManagement createAccountManagement(AccountManagement accountManagement) throws Exception {
+        if(accountManagement.getActionType() != null)
+            if(accountManagementRepository.findByActionType(accountManagement.getActionType()) == null)
+                return accountManagementRepository.save(accountManagement);
+        throw new Exception("Account management record " + accountManagement.getActionType() + " already available");
+    } 
+    throw new Exception("Invalid action type");
+} 
     public User setRole(Long superadminId,ERole role) {
         Optional<User> userOptional = userRepository.findById(superadminId);
         Optional<Role> roleOptional = roleRepository.findByName(role);
@@ -123,6 +115,9 @@ public class CollaborationsList {
     ROLE_SUPERADMIN,
     ROLE_ADMIN
 }
+
+
+
     public AdminActions updateAdminAction(Actiontype ActionType,Int ActionID,AdminActions adminAction) {
         AdminActions existingAction = adminActionsRepository.findById(ActionID).orElse(null);
         if (existingAction != null) {

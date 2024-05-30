@@ -1,17 +1,11 @@
-public AccountManagement updateAccountManagement(Long adminId,AccountManagement updatedAccount) {
-    try {
-        AccountManagement existingAccount = accountManagementRepository.findById(adminId)
-        .orElseThrow(() -> new ResourceNotFoundException("Account not found with ID: " + adminId));
-        existingAccount.setSomeProperty(updatedAccount.getSomeProperty());
-        if(existingAccount != null){
-            if(updatedAccount.getManagementID != null )
-        }
-        AccountManagement savedAccount = accountManagementRepository.save(existingAccount);
-        return accountManagementRepository.ok(savedAccount);
-    } catch (ResourceNotFoundException e) {
-        return savedAccount.notFound().build();
-    } catch (Exception e) {
-        return savedAccount.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+public AdminActions updateAdminAction(Actiontype ActionType,Int ActionID,AdminActions adminAction) {
+        AdminActions existingAction = adminActionsRepository.findById(ActionID).orElse(null);
+        if (existingAction != null) {
+            existingAction.setType(ActionType);
+            AdminActions updatedAction = adminActionsRepository.save(existingAction);
+            return adminActionsRepository.ok(updatedAction);
+        } else {
+            return updatedAction.status(HttpStatus.NOT_FOUND).body(null);
     }
 }
 public Pizza updatePizza(Long id, Pizza pizza) throws Exception {
