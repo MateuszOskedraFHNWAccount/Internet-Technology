@@ -1,13 +1,10 @@
-public AdminActions updateAdminAction(Actiontype ActionType,Int ActionID,AdminActions adminAction) {
-        AdminActions existingAction = adminActionsRepository.findById(ActionID).orElse(null);
-        if (existingAction != null) {
-            existingAction.setType(ActionType);
-            AdminActions updatedAction = adminActionsRepository.save(existingAction);
-            return adminActionsRepository.ok(updatedAction);
-        } else {
-            return updatedAction.status(HttpStatus.NOT_FOUND).body(null);
+public void deletePizza(Long id) throws Exception {
+        if(pizzaRepository.existsById(id)) {
+            pizzaRepository.deleteById(id);
+        } else
+            throw new Exception("Pizza with id " + id + " does not exist");
     }
-}
+
 public Pizza updatePizza(Long id, Pizza pizza) throws Exception {
         Pizza pizzaToUpdate = pizzaRepository.findById(id).get();
         if(pizzaToUpdate != null) {
@@ -18,4 +15,19 @@ public Pizza updatePizza(Long id, Pizza pizza) throws Exception {
             return pizzaRepository.save(pizzaToUpdate);
         }
         throw new Exception("Pizza with id " + id + " does not exist");
+    }
+
+
+public Pizza addPizza(Pizza pizza) throws Exception {
+        if(pizza.getPizzaName() != null) {
+            if (pizzaRepository.findByPizzaName(pizza.getPizzaName()) == null)
+                return pizzaRepository.save(pizza);
+            throw new Exception("Pizza " + pizza.getPizzaName() + " already exists");
+        }
+        throw new Exception("Invalid pizza name ");
+    }
+
+public List<Pizza> getAllPizzas() {
+        List<Pizza> pizzaList = pizzaRepository.findAll();
+        return pizzaList;
     }

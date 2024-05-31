@@ -115,41 +115,41 @@ public class CollaborationsList {
     ROLE_SUPERADMIN,
     ROLE_ADMIN
 }
-
-
-
-    public AdminActions updateAdminAction(Actiontype ActionType,Int ActionID,AdminActions adminAction) {
+    public AdminActions updateAdminAction(Int ActionID,AdminActions adminAction) throws ResourceNotFoundException {
         AdminActions existingAction = adminActionsRepository.findById(ActionID).orElse(null);
-        if (existingAction != null) {
-            existingAction.setType(ActionType);
-            AdminActions updatedAction = adminActionsRepository.save(existingAction);
-            return adminActionsRepository.ok(updatedAction);
-        } else {
-            return updatedAction.status(HttpStatus.NOT_FOUND).body(null);
-    }
+        if(existingAction != null){
+            if(adminAction.getActionType() != null)
+                existingAction.setActionType(adminAction.getActionType());
+            if(adminAction.getTimeStamp() != null)
+                existingAction.setTimeStamp(adminAction.getTimeStamp());
+                return adminActionsRepository.save(existingAction)
+            }
+            throw new ResourceNotFoundException("Action not found with ID: " + ActionID));
 }
-    public AdminActions<String> deleteAdminAction(Actiontype ActionType,Int ActionID) {
-        AdminActions adminAction = adminActionsRepository.findById(ActionID).orElse(null);
-        if (adminAction != null) {
-            adminActionsRepository.delete(adminAction);
-            return adminAction.ok("Admin action deleted successfully!");
-        } else {
-            return adminAction.status(HttpStatus.NOT_FOUND).body("Admin action not found.");
-    }
+    public void deleteAdminAction(Int ActionID) {
+    if (adminActionsRepository.existsById(ActionID)) {
+        adminActionsRepository.deleteById(ActionID);
+    } else {
+        throw new ("Admin action with ID: " + ActionID + " not found.");
 }
-    public ForumPost deleteForumPost(Int PostID) {
-        try {
+    public void deleteForumPost(Int PostID) throws Exception{
+        if(forumPostRepository.existsById(PostID)){
             forumPostRepository.deleteByPostId(PostID);
-            return PostID.ok("Forum post deleted successfully");
-        } catch (EmptyResultDataAccessException e) {
-            return PostID.notFound().build();
-        }
+        } else
+            throw new Exception("Post with id " + PostID + " not found.")
 }
-    public ForumPost updateForumPost(Int PostID,ForumPost updatedPost) {
+    public ForumPost updateForumPost(Int PostID,ForumPost updatedPost) throws ResourceNotFoundException{
         ForumPost existingPost = forumPostRepository.findById(PostID)
-        .orElseThrow(() -> new ResourceNotFoundException("ForumPost not found with ID: " + PostID));
-        ForumPost savedPost = forumPostRepository.save(existingPost);
-        return forumPostRepository.ok(savedPost);
+        if(existingPost != null){
+            if(updatedPost.getContent() != null)
+                existingPost.setContent(updatedPost.getContent());
+            if(updatedPost.getTopic() != null)
+                existingPost.setTopic(updatedPost.getTopic());
+            if(updatedPost.getCreationTime() != null)
+                existingPost.setCreationTime(updatedPost.getCreationTime());
+            return  forumPostRepository.save(existingPost);
+        }
+        throw new ResourceNotFoundException("Post not found with ID: " + PostID));
 }
     public User setRole(Long adminId,ERole role) {
         Optional<User> userOptional = userRepository.findById(adminId);
@@ -173,21 +173,31 @@ public class CollaborationsList {
     ROLE_ADMIN
     }
 }
-    public BuddySystem createBuddySystem(BuddySystem buddySystem) {
-        BuddySystem savedBuddySystem = buddySystemRepository.save(buddySystem);
-        return saveBuddySystem.status(HttpStatus.CREATED).body(savedBuddySystem);
-    }
+    public BuddySystem createBuddySystem(BuddySystem buddySystem) throws Exception {
+        if(buddySystem.getLanguages() != null) {
+            if(buddySystemRepository.findByLanguages(buddySystem.getLanguages()) == null)
+                return buddySystemRepository.save(buddySystem);
+            throw new Exception("Buddy with " + buddySystem.getLanguages() + " language already available.")
+        }
+        throw new Exception("Invalid language");
 }
     public List<BuddySystem> getAllBuddySystems(String Languages) {
         List<BuddySystem> buddySystems = buddySystemRepository.findByLanguage(Languages);
-        return buddySystemRepository.ok(buddySystems);
-    }
+        return buddySystems;
 }
-    public ForumPost createForumPost(ForumPost forumPost) {
-        ForumPost savedPost = forumPostRepository.save(forumPost);
-        return savedPost.status(HttpStatus.CREATED).body(savedPost);
-    }
+    public ForumPost createForumPost(ForumPost forumPost) throws Exception {
+        if(forumPost.getTopic() != null){
+            if(forumPostRepository.findByTopic(forumPost.getTopic()) == null)
+                return forumPostRepository.save(forumPost);
+            throw new Exception("Post with " + forumPost.getTopic + " topic already available.");
+        }
+        throw new Exception("Invalid topic");
 }
+    
+
+
+
+    
     public ForumResponse createForumResponse(Int ResponseID,ForumResponse forumResponse) {
         forumResponse.setResponseID(ResponseID);
         ForumResponse savedResponse = forumResponseRepository.save(forumResponse);
