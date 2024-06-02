@@ -10,6 +10,3 @@ public class CollaborationApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CollaborationApplication.class, args);
 	}
-	@PostConstruct
-	private void initPlaceholderData() throws Exception {
-	
