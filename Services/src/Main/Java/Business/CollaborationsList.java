@@ -78,22 +78,25 @@ public class CollaborationsList {
                 return accountManagementRepository.save(existingAccount)
             }
             throw new ResourceNotFoundException("Account not found with ID: " + ManagementID));
+        }
     }
-}
+
     public void deleteAccountManagement(Int ManagementID) throws Exception{
         if(accountManagementRepository.existsById(ManagementID)){
             accountManagementRepository.deleteById(ManagementID);
         } else 
             throw new Exception("Account management record " + ManagementID + " was deleted successfully.");
-}
+    }
+
     public AccountManagement createAccountManagement(AccountManagement accountManagement) throws Exception {
-        if(accountManagement.getActionType() != null)
+        if(accountManagement.getActionType() != null){
             if(accountManagementRepository.findByActionType(accountManagement.getActionType()) == null)
                 return accountManagementRepository.save(accountManagement);
-        throw new Exception("Account management record " + accountManagement.getActionType() + " already available");
+            throw new Exception("Account management record " + accountManagement.getActionType() + " already available");
+        } 
+        throw new Exception("Invalid action type");  
     } 
-    throw new Exception("Invalid action type");
-} 
+
     public User setRole(Long superadminId,ERole role) {
         Optional<User> userOptional = userRepository.findById(superadminId);
         Optional<Role> roleOptional = roleRepository.findByName(role);
@@ -114,6 +117,7 @@ public class CollaborationsList {
     ROLE_STUDENT,
     ROLE_SUPERADMIN,
     ROLE_ADMIN
+    }
 }
     public AdminActions updateAdminAction(Int ActionID,AdminActions adminAction) throws ResourceNotFoundException {
         AdminActions existingAction = adminActionsRepository.findById(ActionID).orElse(null);
@@ -125,19 +129,22 @@ public class CollaborationsList {
                 return adminActionsRepository.save(existingAction)
             }
             throw new ResourceNotFoundException("Action not found with ID: " + ActionID));
-}
+    }
+
     public void deleteAdminAction(Int ActionID) {
-    if (adminActionsRepository.existsById(ActionID)) {
-        adminActionsRepository.deleteById(ActionID);
-    } else {
-        throw new ("Admin action with ID: " + ActionID + " not found.");
-}
+        if (adminActionsRepository.existsById(ActionID)) {
+            adminActionsRepository.deleteById(ActionID);
+        } else {
+            throw new ("Admin action with ID: " + ActionID + " not found.");
+    }
+
     public void deleteForumPost(Int PostID) throws Exception{
         if(forumPostRepository.existsById(PostID)){
             forumPostRepository.deleteByPostId(PostID);
         } else
             throw new Exception("Post with id " + PostID + " not found.")
-}
+    }
+
     public ForumPost updateForumPost(Int PostID,ForumPost updatedPost) throws ResourceNotFoundException{
         ForumPost existingPost = forumPostRepository.findById(PostID)
         if(existingPost != null){
@@ -150,7 +157,8 @@ public class CollaborationsList {
             return  forumPostRepository.save(existingPost);
         }
         throw new ResourceNotFoundException("Post not found with ID: " + PostID));
-}
+    }
+
     public User setRole(Long adminId,ERole role) {
         Optional<User> userOptional = userRepository.findById(adminId);
         Optional<Role> roleOptional = roleRepository.findByName(role);
@@ -173,6 +181,7 @@ public class CollaborationsList {
     ROLE_ADMIN
     }
 }
+
     public BuddySystem createBuddySystem(BuddySystem buddySystem) throws Exception {
         if(buddySystem.getLanguages() != null) {
             if(buddySystemRepository.findByLanguages(buddySystem.getLanguages()) == null)
@@ -180,11 +189,13 @@ public class CollaborationsList {
             throw new Exception("Buddy with " + buddySystem.getLanguages() + " language already available.")
         }
         throw new Exception("Invalid language");
-}
+    }
+
     public List<BuddySystem> getAllBuddySystems(String Languages) {
         List<BuddySystem> buddySystems = buddySystemRepository.findByLanguage(Languages);
         return buddySystems;
-}
+    }
+
     public ForumPost createForumPost(ForumPost forumPost) throws Exception {
         if(forumPost.getTopic() != null){
             if(forumPostRepository.findByTopic(forumPost.getTopic()) == null)
@@ -192,86 +203,112 @@ public class CollaborationsList {
             throw new Exception("Post with " + forumPost.getTopic + " topic already available.");
         }
         throw new Exception("Invalid topic");
-}
-    
-
-
-
-    
-    public ForumResponse createForumResponse(Int ResponseID,ForumResponse forumResponse) {
-        forumResponse.setResponseID(ResponseID);
-        ForumResponse savedResponse = forumResponseRepository.save(forumResponse);
-        return savedResponse.status(HttpStatus.CREATED).body(savedResponse);
     }
-}
-    public IndependentProject createIndependentProject(IndependentProject independentProject) {
-        IndependentProject savedProject = independentProjectRepository.save(independentProject);
-        return savedProject.status(HttpStatus.CREATED).body(savedProject);
-}
-    public ResponseEntity createJobAdvertisement(JobAdvertisement jobAdvertisement) {
-    try {
-        entityManager.persist(jobAdvertisement);
-        return jobAdvertisement.ok("Job advertisement created successfully.");
-    } catch (Exception e) {
-        return jobAdvertisement.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+
+    public ForumResponse createForumResponse(ForumResponse forumResponse) throws Exception{
+        if(forumResponse.getResponseTime() != null){
+            if(forumResponseRepository.findByResponseTime(forumResponse.getResponseTime()) == null)
+                return forumResponseRepository.save(forumResponse);
+            throw new Exception("Forum response with " + forumResponse.getResponseTime() + " response time already available.")
+        }
+        throw new Exception("Invalid response time");
+    }  
+
+    public IndependentProject createIndependentProject(IndependentProject independentProject) throw Exception {
+        if(independentProject.getProjectName() != null){
+            if(independentProjectRepository.findByProjectName(independenProject.getProjectName()) == null)
+                return independentProjectRepository.save(independentProject);
+            throw new Exception("Project with " + independentProject.getProjectName() + " project name already available.");
+        }
+        throw new Exception("Invalied project name");
     }
-}
-    public MentoringForProjects createMentoringForProjects(MentoringForProjects mentoringForProjects) {
-        MentoringForProjects savedMentoring = mentoringRepository.save(mentoringForProjects);
-        return savedMentoring.status(HttpStatus.CREATED).body(savedMentoring);
-}
+
+    public JobAdvertisement createJobAdvertisement(JobAdvertisement jobAdvertisement) throws Exception {
+        if(jobAdvertisment.getTitle() != null){
+            if(jobAdvertisementRepository.findByTitle(jobAdvertisment.getTitle()) == null)
+                return jobAdvertisementRepository.save(jobAdvertisement);
+            throw new Exception("Job advertisement with " + jobAdvertisement.getTitle() + " title already available.");
+        }
+        throw new Exception("Invalid title");
+    } 
+
+    public MentoringForProjects createMentoringForProjects(MentoringForProjects mentoringForProjects) throws Exception{
+        if(mentoringForProjects.getSubject() != null){
+            if(mentoringForProjectsRepository.findBySubject(mentoringForProjects.getSubject()) == null)
+                return mentoringForProjectsRepository.save(mentoringForProjects);
+            throw new Exception("Mentoring with " + mentoringForProjects.getSubjects() + " subject already available.");
+        }
+        throw new Exception("Invalid subject");
+    }
+
     public List<MentoringForProjects> getAllMentoringForProjects() {
         List<MentoringForProjects> mentoringList = mentoringRepository.findAll();
-        return mentoringList.ok(mentoringList);
-}
-    public RoomAssignment createRoomAssignment(RoomAssignment roomAssignment) {
-        RoomAssignment savedAssignment = roomAssignmentRepository.save(roomAssignment);
-        return savedAssignment.status(HttpStatus.CREATED).body(savedAssignment);
-}
+        return mentoringList;
+    }
+
+    public RoomAssignment createRoomAssignment(RoomAssignment roomAssignment) throw Exception{
+        if(roomAssignment.getBuilding() != null){
+            if(roomAssignmentRepository.findByBuilding(roomAssignment.getBuilding()) == null)
+                return roomAssignmentRepository.save(roomAssignment);
+            throw new Exception("Room assignment with " + roomAssignment.getBuilding() + " building already available.");
+        }
+        throw new Exception("Invalid building");
+    }
+
     public List<SystemLog> getAllSystemLogs() {
         List<SystemLog> systemLogs = systemLogRepository.findAll();
-        return systemLogs.ok(systemLogs);
-}
-    public TutoringSession createTutoringSession(TutoringSession tutoringSession) {
-        TutoringSession savedSession = tutoringSessionRepository.save(tutoringSession);
-        return savedSession.status(HttpStatus.CREATED).body(savedSession);
-}
-    public List<TutoringSession> getAllTutoringSession(String Subject,boolean Recurring) {
-        List<TutoringSession> tutoringSessions = tutoringSessionRepository.findBySubjectAndRecurring(subject, recurring);
-        return tutoringSessions.ok(tutoringSessions);
-}
-    public User createUser(User user) {
-    try {
-        entityManager.persist(user);
-        return user.ok("User created successfully.");
-    } catch (Exception e) {
-        return user.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-}
-    public User updateUser(User updatedUser) {
-    try {
+        return systemLogs;
+    }
+
+    public TutoringSession createTutoringSession(TutoringSession tutoringSession) throws Exception{
+            if(tutoringSession.getSubject() != null){
+                if(tutoringSessionRepository.findBySubject(tutoringSession.getSubject()) == null)
+                    return tutoringSessionRepository.save(tutoringSession);
+                throw new Exception("Tutoring with " + tutoringSession.getSubject() + " subject already available.");
+            }
+            throw new Exception("Invalid subject");
+    }
+
+    public List<TutoringSession> getAllTutoringSession() {
+        List<TutoringSession> tutoringSessions = tutoringSessionRepository.findByAll());
+        return tutoringSessions;
+    }
+    
+    public User createUser(User user) throws Exception {
+            if(user.getUsername() != null){
+                if(userRepository.findByUsername(user.getUsername()) == null)
+                    return userRepository.save(user);
+                throw new Exception("User with " + user.getUsername() + " name already available.");
+            }
+            throw new Exception("Invalid user name");
+    }
+
+    public User updateUser(Int UserID,User updatedUser) throws ResourceNotFoundException{
         User existingUser = userRepository.findById(updatedUser.getId(UserID))
-        .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + updatedUser.getId(UserID)));
-        existingUser.setSomeProperty(updatedUser.getSomeProperty());
-        userRepository.save(existingUser);
-        return existingUser.ok("User updated successfully.");
-    } catch (ResourceNotFoundException e) {
-        return existingUser.notFound().build();
-    } catch (Exception e) {
-        return existingUser.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-}
-    public User deleteUser(Int UserID) {
-    try {
-        Optional<User> optionalUser = userRepository.findById(UserID);
-        if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            userRepository.delete(user);
-            return user.ok("User deleted successfully.");
-        } else {
-            return user.notFound().build();
+        if(existingUser != null){
+            if(updatedUser.getUsername() != null)
+                existingUser.setUsername(updatedUser.getUsername());
+            if(updatedUser.getPassword() != null)
+                existingUser.setPassword(updatedUser.getPassword());
+            if(updatedUser.getRole() != null)
+                existingUser.getRole(updatedUser.getRole());
+            if(updatedUser.getEmail() != null)
+                existingUser.setEmail(updatedUser.getEmail());
+            if(updatedUser.getPhoneNumber() != null)
+                existingUser.setPhoneNumber(updatedUser.getPhoneNumber());
+            return userRepository.save(existingUser);    
         }
-    } catch (Exception e) {
-        return user.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-}
+        throw new ResourceNotFoundException("User with id " + UserID " not available.");
+    }
+    
+    public void deleteUser(Int UserID) throws Exception{
+        if(userRepository.existsById(UserID)){
+            userRepository.deleteById(UserID);
+        }else{
+            throw new Exception("User with id " + UserID + " does not exist.") 
+        }
+    }
+    
     public User setRole(Long studentId,ERole role) {
         Optional<User> userOptional = userRepository.findById(studentId);
         Optional<Role> roleOptional = roleRepository.findByName(role);

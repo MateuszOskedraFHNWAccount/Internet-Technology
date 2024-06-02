@@ -5,7 +5,7 @@ public class User{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Hidden
     @Column(name = "UserID")
-    private Int UserId;
+    private Int UserID;
 
     @Column(name = "Username")
     private String Username;
