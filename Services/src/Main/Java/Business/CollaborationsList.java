@@ -97,28 +97,6 @@ public class CollaborationsList {
         throw new Exception("Invalid action type");  
     } 
 
-    public User setRole(Long superadminId,ERole role) {
-        Optional<User> userOptional = userRepository.findById(superadminId);
-        Optional<Role> roleOptional = roleRepository.findByName(role);
-
-        if (userOptional.isPresent() && roleOptional.isPresent()) {
-            User user = userOptional.get();
-            Role assignedRole = roleOptional.get();
-
-            user.getRoles().add(assignedRole);
-            userRepository.save(user);
-
-            return userRepository.ok(user);
-        } else {
-            return user.notFound().build();
-    }
-}
-    public enum ERole {
-    ROLE_STUDENT,
-    ROLE_SUPERADMIN,
-    ROLE_ADMIN
-    }
-}
     public AdminActions updateAdminAction(Int ActionID,AdminActions adminAction) throws ResourceNotFoundException {
         AdminActions existingAction = adminActionsRepository.findById(ActionID).orElse(null);
         if(existingAction != null){
@@ -158,29 +136,6 @@ public class CollaborationsList {
         }
         throw new ResourceNotFoundException("Post not found with ID: " + PostID));
     }
-
-    public User setRole(Long adminId,ERole role) {
-        Optional<User> userOptional = userRepository.findById(adminId);
-        Optional<Role> roleOptional = roleRepository.findByName(role);
-
-        if (userOptional.isPresent() && roleOptional.isPresent()) {
-            User user = userOptional.get();
-            Role assignedRole = roleOptional.get();
-
-            user.getRoles().add(assignedRole);
-            userRepository.save(user);
-
-            return userRepository.ok(user);
-        } else {
-            return user.notFound().build();
-    }
-}
-    public enum ERole {
-    ROLE_STUDENT,
-    ROLE_SUPERADMIN,
-    ROLE_ADMIN
-    }
-}
 
     public BuddySystem createBuddySystem(BuddySystem buddySystem) throws Exception {
         if(buddySystem.getLanguages() != null) {
@@ -308,25 +263,3 @@ public class CollaborationsList {
             throw new Exception("User with id " + UserID + " does not exist.") 
         }
     }
-    
-    public User setRole(Long studentId,ERole role) {
-        Optional<User> userOptional = userRepository.findById(studentId);
-        Optional<Role> roleOptional = roleRepository.findByName(role);
-
-        if (userOptional.isPresent() && roleOptional.isPresent()) {
-            User user = userOptional.get();
-            Role assignedRole = roleOptional.get();
-
-            user.getRoles().add(assignedRole);
-            userRepository.save(user);
-
-            return user.ok(user);
-        } else {
-            return user.notFound().build();
-        }
-}
-    public enum ERole {
-    ROLE_STUDENT,
-    ROLE_SUPERADMIN,
-    ROLE_ADMIN
-}

@@ -49,26 +49,8 @@ public class AdminActionsController {
         ForumPost savedPost = postRepository.save(existingPost);
         return ResponseEntity.ok(savedPost);
 }
-    @PosttMapping(path = "/api/auth/login/{adminId}",consumes = "application/json",produces = "application/json")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<User> setRole(@PathVariable("adminId") Long adminId,@RequestParam ERole role) {
-        Optional<User> userOptional = userRepository.findById(adminId);
-        Optional<Role> roleOptional = roleRepository.findByName(role);
-
-        if (userOptional.isPresent() && roleOptional.isPresent()) {
-            User user = userOptional.get();
-            Role assignedRole = roleOptional.get();
-
-            user.getRoles().add(assignedRole);
-            userRepository.save(user);
-
-            return ResponseEntity.ok(user);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-}
-    public enum ERole {
-    ROLE_STUDENT,
-    ROLE_SUPERADMIN,
-    ROLE_ADMIN
+    @GetMapping(path = "/api/auth/login/{adminId}",produces = "application/json")
+    public ResponseEntity<String> showAdminContent(Principal principal) {
+    String message = "Welcome, " + principal.getName() + "! <BR> Only an admin can view this content.";
+    return new ResponseEntity<>(message, HttpStatus.OK);
 }

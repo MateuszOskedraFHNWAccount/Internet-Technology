@@ -47,26 +47,8 @@ public class UserController {
     } catch (Exception e) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 }
-    @PosttMapping(path = "/api/auth/login/{studentId}",consumes = "application/json",produces = "application/json")
-    @PreAuthorize("hasRole('STUDENT')")
-    public ResponseEntity<User> setRole(@PathVariable("studentId") Long studentId,@RequestParam ERole role) {
-        Optional<User> userOptional = userRepository.findById(studentId);
-        Optional<Role> roleOptional = roleRepository.findByName(role);
-
-        if (userOptional.isPresent() && roleOptional.isPresent()) {
-            User user = userOptional.get();
-            Role assignedRole = roleOptional.get();
-
-            user.getRoles().add(assignedRole);
-            userRepository.save(user);
-
-            return ResponseEntity.ok(user);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-}
-    public enum ERole {
-    ROLE_STUDENT,
-    ROLE_SUPERADMIN,
-    ROLE_ADMIN
+    @GetMapping(path = "/api/auth/login/{studentId}",produces = "application/json")
+    public ResponseEntity<String> showUserContent(Principal principal) {
+    String message = "Welcome, " + principal.getName() + "! <BR> Only a user can view this content.";
+    return new ResponseEntity<>(message, HttpStatus.OK);
 }
