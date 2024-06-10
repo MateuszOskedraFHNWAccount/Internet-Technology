@@ -1,4 +1,4 @@
-package ch.fhnw.pizza;
+package services/src/tests;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
