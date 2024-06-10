@@ -5,7 +5,7 @@ public class IndependentProject{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Hidden
     @Column(name = "ProjectID")
-    private Int ProjectId;
+    private Int ProjectID;
 
     @Column(name = "ProjectName")
     private String ProjectName;

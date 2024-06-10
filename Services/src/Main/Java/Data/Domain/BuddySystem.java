@@ -11,7 +11,7 @@ public class BuddySystem {
     private String Languages;
 
     @Column(name = "Status")
-    private BuddyStatus status;
+    private BuddyStatus Status;
 
 }
 public BuddySystem(Int BuddyPairID,String Languages,
