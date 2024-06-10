@@ -39,15 +39,86 @@ public class CollaborationApplication {
 	// To resolve the error, delete the file and restart the application
 	@PostConstruct
 	private void initPlaceholderData() throws Exception {
-		Pizza pizza = new Pizza();
+		AccountManagement am = new AccountManagement();
 		pizza.setPizzaName("Margherita");
-		pizza.setPizzaToppings("Tomato sauce, mozzarella, basil");
-		menuService.addPizza(pizza);
+		am.setActionType(CREATE);
+		am.setTimeStamp(2024-03-04-19.09);
+		CollaborationsList.createAccountManagement(am);
 
-		pizza = new Pizza();
-		pizza.setPizzaName("Funghi");
-		pizza.setPizzaToppings("Tomato sauce, mozzarella, mushrooms");
-		menuService.addPizza(pizza);
+		AdminActions aa = new AdminActions();
+		aa.setActionType(DELETE);
+		aa.setTimeStamp(2024-11-09-14.32);
+		CollaborationsList.updateAdminAction(aa);
+
+		BuddySystem bs = new BuddySystem();
+		bs.setLanguages("English, Italian");
+		bs.setStatus(ACTIVE);
+		CollaborationsList.createBuddySystem(bs);
+
+		ForumPost fp = new ForumPost();
+		fp.setContent("Exam dates are going to be published in one week");
+		fp.setTopic("Exam dates");
+		fp.setCreationTime(2023-12-23-10.56);
+		CollaborationsList.createForumPost(fp);
+
+		ForumResponse fr = new ForumResponse();
+		fr.setContent("At what time are we going to receive the time schedule for the exams?");
+		fr.setResponseTime(2023-12-26-14.34);
+		CollaborationsList.createForumResponse(fr);
+
+		IndependentProject ip = new IndependentProject();
+		ip.setProjectName("Assignment 1 for Programming 1");
+		ip.setDescription("Peter Kranz from the class BITPT1b needs a partner. The project focuses on the simple application of GUI objects.");
+		ip.setReccuring(Yes);
+		ip.setStartTime(2022-09-20-08.15);
+		ip.setEndTime(2022-12-05-12.00);
+		CollaborationsList.createIndependentProject(ip);
+
+		JobAdvertisement ja = new JobAdvertisement();
+		ja.setTitle("Data security assistant");
+		ja.setDescription("It requires a degree in the field of BIT. It involves activities in relation to data security.");
+		ja.setApplicationDeadline(2020-10-10-15.30);
+		ja.setContactInfo("Mr. Jaeger/No. 079 321 53 12");
+		CollaborationsList.createJobAdvertisement(ja);
+
+		MentoringForProjects mfp = new MentoringForProjects();
+		mfp.setSubject("Corporate Finance and Controlling");
+		mfp.setDescription("Explanation of basic concepts/theory and calculations.");
+		mfp.setReccuring(No);
+		mfp.setProjectName("Additional support for basic lectures");
+		mfp.setStartTime(2019-05-20-21.00);
+		mfp.setEndTime(2019-02-20-17.15);
+		CollaborationsList.createMentoringForProjects(mfp);
+
+		RoomAssignment ra = new RoomAssignment();
+		ra.setBuilding("FHNW Northwestern Switzerland");
+		ra.setCapacity(300);
+		ra.setResources("350 chairs and 200 tables");
+		ra.setStartTime(2019-03-30-08.15);
+		ra.setEndTime(2019-05-30-17.00);
+		CollaborationsList.createRoomAssignment(ra);
+
+		SystemLog sl = new SystemLog();
+		sl.setTimeStamp(2018-11-12-18.26);
+		sl.setDescription("Login attempt of user 1 unsuccesful");
+		CollaborationsList.getAllSystemLogs(sl);
+
+		TutoringSession ts = new TutoringSession();
+		ts.setSubject("Introduction to BIT");
+		ts.setDescription("Explanation of basic information regarding BIT");
+		ts.setReccuring(Yes);
+		ts.setStartTime(2017-10-01-18.00);
+		ts.setEndTime(2017-10-01-20.00);
+		ts.setStatus(COMPLETED);
+		CollaborationsList.createTutoringSession(ts);
+
+		User u = new User();
+		u.setUsername("Emirhan Akguen");
+		u.setPassword("T20fn2");
+		u.setRole(ADMIN);
+		u.setEmail("emirhan.akguen@students.fhnw.ch");
+		u.setPhoneNumber("061 231 79 64");
+		CollaborationsList.createUser(u);
 		
 	}
 
