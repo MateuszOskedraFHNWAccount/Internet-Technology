@@ -1,3 +1,5 @@
+package services/src/main/java/data/domain;
+
 @Entity
 @Table(name = "Mentoring for Projects")
 public class MentoringForProjects{

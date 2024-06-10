@@ -1,3 +1,5 @@
+package services/src/main/java/data/domain;
+
 @Entity
 @Table(name = "Room Assignment")
 public class RoomAssignment {
