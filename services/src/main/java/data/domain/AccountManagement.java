@@ -1,5 +1,13 @@
 package services/src/main/java/data/domain;
 
+import io.swagger.v3.oas.annotations.Hidden;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
 @Table(name = "Account Management")
 public class AccountManagement{
