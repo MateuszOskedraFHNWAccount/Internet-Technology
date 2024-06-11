@@ -1,4 +1,4 @@
-package services/src/main/java;
+package services.src.main.java;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -6,19 +6,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import services/src/main/java/business/CollaborationsList.java;
-import services/src/main/java/data/domain/AccountManagement.java;
-import services/src/main/java/data/domain/AdminActions.java;
-import services/src/main/java/data/domain/BuddySystem.java;
-import services/src/main/java/data/domain/ForumPost.java;
-import services/src/main/java/data/domain/ForumResponse.java;
-import services/src/main/java/data/domain/IndependentProject.java;
-import services/src/main/java/data/domain/JobAdvertisement.java;
-import services/src/main/java/data/domain/MentoringForProjects.java;
-import services/src/main/java/data/domain/RoomAssignment.java;
-import services/src/main/java/data/domain/SystemLog.java;
-import services/src/main/java/data/domain/TutoringSession.java;
-import services/src/main/java/data/domain/User.java;
+import services.src.main.java.business.CollaborationsList;
+import services.src.main.java.data.domain.AccountManagement;
+import services.src.main.java.data.domain.AdminActions;
+import services.src.main.java.data.domain.BuddySystem;
+import services.src.main.java.data.domain.ForumPost;
+import services.src.main.java.data.domain.ForumResponse;
+import services.src.main.java.data.domain.IndependentProject;
+import services.src.main.java.data.domain.JobAdvertisement;
+import services.src.main.java.data.domain.MentoringForProjects;
+import services.src.main.java.data.domain.RoomAssignment;
+import services.src.main.java.data.domain.SystemLog;
+import services.src.main.java.data.domain.TutoringSession;
+import services.src.main.java.data.domain.User;
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.annotation.PostConstruct;
 
@@ -40,7 +40,6 @@ public class CollaborationApplication {
 	@PostConstruct
 	private void initPlaceholderData() throws Exception {
 		AccountManagement am = new AccountManagement();
-		pizza.setPizzaName("Margherita");
 		am.setActionType(CREATE);
 		am.setTimeStamp(2024-03-04-19.09);
 		CollaborationsList.createAccountManagement(am);

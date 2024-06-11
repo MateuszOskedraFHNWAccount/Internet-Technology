@@ -1,4 +1,4 @@
-package services/src/tests;
+package services.src.tests;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

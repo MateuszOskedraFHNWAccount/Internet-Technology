@@ -1,35 +1,35 @@
-package services/src/main/java/business;
+package services.src.main.java.business;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import services/src/main/java/data/domain/AccountManagement.java;
-import services/src/main/java/data/domain/AdminActions.java;
-import services/src/main/java/data/domain/BuddySystem.java;
-import services/src/main/java/data/domain/ForumPost.java;
-import services/src/main/java/data/domain/ForumResponse.java;
-import services/src/main/java/data/domain/IndependentProject.java;
-import services/src/main/java/data/domain/JobAdvertisement.java;
-import services/src/main/java/data/domain/MentoringForProjects.java;
-import services/src/main/java/data/domain/RoomAssignment.java;
-import services/src/main/java/data/domain/SystemLog.java;
-import services/src/main/java/data/domain/TutoringSession.java;
-import services/src/main/java/data/domain/User.java;
+import services.src.main.java.data.domain.AccountManagement;
+import services.src.main.java.data.domain.AdminActions;
+import services.src.main.java.data.domain.BuddySystem;
+import services.src.main.java.data.domain.ForumPost;
+import services.src.main.java.data.domain.ForumResponse;
+import services.src.main.java.data.domain.IndependentProject;
+import services.src.main.java.data.domain.JobAdvertisement;
+import services.src.main.java.data.domain.MentoringForProjects;
+import services.src.main.java.data.domain.RoomAssignment;
+import services.src.main.java.data.domain.SystemLog;
+import services.src.main.java.data.domain.TutoringSession;
+import services.src.main.java.data.domain.User;
 
-import services/src/main/java/data/repository/AccountManagementRepository.java;
-import services/src/main/java/data/repository/AdminActionsRepository.java;
-import services/src/main/java/data/repository/BuddySystemRepository.java;
-import services/src/main/java/data/repository/ForumPostRepository.java;
-import services/src/main/java/data/repository/ForumResponseRepository.java;
-import services/src/main/java/data/repository/IndependentProjectRepository.java;
-import services/src/main/java/data/repository/JobAdvertisementRepository.java;
-import services/src/main/java/data/repository/MentoringForProjectsRepository.java;
-import services/src/main/java/data/repository/RoomAssignmentRepository.java;
-import services/src/main/java/data/repository/SystemLogRepository.java;
-import services/src/main/java/data/repository/TutoringSessionRepository.java;
-import services/src/main/java/data/repository/UserRepository.java;
+import services.src.main.java.data.repository.AccountManagementRepository;
+import services.src.main.java.data.repository.AdminActionsRepository;
+import services.src.main.java.data.repository.BuddySystemRepository;
+import services.src.main.java.data.repository.ForumPostRepository;
+import services.src.main.java.data.repository.ForumResponseRepository;
+import services.src.main.java.data.repository.IndependentProjectRepository;
+import services.src.main.java.data.repository.JobAdvertisementRepository;
+import services.src.main.java.data.repository.MentoringForProjectsRepository;
+import services.src.main.java.data.repository.RoomAssignmentRepository;
+import services.src.main.java.data.repository.SystemLogRepository;
+import services.src.main.java.data.repository.TutoringSessionRepository;
+import services.src.main.java.data.repository.UserRepository;
 
 @Service
 public class CollaborationsList {

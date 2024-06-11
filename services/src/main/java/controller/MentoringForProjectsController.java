@@ -1,7 +1,7 @@
-package services/src/main/java/controller;
+package services.src.main.java.controller;
 
-import services/src/main/java/business/CollaborationsList.java;
-import services/src/main/java/data/domain/MentoringForProjects.java;
+import services.src.main.java.business.CollaborationsList;
+import services.src.main.java.data.domain.MentoringForProjects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
