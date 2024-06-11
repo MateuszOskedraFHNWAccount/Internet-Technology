@@ -40,18 +40,18 @@ public class CollaborationApplication {
 	@PostConstruct
 	private void initPlaceholderData() throws Exception {
 		AccountManagement am = new AccountManagement();
-		am.setActionType(CREATE);
+		am.setActionType(ActionType.CREATE);
 		am.setTimeStamp(2024-03-04-19.09);
 		CollaborationsList.createAccountManagement(am);
 
 		AdminActions aa = new AdminActions();
-		aa.setActionType(DELETE);
+		aa.setActionType(ActionType.DELETE);
 		aa.setTimeStamp(2024-11-09-14.32);
 		CollaborationsList.updateAdminAction(aa);
 
 		BuddySystem bs = new BuddySystem();
 		bs.setLanguages("English, Italian");
-		bs.setStatus(ACTIVE);
+		bs.setStatus(BuddyStatus.ACTIVE);
 		CollaborationsList.createBuddySystem(bs);
 
 		ForumPost fp = new ForumPost();
@@ -68,7 +68,7 @@ public class CollaborationApplication {
 		IndependentProject ip = new IndependentProject();
 		ip.setProjectName("Assignment 1 for Programming 1");
 		ip.setDescription("Peter Kranz from the class BITPT1b needs a partner. The project focuses on the simple application of GUI objects.");
-		ip.setReccuring(Yes);
+		ip.setReccuring(true);
 		ip.setStartTime(2022-09-20-08.15);
 		ip.setEndTime(2022-12-05-12.00);
 		CollaborationsList.createIndependentProject(ip);
@@ -83,7 +83,7 @@ public class CollaborationApplication {
 		MentoringForProjects mfp = new MentoringForProjects();
 		mfp.setSubject("Corporate Finance and Controlling");
 		mfp.setDescription("Explanation of basic concepts/theory and calculations.");
-		mfp.setReccuring(No);
+		mfp.setReccuring(false));
 		mfp.setProjectName("Additional support for basic lectures");
 		mfp.setStartTime(2019-05-20-21.00);
 		mfp.setEndTime(2019-02-20-17.15);
@@ -105,16 +105,16 @@ public class CollaborationApplication {
 		TutoringSession ts = new TutoringSession();
 		ts.setSubject("Introduction to BIT");
 		ts.setDescription("Explanation of basic information regarding BIT");
-		ts.setReccuring(Yes);
+		ts.setReccuring(true);
 		ts.setStartTime(2017-10-01-18.00);
 		ts.setEndTime(2017-10-01-20.00);
-		ts.setStatus(COMPLETED);
+		ts.setStatus(SessionStatus.COMPLETED);
 		CollaborationsList.createTutoringSession(ts);
 
 		User u = new User();
 		u.setUsername("Emirhan Akguen");
 		u.setPassword("T20fn2");
-		u.setRole(ADMIN);
+		u.setRole(UserRole.ADMIN);
 		u.setEmail("emirhan.akguen@students.fhnw.ch");
 		u.setPhoneNumber("061 231 79 64");
 		CollaborationsList.createUser(u);
