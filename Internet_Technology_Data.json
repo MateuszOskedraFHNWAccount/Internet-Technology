@@ -1,0 +1,154 @@
+{
+"BuddyOffers": [
+	{
+	"user_id": "1"
+	"languages": "English, Spanish"
+	"description": "Buddy for international students"
+	}
+	]
+}
+{
+"ForumPosts": [
+	{
+	"user_id": "1"
+	"title": "Welcome to the Forum"
+	"content": "Feel free to discuss any topics here."
+	}
+	]
+}
+{
+"ForumResponses": [
+	{
+	"post_id": "1"
+	"user_id": "2"
+	"content": "Thank you! Looking forward to it."
+	}
+	]
+}
+{
+"IndependentProjects": [
+	{
+	"user_id": "1"
+	"title": "AI Research"
+	"description": "Research on artificial intelligence"
+	"reccuring": "No"
+	"timeline": "Throughout the semester"
+	}
+	]
+}
+{
+"JobAdvertisements": [
+	}
+	"admin_id": "2"
+	"title": "Software Engineer"
+	"details": "Develop software applications"
+	"requirements": "BSc in Computer Science"
+	"application_process": "Submit resume online"
+	"deadline": "2023-12-31 23:59:59"
+	}
+	]
+}
+{
+"MentoringOffers": [
+	}
+	"user_id": "1"
+	"title": "Career Mentoring"
+	"description": "Mentoring for career development"
+	"reccuring": "No"
+	"timeline": "Monthly on the first Monday"
+	}
+	]
+}
+{
+"RoomAssignments": [
+	}
+	"user_id": "1"
+	"event_id": "101"
+	"room_number": "A101"
+	"reccuring": "Yes"
+	"timeframe": "Weekly on Tuesdays"
+	}
+	]
+}
+{
+"Logs": [
+	}
+	"user_id": "1"
+	"action": "LOGIN"
+	"description": "User logged in successfully."
+	}
+	]
+}
+{
+"TutoringOffers": [
+	}
+	"user_id": "1"
+	"title": "Math Tutoring"
+	"description": "Tutoring for calculus and algebra"
+	"reccuring": "Yes"
+	"timeline": "Weekly on Wednesdays"
+	}
+	]
+}
+{
+"Roles": [
+	}
+	"role_id": "1"
+	"role_name": "Student"
+	},
+	{
+	"role_id": "2"
+	"role_name": "Admin"
+	},
+	{
+	"role_id": "3"
+	"role_name": "Super Admin"
+	]
+}
+{
+"Users": [
+	}
+	"username": "Adam Kanouni"
+	"password_hash": "12345678"
+	"email": "adam.kanouni@students.fhnw.ch"
+	"role": "Student"
+	},
+	{
+	"username": "Emirhan Akgun"
+	"password_hash": "12345678"
+	"email": "emirhan.akguen@students.fhnw.ch"
+	"role": "Admin"
+	},
+	{
+	"username": "Mateusz Oskedra"
+	"password_hash": "12345678"
+	"email": "mateusz.oskedra@students.fhnw.ch"
+	"role": "Super Admin"
+	},
+	{
+	"username": "Sina Najaflou"
+	"password_hash": "12345678"
+	"email": "sina.najaflou@students.fhnw.ch"
+	"role": "Student"
+	}
+	]
+}
+{
+"Advertisements": [
+	}
+	"admin_id": "2"
+	"title": "Spring Sale"
+	"content": "Get discounts on all courses this spring!"
+	}
+	]
+}
+{
+"BuddyAssignments": [
+	}
+	"admin_id": "2"
+	"international_student_id": "1"
+	"buddy_id": "2"
+	}
+	]
+}
+	
