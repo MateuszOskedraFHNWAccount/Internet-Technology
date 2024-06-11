@@ -1,154 +1,309 @@
 {
-"BuddyOffers": [
-	{
-	"user_id": "1"
-	"languages": "English, Spanish"
-	"description": "Buddy for international students"
-	}
-	]
+  "info": {
+    "name": "My API Collection",
+    "description": "Collection of API endpoints for different services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "AccountManagement",
+      "item": [
+        {
+          "name": "Create Management",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"ManagementID\": \"92\",\"ActionType\": \"CREATE\",\"TimeStamp\": \"2024-09-17-11.03\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/accountmanagement",
+              "host": ["api", "example", "com"],
+              "path": ["accountmanagement"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "AdminActions",
+      "item": [
+        {
+          "name": "Assign Action",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"ActionID\": \"87\",\"ActionType\": \"ASSIGN\",\"TimeStamp\": \"2023-10-09-19.02\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/adminactions",
+              "host": ["api", "example", "com"],
+              "path": ["adminactions"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "BuddySystem",
+      "item": [
+        {
+          "name": "Active Buddy Pair",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"BuddyPairID\": \"8\",\"Languages\": \"English, Spanish\",\"Status\": \"ACTIVE\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/buddysystem",
+              "host": ["api", "example", "com"],
+              "path": ["buddysystem"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ForumPosts",
+      "item": [
+        {
+          "name": "New Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"PostID\": \"16\",\"Content\": \"Feel free to discuss any topics here.\",\"Topic\": \"Welcome to the Forum\",\"CreationTime\": \"2020-12-23-18.45\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/forumposts",
+              "host": ["api", "example", "com"],
+              "path": ["forumposts"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ForumResponse",
+      "item": [
+        {
+          "name": "New Response",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"ResponseID\": \"98\",\"Content\": \"Thank you! Looking forward to it.\",\"ResponseTime\": \"2023-11-12-13.49\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/forumresponse",
+              "host": ["api", "example", "com"],
+              "path": ["forumresponse"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "IndependentProject",
+      "item": [
+        {
+          "name": "AI Research",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"ProjectID\": \"15\",\"ProjectName\": \"AI Research\",\"Description\": \"Research on artificial intelligence\",\"Reccuring\": \"No\",\"StartTime\": \"2021-02-18-08.15\",\"EndTime\": \"2021-06-05-12.00\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/independentproject",
+              "host": ["api", "example", "com"],
+              "path": ["independentproject"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "JobAdvertisement",
+      "item": [
+        {
+          "name": "Software Engineer Job",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"JobAdID\": \"75\",\"Title\": \"Software Engineer\",\"Description\": \"Develop software applications/Requirement: BSc in Computer Science\",\"ApplicationDeadline\": \"2023-12-31-23.59\",\"ContactInfo\": \"Mr. Steiner/No. 075 492 38 23\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/jobadvertisement",
+              "host": ["api", "example", "com"],
+              "path": ["jobadvertisement"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "MentoringForProjects",
+      "item": [
+        {
+          "name": "Career Mentoring",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"ProjectID\": \"32\",\"Subject\": \"Career Mentoring\",\"Description\": \"Mentoring for career development\",\"Reccuring\": \"No\",\"ProjectName\": \"Long term career planning\",\"StartTime\": \"2022-04-15-08.15\",\"EndTime\": \"2022-05-15-12.00\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/mentoringforprojects",
+              "host": ["api", "example", "com"],
+              "path": ["mentoringforprojects"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "RoomAssignment",
+      "item": [
+        {
+          "name": "Room A101 Assignment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"RoomID\": \"55\",\"Building\": \"A101\",\"Capacity\": \"101\",\"Resources\": \"35 chairs and 15 tables\",\"StartTime\": \"2023-09-18-13.15\",\"EndTime\": \"2023-09-18-17.00\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/roomassignment",
+              "host": ["api", "example", "com"],
+              "path": ["roomassignment"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SystemLog",
+      "item": [
+        {
+          "name": "User Login Log",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"LogID\": \"23\",\"TimeStamp\": \"2024-06-11-16.14\",\"Description\": \"User logged in successfully.\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/systemlog",
+              "host": ["api", "example", "com"],
+              "path": ["systemlog"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "TutoringSession",
+      "item": [
+        {
+          "name": "Business Math Session",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"SessionID\": \"10\",\"Subject\": \"Business Math\",\"Description\": \"Tutoring for calculus and algebra\",\"Reccuring\": \"Yes\",\"StartTime\": \"2024-02-20-17.15\",\"EndTime\": \"2024-05-31-21.00\",\"Status\": \"CANCELLED\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/tutoringsession",
+              "host": ["api", "example", "com"],
+              "path": ["tutoringsession"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Adam Kanouni",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"UserID\": \"1\",\"Username\": \"Adam Kanouni\",\"Password\": \"12345678\",\"Email\": \"adam.kanouni@students.fhnw.ch\",\"Role\": \"Student\",\"PhoneNumber\": \"076 439 21 42\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/user",
+              "host": ["api", "example", "com"],
+              "path": ["user"]
+            }
+          }
+        },
+        {
+          "name": "Emirhan Akgun",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"UserID\": \"2\",\"Username\": \"Emirhan Akgun\",\"Password\": \"12345678\",\"Email\": \"emirhan.akguen@students.fhnw.ch\",\"Role\": \"Admin\",\"PhoneNumber\": \"078 313 53 12\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/user",
+              "host": ["api", "example", "com"],
+              "path": ["user"]
+            }
+          }
+        },
+        {
+          "name": "Mateusz Oskedra",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"UserID\": \"3\",\"Username\": \"Mateusz Oskedra\",\"Password\": \"12345678\",\"Email\": \"mateusz.oskedra@students.fhnw.ch\",\"Role\": \"Super Admin\",\"PhoneNumber\": \"068 145 97 23\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/user",
+              "host": ["api", "example", "com"],
+              "path": ["user"]
+            }
+          }
+        },
+        {
+          "name": "Sina Najaflou",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"UserID\": \"4\",\"Username\": \"Sina Najaflou\",\"Password\": \"12345678\",\"Email\": \"sina.najaflou@students.fhnw.ch\",\"Role\": \"Student\",\"PhoneNumber\": \"071 430 37 09\"}"
+            },
+            "url": {
+              "raw": "https://api.example.com/user",
+              "host": ["api", "example", "com"],
+              "path": ["user"]
+            }
+          }
+        }
+      ]
+    }
+  ]
 }
-{
-"ForumPosts": [
-	{
-	"user_id": "1"
-	"title": "Welcome to the Forum"
-	"content": "Feel free to discuss any topics here."
-	}
-	]
-}
-{
-"ForumResponses": [
-	{
-	"post_id": "1"
-	"user_id": "2"
-	"content": "Thank you! Looking forward to it."
-	}
-	]
-}
-{
-"IndependentProjects": [
-	{
-	"user_id": "1"
-	"title": "AI Research"
-	"description": "Research on artificial intelligence"
-	"reccuring": "No"
-	"timeline": "Throughout the semester"
-	}
-	]
-}
-{
-"JobAdvertisements": [
-	}
-	"admin_id": "2"
-	"title": "Software Engineer"
-	"details": "Develop software applications"
-	"requirements": "BSc in Computer Science"
-	"application_process": "Submit resume online"
-	"deadline": "2023-12-31 23:59:59"
-	}
-	]
-}
-{
-"MentoringOffers": [
-	}
-	"user_id": "1"
-	"title": "Career Mentoring"
-	"description": "Mentoring for career development"
-	"reccuring": "No"
-	"timeline": "Monthly on the first Monday"
-	}
-	]
-}
-{
-"RoomAssignments": [
-	}
-	"user_id": "1"
-	"event_id": "101"
-	"room_number": "A101"
-	"reccuring": "Yes"
-	"timeframe": "Weekly on Tuesdays"
-	}
-	]
-}
-{
-"Logs": [
-	}
-	"user_id": "1"
-	"action": "LOGIN"
-	"description": "User logged in successfully."
-	}
-	]
-}
-{
-"TutoringOffers": [
-	}
-	"user_id": "1"
-	"title": "Math Tutoring"
-	"description": "Tutoring for calculus and algebra"
-	"reccuring": "Yes"
-	"timeline": "Weekly on Wednesdays"
-	}
-	]
-}
-{
-"Roles": [
-	}
-	"role_id": "1"
-	"role_name": "Student"
-	},
-	{
-	"role_id": "2"
-	"role_name": "Admin"
-	},
-	{
-	"role_id": "3"
-	"role_name": "Super Admin"
-	]
-}
-{
-"Users": [
-	}
-	"username": "Adam Kanouni"
-	"password_hash": "12345678"
-	"email": "adam.kanouni@students.fhnw.ch"
-	"role": "Student"
-	},
-	{
-	"username": "Emirhan Akgun"
-	"password_hash": "12345678"
-	"email": "emirhan.akguen@students.fhnw.ch"
-	"role": "Admin"
-	},
-	{
-	"username": "Mateusz Oskedra"
-	"password_hash": "12345678"
-	"email": "mateusz.oskedra@students.fhnw.ch"
-	"role": "Super Admin"
-	},
-	{
-	"username": "Sina Najaflou"
-	"password_hash": "12345678"
-	"email": "sina.najaflou@students.fhnw.ch"
-	"role": "Student"
-	}
-	]
-}
-{
-"Advertisements": [
-	}
-	"admin_id": "2"
-	"title": "Spring Sale"
-	"content": "Get discounts on all courses this spring!"
-	}
-	]
-}
-{
-"BuddyAssignments": [
-	}
-	"admin_id": "2"
-	"international_student_id": "1"
-	"buddy_id": "2"
-	}
-	]
-}
-	
