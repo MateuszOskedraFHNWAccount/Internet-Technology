@@ -53,18 +53,7 @@ public class AdminActionsController {
             return ResponseEntity.notFound().build();
         }
 }
-    @PutMapping(path = "/api/forum/edit/{postId}")
-    public ResponseEntity<ForumPost> updateForumPost(@PathVariable Long postId, @RequestBody ForumPost updatedPost) throws Exception {
-        ForumPost existingPost;
-        try {
-            existingPost = forumPostRepository.findById(postId).get();
-            ForumPost savedPost = forumPostRepository.save(existingPost);
-            return ResponseEntity.ok(savedPost);
-        }catch(Exception e){
-            new Exception("ForumPost not found with ID: " + postId);
-        }
-        return null;
-}
+    
     @GetMapping(path = "/api/auth/login/{adminId}",produces = "application/json")
     public ResponseEntity<String> showAdminContent(Principal principal) {
     String message = "Welcome, " + principal.getName() + "! <BR> Only an admin can view this content.";

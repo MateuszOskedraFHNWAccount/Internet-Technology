@@ -20,4 +20,17 @@ public class ForumPostController {
         ForumPost savedPost = forumPostRepository.save(forumPost);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPost);
     }
+    
+    @PutMapping(path = "/api/forum/edit/{postId}")
+    public ResponseEntity<ForumPost> updateForumPost(@PathVariable Long postId, @RequestBody ForumPost updatedPost) throws Exception {
+        ForumPost existingPost;
+        try {
+            existingPost = forumPostRepository.findById(postId).get();
+            ForumPost savedPost = forumPostRepository.save(existingPost);
+            return ResponseEntity.ok(savedPost);
+        }catch(Exception e){
+            new Exception("ForumPost not found with ID: " + postId);
+        }
+        return null;
+}
 }
