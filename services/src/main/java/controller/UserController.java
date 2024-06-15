@@ -1,5 +1,6 @@
 package controller;
 
+import data.domain.AdminActions;
 import data.domain.User;
 import data.repository.UserRepository;
 
@@ -43,8 +44,8 @@ public class UserController {
     try {
         User optionalUser = userRepository.findById(userID).get();
         if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            userRepository.delete(user);
+            AdminActions user = optionalUser.get();
+            userRepository.deleteById(user);
             return ResponseEntity.ok("User deleted successfully.");
         } else {
             return ResponseEntity.notFound().build();
