@@ -145,12 +145,13 @@ Behind the scenes, admins ensure the platform runs smoothly, moderating content 
 *All design decisions must be made with FHNW's CI guidelines*
 
 
-
-### Wireframe
-> Add smth here
-
 ### Prototype
-> Add smth here
+Prototype was designed using the business functionality and the design definitions. From it, the frontend was created, and the functionality was adjusted. 
+
+Later, the color scheme and other elements were changed, due to different design opinions of the group participants.
+
+![image](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/0cc300e5-f9f9-4696-97e3-63bb06ce1a0c)
+
 
 ### Domain Design
 
