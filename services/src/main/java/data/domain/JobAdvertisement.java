@@ -15,7 +15,7 @@ public class JobAdvertisement {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Hidden
     @Column(name = "JobAdID")
-    private int JobAdID;
+    private long JobAdID;
 
     @Column(name = "Title")
     private String Title;
@@ -29,7 +29,7 @@ public class JobAdvertisement {
     @Column(name = "ContactInfo")
     private String ContactInfo;
 
-public JobAdvertisement(int JobAdID,String Title,
+public JobAdvertisement(long JobAdID,String Title,
     String Description,String ApplicationDeadline,String ContactInfo){
     this.JobAdID = JobAdID;
     this.Title = Title;
@@ -37,10 +37,10 @@ public JobAdvertisement(int JobAdID,String Title,
     this.ApplicationDeadline = ApplicationDeadline;
     this.ContactInfo = ContactInfo;
 }
-public int getJobAdID(){
+public long getJobAdID(){
     return JobAdID;
 }
-public void setJobAdID(int JobAdID){
+public void setJobAdID(long JobAdID){
     this.JobAdID = JobAdID;
 }
 public String getTitle(){

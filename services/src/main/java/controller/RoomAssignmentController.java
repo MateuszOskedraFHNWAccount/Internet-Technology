@@ -1,7 +1,7 @@
-package services.src.main.java.controller;
+package controller;
 
-import services.src.main.java.data.domain.RoomAssignment;
-import services.src.main.java.data.repository.RoomAssignmentRepository;
+import data.domain.RoomAssignment;
+import data.repository.RoomAssignmentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

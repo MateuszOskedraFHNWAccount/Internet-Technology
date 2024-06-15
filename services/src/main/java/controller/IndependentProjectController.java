@@ -1,7 +1,7 @@
-package services.src.main.java.controller;
+package controller;
 
-import services.src.main.java.data.domain.IndependentProject;
-import services.src.main.java.data.repository.IndependentProjectRepository;
+import data.domain.IndependentProject;
+import data.repository.IndependentProjectRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

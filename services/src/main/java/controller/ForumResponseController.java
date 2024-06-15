@@ -1,7 +1,7 @@
-package services.src.main.java.controller;
+package controller;
 
-import services.src.main.java.data.domain.ForumResponse;
-import services.src.main.java.data.repository.ForumResponseRepository;
+import data.domain.ForumResponse;
+import data.repository.ForumResponseRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

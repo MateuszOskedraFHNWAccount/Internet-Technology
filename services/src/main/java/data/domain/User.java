@@ -92,7 +92,7 @@ public void setSomeProperty(Object someProperty) {
 public boolean isPresent() {
     throw new UnsupportedOperationException("Unimplemented method 'isPresent'");
 }
-public AdminActions get() {
+public User get() {
     throw new UnsupportedOperationException("Unimplemented method 'get'");
 }
 }

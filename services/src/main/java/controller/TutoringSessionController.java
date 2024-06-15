@@ -1,7 +1,7 @@
-package services.src.main.java.controller;
+package controller;
 
-import services.src.main.java.data.domain.TutoringSession;
-import services.src.main.java.data.repository.TutoringSessionRepository;
+import data.domain.TutoringSession;
+import data.repository.TutoringSessionRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

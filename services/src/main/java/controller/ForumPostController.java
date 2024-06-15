@@ -1,7 +1,7 @@
-package services.src.main.java.controller;
+package controller;
 
-import services.src.main.java.data.domain.ForumPost;
-import services.src.main.java.data.repository.ForumPostRepository;
+import data.domain.ForumPost;
+import data.repository.ForumPostRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

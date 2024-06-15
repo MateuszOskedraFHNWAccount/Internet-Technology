@@ -1,9 +1,9 @@
-package services.src.main.java.data.repository;
+package data.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import services.src.main.java.data.domain.User;
+import data.domain.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
