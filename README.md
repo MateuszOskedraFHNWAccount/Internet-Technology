@@ -412,6 +412,10 @@ For the backend Technology, java was used. The files are to be found in the repo
 
 For the APIs, the Postman was used to create and test connections with the website.
 
+Link to the postman is to be found here:
+
+https://basel6.postman.co/workspace/CommunityFHNW~c4de2ad2-52c1-4d65-97ef-c87e370be65c/overview
+
 ### Frontend Technology
 
 For the frontend, the Budibase was used. The theme focused on the FHNWs standards, and added this project elements to cover the functionality, ease of use and understanding of the website. It also was choosen due to easy visual orientation and understanding of the website. As mentioned, from this base, the frontend was expanded to cover all of the webapplications functionalities split onto different sites.
