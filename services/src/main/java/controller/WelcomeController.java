@@ -1,4 +1,4 @@
-package services.src.main.java.controller;
+package ch.fhnw.pizza.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,6 +23,4 @@ public class WelcomeController {
         String Role = userDetails.getAuthorities().toArray()[1].toString();
         return Role;
     }
-
-
 }

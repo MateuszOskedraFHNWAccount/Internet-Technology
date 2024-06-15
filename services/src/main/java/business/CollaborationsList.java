@@ -1,35 +1,38 @@
-package services.src.main.java.business;
+package ch.fhnw.pizza.business.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import services.src.main.java.data.domain.AccountManagement;
-import services.src.main.java.data.domain.AdminActions;
-import services.src.main.java.data.domain.BuddySystem;
-import services.src.main.java.data.domain.ForumPost;
-import services.src.main.java.data.domain.ForumResponse;
-import services.src.main.java.data.domain.IndependentProject;
-import services.src.main.java.data.domain.JobAdvertisement;
-import services.src.main.java.data.domain.MentoringForProjects;
-import services.src.main.java.data.domain.RoomAssignment;
-import services.src.main.java.data.domain.SystemLog;
-import services.src.main.java.data.domain.TutoringSession;
-import services.src.main.java.data.domain.User;
-
-import services.src.main.java.data.repository.AccountManagementRepository;
-import services.src.main.java.data.repository.AdminActionsRepository;
-import services.src.main.java.data.repository.BuddySystemRepository;
-import services.src.main.java.data.repository.ForumPostRepository;
-import services.src.main.java.data.repository.ForumResponseRepository;
-import services.src.main.java.data.repository.IndependentProjectRepository;
-import services.src.main.java.data.repository.JobAdvertisementRepository;
-import services.src.main.java.data.repository.MentoringForProjectsRepository;
-import services.src.main.java.data.repository.RoomAssignmentRepository;
-import services.src.main.java.data.repository.SystemLogRepository;
-import services.src.main.java.data.repository.TutoringSessionRepository;
-import services.src.main.java.data.repository.UserRepository;
+import ch.fhnw.pizza.data.domain.AccountManagement;
+import ch.fhnw.pizza.data.domain.AdminActions;
+import ch.fhnw.pizza.data.domain.Advertisement;
+import ch.fhnw.pizza.data.domain.BuddyAssignment;
+import ch.fhnw.pizza.data.domain.BuddySystem;
+import ch.fhnw.pizza.data.domain.ForumPost;
+import ch.fhnw.pizza.data.domain.ForumResponse;
+import ch.fhnw.pizza.data.domain.IndependentProject;
+import ch.fhnw.pizza.data.domain.JobAdvertisement;
+import ch.fhnw.pizza.data.domain.MentoringForProjects;
+import ch.fhnw.pizza.data.domain.RoomAssignment;
+import ch.fhnw.pizza.data.domain.SystemLog;
+import ch.fhnw.pizza.data.domain.TutoringSession;
+import ch.fhnw.pizza.data.domain.User;
+import ch.fhnw.pizza.data.repository.AccountManagementRepository;
+import ch.fhnw.pizza.data.repository.AdminActionsRepository;
+import ch.fhnw.pizza.data.repository.AdvertisementRepository;
+import ch.fhnw.pizza.data.repository.BuddyAssignmentRepository;
+import ch.fhnw.pizza.data.repository.BuddySystemRepository;
+import ch.fhnw.pizza.data.repository.ForumPostRepository;
+import ch.fhnw.pizza.data.repository.ForumResponseRepository;
+import ch.fhnw.pizza.data.repository.IndependentProjectRepository;
+import ch.fhnw.pizza.data.repository.JobAdvertisementRepository;
+import ch.fhnw.pizza.data.repository.MentoringForProjectsRepository;
+import ch.fhnw.pizza.data.repository.RoomAssignmentRepository;
+import ch.fhnw.pizza.data.repository.SystemLogRepository;
+import ch.fhnw.pizza.data.repository.TutoringSessionRepository;
+import ch.fhnw.pizza.data.repository.UserRepository;
 
 @Service
 public class CollaborationsList {
@@ -41,7 +44,13 @@ public class CollaborationsList {
     private AdminActionsRepository adminActionsRepository;
 
     @Autowired
+    private AdvertisementRepository advertisementRepository;
+
+    @Autowired
     private BuddySystemRepository buddySystemRepository;
+
+    @Autowired
+    private BuddyAssignmentRepository buddyAssignmentRepository;
 
     @Autowired
     private ForumPostRepository forumPostRepository;
@@ -70,20 +79,19 @@ public class CollaborationsList {
     @Autowired
     private UserRepository userRepository;
 
-    public AccountManagement updateAccountManagement(Int ManagementID, AccountManagement updatedAccount) throws ResourceNotFoundException {
-        AccountManagement existingAccount = accountManagementRepository.findById(ManagementID);
+    public AccountManagement updateAccountManagement(long ManagementID, AccountManagement updatedAccount) throws Exception {
+        AccountManagement existingAccount = accountManagementRepository.findById(ManagementID).get();
         if(existingAccount != null){
             if(updatedAccount.getActionType() != null)
                 existingAccount.setActionType(updatedAccount.getActionType());
             if(updatedAccount.getTimeStamp() != null)
                 existingAccount.setTimeStamp(updatedAccount.getTimeStamp());
-                return accountManagementRepository.save(existingAccount)
+                return accountManagementRepository.save(existingAccount);
             }
-            throw new ResourceNotFoundException("Account not found with ID: " + ManagementID));
-        }
+            throw new Exception("Account not found with ID: " + ManagementID);
     }
 
-    public void deleteAccountManagement(Int ManagementID) throws Exception{
+    public void deleteAccountManagement(long ManagementID) throws Exception{
         if(accountManagementRepository.existsById(ManagementID)){
             accountManagementRepository.deleteById(ManagementID);
         } else 
@@ -99,34 +107,44 @@ public class CollaborationsList {
         throw new Exception("Invalid action type");  
     } 
 
-    public AdminActions updateAdminAction(Int ActionID,AdminActions adminAction) throws ResourceNotFoundException {
-        AdminActions existingAction = adminActionsRepository.findById(ActionID).orElse(null);
+    public AdminActions updateAdminAction(long ActionID,AdminActions adminAction) throws Exception {
+        AdminActions existingAction = adminActionsRepository.findById(ActionID).get();
         if(existingAction != null){
             if(adminAction.getActionType() != null)
                 existingAction.setActionType(adminAction.getActionType());
             if(adminAction.getTimeStamp() != null)
                 existingAction.setTimeStamp(adminAction.getTimeStamp());
-                return adminActionsRepository.save(existingAction)
+                return adminActionsRepository.save(existingAction);
             }
-            throw new ResourceNotFoundException("Action not found with ID: " + ActionID));
+            throw new Exception("Action not found with ID: " + ActionID);
     }
 
-    public void deleteAdminAction(Int ActionID) {
+    public void deleteAdminAction(long ActionID) throws Exception {
         if (adminActionsRepository.existsById(ActionID)) {
             adminActionsRepository.deleteById(ActionID);
         } else {
-            throw new ("Admin action with ID: " + ActionID + " not found.");
+            throw new Exception("Admin action with ID: " + ActionID + " not found.");
+        }
     }
 
-    public void deleteForumPost(Int PostID) throws Exception{
+    public Advertisement createAdvertisement(Advertisement advertisement) throws Exception {
+        if(advertisement.gettitle() != null){
+            if(advertisementRepository.findBytitle(advertisement.gettitle()) == null)
+                return advertisementRepository.save(advertisement);
+            throw new Exception("Advertisement with the title " + advertisement.gettitle() + " already available");
+        } 
+        throw new Exception("Invalid action type");  
+    } 
+
+    public void deleteForumPost(long PostID) throws Exception{
         if(forumPostRepository.existsById(PostID)){
             forumPostRepository.deleteByPostId(PostID);
         } else
-            throw new Exception("Post with id " + PostID + " not found.")
+            throw new Exception("Post with id " + PostID + " not found.");
     }
 
-    public ForumPost updateForumPost(Int PostID,ForumPost updatedPost) throws ResourceNotFoundException{
-        ForumPost existingPost = forumPostRepository.findById(PostID)
+    public ForumPost updateForumPost(long PostID,ForumPost updatedPost) throws Exception{
+        ForumPost existingPost = forumPostRepository.findById(PostID).get();
         if(existingPost != null){
             if(updatedPost.getContent() != null)
                 existingPost.setContent(updatedPost.getContent());
@@ -136,28 +154,37 @@ public class CollaborationsList {
                 existingPost.setCreationTime(updatedPost.getCreationTime());
             return  forumPostRepository.save(existingPost);
         }
-        throw new ResourceNotFoundException("Post not found with ID: " + PostID));
+        throw new Exception("Post not found with ID: " + PostID);
     }
 
     public BuddySystem createBuddySystem(BuddySystem buddySystem) throws Exception {
         if(buddySystem.getLanguages() != null) {
             if(buddySystemRepository.findByLanguages(buddySystem.getLanguages()) == null)
                 return buddySystemRepository.save(buddySystem);
-            throw new Exception("Buddy with " + buddySystem.getLanguages() + " language already available.")
+            throw new Exception("Buddy with " + buddySystem.getLanguages() + " language already available.");
         }
         throw new Exception("Invalid language");
     }
 
     public List<BuddySystem> getAllBuddySystems(String Languages) {
-        List<BuddySystem> buddySystems = buddySystemRepository.findByLanguage(Languages);
+        List<BuddySystem> buddySystems = buddySystemRepository.findByLanguages(Languages);
         return buddySystems;
+    }
+
+    public BuddyAssignment createBuddyAssingment(BuddyAssignment bs) throws Exception {
+        if(bs.getinternationalstudentId() != null){
+            if(buddyAssignmentRepository.findByinternationalstudentId(bs.getinternationalstudentId()) == null)
+                return buddyAssignmentRepository.save(bs);
+            throw new Exception("Post with " + bs.getinternationalstudentId() + " topic already available.");
+        }
+        throw new Exception("Invalid topic");
     }
 
     public ForumPost createForumPost(ForumPost forumPost) throws Exception {
         if(forumPost.getTopic() != null){
             if(forumPostRepository.findByTopic(forumPost.getTopic()) == null)
                 return forumPostRepository.save(forumPost);
-            throw new Exception("Post with " + forumPost.getTopic + " topic already available.");
+            throw new Exception("Post with " + forumPost.getTopic() + " topic already available.");
         }
         throw new Exception("Invalid topic");
     }
@@ -166,14 +193,14 @@ public class CollaborationsList {
         if(forumResponse.getResponseTime() != null){
             if(forumResponseRepository.findByResponseTime(forumResponse.getResponseTime()) == null)
                 return forumResponseRepository.save(forumResponse);
-            throw new Exception("Forum response with " + forumResponse.getResponseTime() + " response time already available.")
+            throw new Exception("Forum response with " + forumResponse.getResponseTime() + " response time already available.");
         }
         throw new Exception("Invalid response time");
     }  
 
-    public IndependentProject createIndependentProject(IndependentProject independentProject) throw Exception {
+    public IndependentProject createIndependentProject(IndependentProject independentProject) throws Exception {
         if(independentProject.getProjectName() != null){
-            if(independentProjectRepository.findByProjectName(independenProject.getProjectName()) == null)
+            if(independentProjectRepository.findByProjectName(independentProject.getProjectName()) == null)
                 return independentProjectRepository.save(independentProject);
             throw new Exception("Project with " + independentProject.getProjectName() + " project name already available.");
         }
@@ -181,8 +208,8 @@ public class CollaborationsList {
     }
 
     public JobAdvertisement createJobAdvertisement(JobAdvertisement jobAdvertisement) throws Exception {
-        if(jobAdvertisment.getTitle() != null){
-            if(jobAdvertisementRepository.findByTitle(jobAdvertisment.getTitle()) == null)
+        if(jobAdvertisement.getTitle() != null){
+            if(jobAdvertisementRepository.findByTitle(jobAdvertisement.getTitle()) == null)
                 return jobAdvertisementRepository.save(jobAdvertisement);
             throw new Exception("Job advertisement with " + jobAdvertisement.getTitle() + " title already available.");
         }
@@ -193,17 +220,17 @@ public class CollaborationsList {
         if(mentoringForProjects.getSubject() != null){
             if(mentoringForProjectsRepository.findBySubject(mentoringForProjects.getSubject()) == null)
                 return mentoringForProjectsRepository.save(mentoringForProjects);
-            throw new Exception("Mentoring with " + mentoringForProjects.getSubjects() + " subject already available.");
+            throw new Exception("Mentoring with " + mentoringForProjects.getSubject() + " subject already available.");
         }
         throw new Exception("Invalid subject");
     }
 
     public List<MentoringForProjects> getAllMentoringForProjects() {
-        List<MentoringForProjects> mentoringList = mentoringRepository.findAll();
+        List<MentoringForProjects> mentoringList = mentoringForProjectsRepository.findAll();
         return mentoringList;
     }
 
-    public RoomAssignment createRoomAssignment(RoomAssignment roomAssignment) throw Exception{
+    public RoomAssignment createRoomAssignment(RoomAssignment roomAssignment) throws Exception{
         if(roomAssignment.getBuilding() != null){
             if(roomAssignmentRepository.findByBuilding(roomAssignment.getBuilding()) == null)
                 return roomAssignmentRepository.save(roomAssignment);
@@ -212,7 +239,7 @@ public class CollaborationsList {
         throw new Exception("Invalid building");
     }
 
-    public List<SystemLog> getAllSystemLogs() {
+    public List<SystemLog> getAllSystemLogs(SystemLog sl) {
         List<SystemLog> systemLogs = systemLogRepository.findAll();
         return systemLogs;
     }
@@ -227,7 +254,7 @@ public class CollaborationsList {
     }
 
     public List<TutoringSession> getAllTutoringSession() {
-        List<TutoringSession> tutoringSessions = tutoringSessionRepository.findByAll());
+        List<TutoringSession> tutoringSessions = tutoringSessionRepository.findAll();
         return tutoringSessions;
     }
     
@@ -240,28 +267,29 @@ public class CollaborationsList {
             throw new Exception("Invalid user name");
     }
 
-    public User updateUser(Int UserID,User updatedUser) throws ResourceNotFoundException{
-        User existingUser = userRepository.findById(updatedUser.getId(UserID))
+    public User updateUser(long UserID,User updatedUser) throws Exception{
+        User existingUser = userRepository.findById(UserID).get();
         if(existingUser != null){
             if(updatedUser.getUsername() != null)
                 existingUser.setUsername(updatedUser.getUsername());
             if(updatedUser.getPassword() != null)
                 existingUser.setPassword(updatedUser.getPassword());
             if(updatedUser.getRole() != null)
-                existingUser.getRole(updatedUser.getRole());
+                existingUser.setRole(updatedUser.getRole());
             if(updatedUser.getEmail() != null)
                 existingUser.setEmail(updatedUser.getEmail());
             if(updatedUser.getPhoneNumber() != null)
                 existingUser.setPhoneNumber(updatedUser.getPhoneNumber());
             return userRepository.save(existingUser);    
         }
-        throw new ResourceNotFoundException("User with id " + UserID " not available.");
+        throw new Exception("User with id " + UserID + " not available.");
     }
     
-    public void deleteUser(Int UserID) throws Exception{
+    public void deleteUser(long UserID) throws Exception{
         if(userRepository.existsById(UserID)){
             userRepository.deleteById(UserID);
         }else{
-            throw new Exception("User with id " + UserID + " does not exist.") 
+            throw new Exception("User with id " + UserID + " does not exist.");
         }
     }
+}
