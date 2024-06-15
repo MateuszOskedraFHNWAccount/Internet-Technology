@@ -1,9 +1,9 @@
-package ch.fhnw.pizza.data.repository;
+package services.src.main.java.data.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import ch.fhnw.pizza.data.domain.RoomAssignment;
+import services.src.main.java.data.domain.RoomAssignment;
 
 @Repository
 public interface RoomAssignmentRepository extends JpaRepository<RoomAssignment, Long> {

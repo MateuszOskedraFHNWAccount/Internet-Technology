@@ -1,9 +1,9 @@
-package ch.fhnw.pizza.data.repository;
+package services.src.main.java.data.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import ch.fhnw.pizza.data.domain.SystemLog;
+import services.src.main.java.data.domain.SystemLog;
 
 @Repository
 public interface SystemLogRepository extends JpaRepository<SystemLog, Long> {
