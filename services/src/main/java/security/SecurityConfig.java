@@ -1,4 +1,4 @@
-package services.src.main.java.security;
+package ch.fhnw.pizza.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,23 +22,23 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService users() {
-        //Create two users with different roles and add them to the in-memory user store
-
+        // Create three users with different roles and add them to the in-memory user store
         return new InMemoryUserDetailsManager(
-            User.withUsername("myuser")
-                .password("{noop}password")
-                .authorities("READ","ROLE_USER")
-                .build(), 
-            User.withUsername("myadmin")
-                .password("{noop}password")
-                .authorities("READ","ROLE_ADMIN")
-                .build());
-            User.withUsername("mysuperadmin")
-                .password("{noop}password")
-                .authorities("READ","ROLE_SUPERADMIN")
-                .build());
+        User.withUsername("myuser")
+            .password("{noop}password")
+            .authorities("READ","ROLE_USER")
+            .build(), 
+        User.withUsername("myadmin")
+            .password("{noop}password")
+            .authorities("READ","ROLE_ADMIN")
+            .build(),
+        User.withUsername("mysuperadmin") // This user was not being added previously
+            .password("{noop}password")
+            .authorities("READ","ROLE_SUPERADMIN")
+            .build()
+    );
+}
 
-    }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     return http
@@ -52,4 +52,5 @@ public class SecurityConfig {
             .formLogin(withDefaults()) //need to include a static import for withDefaults, see the imports at the top of the file
             .httpBasic(withDefaults())
             .build(); 
+        }
     } 
