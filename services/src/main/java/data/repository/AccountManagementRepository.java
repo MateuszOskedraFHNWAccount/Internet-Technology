@@ -1,11 +1,11 @@
-package services.src.main.java.data.repository;
+package data.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import services.src.main.java.data.domain.AccountManagement;
-import services.src.main.java.data.domain.AccountManagement.Actiontype;
-import services.src.main.java.data.repository.AccountManagementRepository;
+import data.domain.AccountManagement;
+import data.domain.AccountManagement.Actiontype;
+import data.repository.AccountManagementRepository;
 
 @Repository
 public interface AccountManagementRepository extends JpaRepository<AccountManagement, Long> {
@@ -13,6 +13,7 @@ public interface AccountManagementRepository extends JpaRepository<AccountManage
     Object findByActionType(Actiontype actionType);
     // You can add custom query methods here if needed
 
+    @SuppressWarnings({ "unchecked", "null" })
     AccountManagement save(AccountManagement existingAccount);
 
     boolean existsById(long managementID);

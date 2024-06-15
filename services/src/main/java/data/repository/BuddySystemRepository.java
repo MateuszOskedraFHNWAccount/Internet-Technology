@@ -1,12 +1,12 @@
-package services.src.main.java.data.repository;
+package data.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import services.src.main.java.data.domain.BuddySystem;
-import services.src.main.java.data.repository.BuddySystemRepository;
+import data.domain.BuddySystem;
+import data.repository.BuddySystemRepository;
 
 @Repository
 public interface BuddySystemRepository extends JpaRepository<BuddySystem, Long> {
