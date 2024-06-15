@@ -1,4 +1,4 @@
-package services.src.main.java.data.domain;
+package ch.fhnw.pizza.data.domain;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.Column;
@@ -9,75 +9,86 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "User")
-public class User{
+@Table(name = "Tutoring Session")
+public class TutoringSession{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Hidden
-    @Column(name = "UserID")
-    private Int UserID;
+    @Column(name = "SessionID")
+    private long SessionID;
 
-    @Column(name = "Username")
-    private String Username;
+    @Column(name = "Subject")
+    private String Subject;
 
-    @Column(name = "Password")
-    private String Password;
+    @Column(name = "Description")
+    private String Description;
 
-    @Column(name = "Role")
-    private UserRole Role;
+    @Column(name = "Recurring")
+    private Boolean Recurring;
 
-    @Column(name = "Email")
-    private String Email;
+    @Column(name = "StartTime")
+    private String StartTime;
 
-    @Column(name = "PhoneNumber")
-    private String PhoneNumber;
+    @Column(name = "EndTime")
+    private String EndTime;
 
+    @Column(name = "Status")
+    private SessionStatus Status;
+
+public TutoringSession(long SessionID,String Subject,
+    String Description,Boolean Recurring,String StartTime,
+    String EndTime,SessionStatus Status){
+    this.SessionID = SessionID;
+    this.Subject = Subject;
+    this.Description = Description;
+    this.Recurring = Recurring;
+    this.StartTime = StartTime;
+    this.EndTime = EndTime;
+    this.Status = Status;
 }
-public User(Int UserID,String Username,String Password,
-    UserRole Role,String Email,String PhoneNumber){
-    this.UserID = UserID;
-    this.Username = Username;
-    this.Password = Password;
-    this.Role = Role;
-    this.Email = Email;
-    this.PhoneNumber = PhoneNumber;
+public long getSessionID(){
+        return SessionID;
 }
-public Int getUserID(){
-    return UserID;
+public void setSessionID(long SessionID){
+    this.SessionID = SessionID;
 }
-public void setUserID(Int UserID){
-    this.UserID = UserID;
+public String getSubject(){
+    return Subject;
 }
-public String getUsername(){
-    return Username;
+public void setSubject(String Subject){
+    this.Subject = Subject;
 }
-public void setUsername(String Username){
-    this.Username = Username;
+public String getDescription(){
+    return Description;
 }
-public String getPassword(){
-    return Password;
+public void setDescription(String Description){
+    this.Description = Description;
 }
-public void setPassword(String Password){
-    this.Password = Password;
+public Boolean getReccuring(){
+    return Recurring;
 }
-public UserRole getRole(){
-    return Role;
+public void setRecurring(Boolean Recurring){
+    this.Recurring = Recurring;
 }
-public void setRole(UserRole Role){
-    this.Role = Role;
+public String getStartTime(){
+    return StartTime;
 }
-public enum UserRole {
-    STUDENT, ADMIN, SUPER_ADMIN
+public void setStartTime(String d){
+    this.StartTime = d;
 }
-public String getEmail(){
-    return Email;
+public String getEndTime(){
+    return EndTime;
 }
-public void setEmail(String Email){
-    this.Email = Email;
+public void setEndTime(String d){
+    this.EndTime = d;
 }
-public String getPhoneNumber(){
-    return PhoneNumber;
+public SessionStatus getStatus(){
+    return Status;
 }
-public void setPhoneNumber(String PhoneNumber){
-    this.PhoneNumber = PhoneNumber;
+public void setStatus(SessionStatus Status){
+    this.Status = Status;
+}
+public enum SessionStatus {
+    ACTIVE, COMPLETED, CANCELLED
+    }
 }

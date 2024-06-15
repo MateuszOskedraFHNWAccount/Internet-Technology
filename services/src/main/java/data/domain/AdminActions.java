@@ -1,4 +1,4 @@
-package services.src.main.java.data.domain;
+package ch.fhnw.pizza.data.domain;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.Column;
@@ -15,38 +15,42 @@ public class AdminActions{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Hidden
     @Column(name = "ActionID")
-    private Int ActionID;
+    private long ActionID;
 
     @Column(name = "ActionType")
-    private Actiontype ActionType;
+    private Actiontypes ActionType;
 
     @Column(name = "TimeStamp")
-    private Timestamp TimeStamp;
-}
-public AdminActions(Int ActionID,Actiontype ActionType,
-    Timestamp TimeStamp) {
+    private String TimeStamp;
+
+public AdminActions(long ActionID,Actiontypes ActionType,
+    String TimeStamp) {
     this.ActionID = ActionID;
     this.ActionType = ActionType;
     this.TimeStamp = TimeStamp;
     }
-public Int getActionID(){
+public long getActionID(){
     return ActionID;
 }
-public void setActionID(Int ActionID){
-    this.ActionID = ActionID
+public void setActionID(long ActionID){
+    this.ActionID = ActionID;
 }
-public Actiontype getActionType(){
+public Actiontypes getActionType(){
     return ActionType;
 }
-public void setActionType(Actiontype ActionType){
-    this.ActionType = ActionType;
+public void setActionType(ch.fhnw.pizza.data.domain.AdminActions.Actiontypes delete){
+    this.ActionType = delete;
 }
-public enum Actiontype {
+public enum Actiontypes {
     MODIFY, DELETE, ASSIGN
 }
-public Timestamp getTimeStamp(){
+public String getTimeStamp(){
     return TimeStamp;
 }
-public void setTimeStamp(Timestamp TimeStamp){
+public void setTimeStamp(String TimeStamp){
     this.TimeStamp = TimeStamp;
+    }
+public void setType(String type) {
+    throw new UnsupportedOperationException("Unimplemented method 'setType'");
+}
 }

@@ -1,4 +1,4 @@
-package services.src.main.java.data.domain;
+package ch.fhnw.pizza.data.domain;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.Column;
@@ -15,26 +15,25 @@ public class RoomAssignment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Hidden
     @Column(name = "RoomID")
-    private Int RoomID;
+    private long RoomID;
 
     @Column(name = "Building")
     private String Building;
 
     @Column(name = "Capacity")
-    private Int Capacity;
+    private int Capacity;
 
     @Column(name = "Resources")
     private String Resources;
 
     @Column(name = "StartTime")
-    private Timestamp StartTime;
+    private String StartTime;
 
     @Column(name = "EndTime")
-    private Timestamp EndTime;
+    private String EndTime;
 
-}
-public RoomAssignment(Int RoomID,String Building,Int Capacity,
-    String Resources,Timestamp StartTime,Timestamp EndTime){
+public RoomAssignment(long RoomID,String Building,int Capacity,
+    String Resources,String StartTime,String EndTime){
         this.RoomID = RoomID;
         this.Building = Building;
         this.Capacity = Capacity;
@@ -42,10 +41,10 @@ public RoomAssignment(Int RoomID,String Building,Int Capacity,
         this.StartTime = StartTime;
         this.EndTime = EndTime;
 }
-public Int getRoomID(){
+public long getRoomID(){
     return RoomID;
 }
-public void setRoomID(Int RoomID){
+public void setRoomID(long RoomID){
     this.RoomID = RoomID;
 }
 public String getBuilding(){
@@ -54,10 +53,10 @@ public String getBuilding(){
 public void setBuilding(String Building){
     this.Building = Building;
 }
-public Int getCapacity(){
+public int getCapacity(){
     return Capacity;
 }
-public void setCapacity(Int Capacity){
+public void setCapacity(int Capacity){
     this.Capacity = Capacity;
 }
 public String getResources(){
@@ -66,15 +65,16 @@ public String getResources(){
 public void setResources(String Resources){
     this.Resources = Resources;
 }
-public Timestamp getStartTime(){
+public String getStartTime(){
     return StartTime;
 }
-public void setStartTime(Timestamp StartTime){
-    this.StartTime = StartTime;
+public void setStartTime(String d){
+    this.StartTime = d;
 }
-public Timestamp getEndTime(){
+public String getEndTime(){
     return EndTime;
 }
-public void setEndTime(Timestamp EndTime){
-    this.EndTime = EndTime;
+public void setEndTime(String d){
+    this.EndTime = d;
+    }
 }

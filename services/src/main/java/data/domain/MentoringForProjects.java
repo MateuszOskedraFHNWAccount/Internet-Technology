@@ -1,4 +1,4 @@
-package services.src.main.java.data.domain;
+package ch.fhnw.pizza.data.domain;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.Column;
@@ -15,7 +15,7 @@ public class MentoringForProjects{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Hidden
     @Column(name = "ProjectID")
-    private Int ProjectID;
+    private long ProjectID;
 
     @Column(name = "Subject")
     private String Subject;
@@ -30,27 +30,26 @@ public class MentoringForProjects{
     private String ProjectName;
 
     @Column(name = "StartTime")
-    private Timestamp StartTime;
+    private String StartTime;
 
     @Column(name = "EndTime")
-    private Timestamp EndTime;
+    private String EndTime;
 
-}
-public MentoringForProjects(Int ProjectID,String Subject,
-    String Description,Boolen Reccuring,String ProjectName,
-    Timestamp StartTime,Timestamp EndTime){
+public MentoringForProjects(long ProjectID,String Subject,
+    String Description,Boolean Recurring,String ProjectName,
+    String StartTime,String EndTime){
     this.ProjectID = ProjectID;
     this.Subject = Subject;
     this.Description = Description;
-    this.Reccuring = Reccuring;
+    this.Recurring = Recurring;
     this.ProjectName = ProjectName;
     this.StartTime = StartTime;
     this.EndTime = EndTime;
 }
-public Int getProjectID(){
+public long getProjectID(){
     return ProjectID;
 }
-public void setProjectID(Int ProjectID){
+public void setProjectID(long ProjectID){
     this.ProjectID = ProjectID;
 }
 public String getSubject(){
@@ -66,10 +65,10 @@ public void setDescription(String Description){
     this.Description = Description;
 }
 public Boolean getReccuring(){
-    return Reccuring;
+    return Recurring;
 }
-public void setRecurring(Boolean Reccuring){
-    this.Reccuring = Reccuring;
+public void setRecurring(Boolean Recurring){
+    this.Recurring = Recurring;
 }
 public String getProjectName(){
     return ProjectName;
@@ -77,15 +76,16 @@ public String getProjectName(){
 public void setProjectName(String ProjectName){
     this.ProjectName = ProjectName;
 }
-public Timestamp getStartTime(){
+public String getStartTime(){
     return StartTime;
 }
-public void setStartTime(Timestamp StartTime){
-    this.StartTime = StartTime;
+public void setStartTime(String d){
+    this.StartTime = d;
 }
-public Timestamp getEndTime(){
+public String getEndTime(){
     return EndTime;
 }
-public void setEndTime(Timestamp EndTime){
-    this.EndTime = EndTime;
+public void setEndTime(String d){
+    this.EndTime = d;
+    }
 }

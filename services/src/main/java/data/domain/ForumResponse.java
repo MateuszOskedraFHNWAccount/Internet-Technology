@@ -1,4 +1,4 @@
-package services.src.main.java.data.domain;
+package ch.fhnw.pizza.data.domain;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.Column;
@@ -15,24 +15,24 @@ public class ForumResponse{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Hidden
     @Column(name = "ResponseID")
-    private Int ResponseID;
+    private long ResponseID;
 
     @Column(name = "Content")
     private String Content;
 
     @Column(name = "ResponseTime")
-    private Timestamp ResponseTime;
-}
-public ForumResponse(Int ResponseID,String Content,
-    Timestamp ResponseTime){
+    private String ResponseTime;
+
+public ForumResponse(long ResponseID,String Content,
+    String ResponseTime){
     this.ResponseID = ResponseID;
     this.Content = Content;
     this.ResponseTime = ResponseTime;
 }
-public Int getResponseID(){
+public long getResponseID(){
     return ResponseID;
 }
-public void setResponseID(Int ResponseID){
+public void setResponseID(long ResponseID){
     this.ResponseID = ResponseID;
 }
 public String getContent(){
@@ -41,9 +41,13 @@ public String getContent(){
 public void setContent(String Content){
     this.Content = Content;
 }
-public Timestamp getResponseTime(){
+public String getResponseTime(){
     return ResponseTime;
 }
-public void setResponseTime(Timestamp ResponseTime){
-    this.ResponseTime = ResponseTime;
+public void setResponseTime(String d){
+    this.ResponseTime = d;
+    }
+public void setPostId(Long postId) {
+    throw new UnsupportedOperationException("Unimplemented method 'setPostId'");
 }
+} 

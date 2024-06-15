@@ -1,4 +1,4 @@
-package services.src.main.java.data.domain;
+package ch.fhnw.pizza.data.domain;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.Column;
@@ -15,7 +15,7 @@ public class JobAdvertisement {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Hidden
     @Column(name = "JobAdID")
-    private Int JobAdID;
+    private int JobAdID;
 
     @Column(name = "Title")
     private String Title;
@@ -24,23 +24,23 @@ public class JobAdvertisement {
     private String Description;
 
     @Column(name = "ApplicationDeadline")
-    private Timestamp ApplicationDeadline;
+    private String ApplicationDeadline;
 
     @Column(name = "ContactInfo")
     private String ContactInfo;
-}
-public JobAdvertisement(Int JobAdID,String Title,
-    String Description,Timestamp ApplicationDeadline,String ContactInfo){
+
+public JobAdvertisement(int JobAdID,String Title,
+    String Description,String ApplicationDeadline,String ContactInfo){
     this.JobAdID = JobAdID;
     this.Title = Title;
     this.Description = Description;
     this.ApplicationDeadline = ApplicationDeadline;
     this.ContactInfo = ContactInfo;
 }
-public Int getJobAdID(){
+public int getJobAdID(){
     return JobAdID;
 }
-public void setJobAdID(Int JobAdID){
+public void setJobAdID(int JobAdID){
     this.JobAdID = JobAdID;
 }
 public String getTitle(){
@@ -50,20 +50,21 @@ public void setTitle(String Title){
     this.Title = Title;
 }
 public String getDescription(){
-    return Descripton;
+    return Description;
 }
 public void setDescripton(String Description){
     this.Description = Description;
 }
-public Timestamp getApplicationDeadline(){
+public String getApplicationDeadline(){
     return ApplicationDeadline;
 }
-public void setApplicationDeadline(Timestamp ApplicationDeadline){
-    this.ApplicationDeadline = ApplicationDeadline;
+public void setApplicationDeadline(String d){
+    this.ApplicationDeadline = d;
 }
 public String getContactInfo(){
     return ContactInfo;
 }
 public void setContactInfo(String ContactInfo){
     this.ContactInfo = ContactInfo;
+    }
 }

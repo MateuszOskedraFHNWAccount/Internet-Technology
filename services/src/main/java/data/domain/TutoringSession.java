@@ -1,4 +1,4 @@
-package services.src.main.java.data.domain;
+package ch.fhnw.pizza.data.domain;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.Column;
@@ -15,7 +15,7 @@ public class TutoringSession{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Hidden
     @Column(name = "SessionID")
-    private Int SessionId;
+    private long SessionID;
 
     @Column(name = "Subject")
     private String Subject;
@@ -23,34 +23,33 @@ public class TutoringSession{
     @Column(name = "Description")
     private String Description;
 
-    @Column(name = "Reccuring")
-    private Boolean Reccuring;
+    @Column(name = "Recurring")
+    private Boolean Recurring;
 
     @Column(name = "StartTime")
-    private Timestamp StartTime;
+    private String StartTime;
 
     @Column(name = "EndTime")
-    private Timestamp EndTime;
+    private String EndTime;
 
     @Column(name = "Status")
     private SessionStatus Status;
 
-}
-public TutoringSession(Int SessionID,String Subject,
-    String Description,Boolean Reccuring,Timestamp StartTime,
-    Timestamp EndTime,SessionStatus Status){
+public TutoringSession(long SessionID,String Subject,
+    String Description,Boolean Recurring,String StartTime,
+    String EndTime,SessionStatus Status){
     this.SessionID = SessionID;
     this.Subject = Subject;
     this.Description = Description;
-    this.Reccuring = Reccuring;
+    this.Recurring = Recurring;
     this.StartTime = StartTime;
     this.EndTime = EndTime;
     this.Status = Status;
 }
-public Int getSessionID(){
+public long getSessionID(){
         return SessionID;
 }
-public void setSessionID(Int SessionID){
+public void setSessionID(long SessionID){
     this.SessionID = SessionID;
 }
 public String getSubject(){
@@ -66,22 +65,22 @@ public void setDescription(String Description){
     this.Description = Description;
 }
 public Boolean getReccuring(){
-    return Reccuring;
+    return Recurring;
 }
-public void setRecurring(Boolean Reccuring){
-    this.Reccuring = Reccuring;
+public void setRecurring(Boolean Recurring){
+    this.Recurring = Recurring;
 }
-public Timestamp getStartTime(){
+public String getStartTime(){
     return StartTime;
 }
-public void setStartTime(Timestamp StartTime){
-    this.StartTime = StartTime;
+public void setStartTime(String d){
+    this.StartTime = d;
 }
-public Timestamp getEndTime(){
+public String getEndTime(){
     return EndTime;
 }
-public void setEndTime(Timestamp EndTime){
-    this.EndTime = EndTime;
+public void setEndTime(String d){
+    this.EndTime = d;
 }
 public SessionStatus getStatus(){
     return Status;
@@ -91,4 +90,5 @@ public void setStatus(SessionStatus Status){
 }
 public enum SessionStatus {
     ACTIVE, COMPLETED, CANCELLED
+    }
 }

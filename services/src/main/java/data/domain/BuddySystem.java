@@ -1,4 +1,4 @@
-package services.src.main.java.data.domain;
+package ch.fhnw.pizza.data.domain;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.Column;
@@ -15,7 +15,7 @@ public class BuddySystem {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Hidden
     @Column(name = "BuddyPairID")
-    private Int BuddyPairID;
+    private long BuddyPairID;
 
     @Column(name = "Languages")
     private String Languages;
@@ -23,17 +23,16 @@ public class BuddySystem {
     @Column(name = "Status")
     private BuddyStatus Status;
 
-}
-public BuddySystem(Int BuddyPairID,String Languages,
+public BuddySystem(long BuddyPairID,String Languages,
     BuddyStatus Status){
     this.BuddyPairID = BuddyPairID;
     this.Languages = Languages;
     this.Status = Status;
 }
-public Int getBuddyPairID(){
+public long getBuddyPairID(){
     return BuddyPairID;
 }
-public void setBuddyPairID(Int BuddyPairID){
+public void setBuddyPairID(long BuddyPairID){
     this.BuddyPairID = BuddyPairID;
 }
 public String getLanguages(){
@@ -50,4 +49,5 @@ public void setStatus(BuddyStatus Status){
 }
 public enum BuddyStatus {
     ACTIVE, COMPLETED
+    }
 }
