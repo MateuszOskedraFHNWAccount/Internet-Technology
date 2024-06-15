@@ -123,7 +123,7 @@ Behind the scenes, admins ensure the platform runs smoothly, moderating content 
 
 - **UC-16 [Login with Roles]:** Users, regardless of being students or admins, can log in with different roles available on the platform.
 
-
+The Use Case Models are to be found on github.
 
 ## Design
 
