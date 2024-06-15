@@ -3,7 +3,6 @@ package controller;
 import data.repository.AdminActionsRepository;
 import data.repository.ForumPostRepository;
 import data.domain.AdminActions;
-import data.domain.ForumPost;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
