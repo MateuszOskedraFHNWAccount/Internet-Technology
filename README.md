@@ -83,44 +83,76 @@ Behind the scenes, admins ensure the platform runs smoothly, moderating content 
 **Student Use Cases:**
 
 - **UC-1 [Offer/Find Tutoring]:** Students can offer or find tutoring in various subjects, specifying whether the session is recurring or one-time, creating a title and description for the offer, and setting the timeline.
+![UC-1  Offer_Find Tutoring](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/4809b0fc-42ec-47b1-9d76-34c371f50dd8)
+
 
 - **UC-2 [Offer Mentoring for Projects]:** Students can offer mentoring for projects in different subjects, specifying if the mentoring is recurring or not, naming the offer, providing a description, and selecting timelines.
+![UC-2  Offer Mentoring for Projects](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/f788414b-eefa-473b-be14-2c4df53399c6)
+
 
 - **UC-3 [Initiate Independent Projects]:** Students can create independent projects, independant from the curriculum, deciding if they're recurring or one-time, naming the project, describing it, and scheduling timelines.
+![UC-3  Initiate Independent Projects](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/e7657f89-0637-4e4a-8391-52ebe460c2d2)
+
 
 - **UC-4 [Volunteer as a Buddy]:** Students can volunteer as a buddy for international students, defining the languages they can speak to aid in the buddy integration.
+![UC-4  Volunteer as a Buddy](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/f7abf0e1-7d1c-4742-ab89-6d8bb5350da1)
+
 
 - **UC-5 [Assign Rooms for Events]:** Students can assign rooms for mentoring or collaboration events, defining if the event is recurring or one-time, and setting specific timeframes.
+![UC-5  Assign Rooms for Events](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/6fc336a5-9433-4d89-ab54-685b2c59515a)
+
 
 - **UC-6 [Create Forum Posts]:** *(optional, v2.0)* Students can create forum posts on a variety of topics, creating an environment for open discussions, sharing of ideas, or searching for academic help.
+![UC-6  Create Forum Posts](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/c2f8308a-9e80-4a48-bc33-3bb2a8320709)
+
 
 - **UC-7 [Respond to Forum Threads]:** *(optional, v2.0)* Students can answer and engage in  discussions within forum threads, allowing for exchange of knowledge and perspectives.
+![UC-7  Respond to Forum Threads](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/96d9ca06-5a0b-4590-887b-d79d648698be)
+
 
 **Admin Use Cases:**
 
 - **UC-8 [Modify/Delete Offers and Requests]:** Admins can modify or delete any tutoring offers or requests, project mentoring, collaborations, and buddy offers to keep the platform's content appropriate and up-to-date.
+![UC-8  Modify_Delete Offers and Requests](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/cfcae774-df77-43c6-b331-d77fe07dbc79)
+
 
 - **UC-9 [Access Logs]:** Admins have access to logs that monitor the creation of tutoring sessions, project collaborations, etc., including their titles and timelines.
+![UC-9  Access Logs](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/bce5b77a-6c6f-4a03-89fe-499ff3e4ff6f)
+
 
 - **UC-10 [Post Advertisements]:** Admins can post advertisements seeking buddies, tutors, mentors, or project collaborators.
+![UC-10  Post Advertisements](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/d5b4e894-ee55-43d2-8d93-78ef0f1bb294)
+
 
 - **UC-11 [Assign International Students to Buddies]:** Admins can assign international students to local buddies based on language abilities and other  criteria for the integration.
+![UC-11  Assign International Students to Buddies](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/b5745a09-fb5d-4a47-bf5b-1b425f068c96)
+
 
 - **UC-12 [Manage User Accounts]:** Admins can manage user accounts, with the ability to create, modify, or delete them to secure authenticity and activity on the platform.
+![UC-12  Manage User Accounts](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/761d9ec3-d352-4acf-99ae-a795764107d5)
+
 
 - **UC-13 [Add Job Advertisements]:** *(optional)* Admins can post job advertisements related to FHNW, including details about the role, requirements, application process, and deadlines, making it easier for students to find and apply for jobs that match their skills and interests.
+![UC-13  Add Job Advertisements](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/20dcc5f1-60f8-4b7e-af8c-0bb2a0458129)
+
 
 - **UC-14 [Moderate Forum Content]:** *(optional, v2.0)* Admins can modify or delete any forum post or response.
+![UC-14  Moderate Forum Content](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/13f0943f-eea0-41bc-81ff-80bb9bc9b6bc)
+
 
 **Super Admin Use Cases:**
 
 - **UC-15 [Manage Admin Accounts]:** Super admins have the authority to manage admin accounts, such as the creation, alteration, and deletion of admin profiles.
+![UC-15  Manage Admin Accounts](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/e335ca3a-17ec-417a-8710-a779f52146fd)
+
 
 **Common Use Cases:**
 
 - **UC-16 [Login with Roles]:** Users, regardless of being students or admins, can log in with different roles available on the platform.
 
 The Use Case Models are to be found on github.
+![UC-16  Login with Roles](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/fc9d9484-7a54-40fa-bb1b-8fca60fc90af)
+
 
 ## Design
 
