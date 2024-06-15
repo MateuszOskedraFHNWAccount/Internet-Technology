@@ -5,7 +5,6 @@ import data.repository.ForumPostRepository;
 import data.domain.AdminActions;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +17,6 @@ public class AdminActionsController {
 
     @Autowired
     private AdminActionsRepository adminActionsRepository;
-
-    @Autowired
-    private ForumPostRepository forumPostRepository;
 
     @PutMapping(path = "/api/admin/modify/{type}/{id}",consumes = "application/json",produces = "application/json")
     public ResponseEntity<AdminActions> updateAdminAction(@PathVariable String type, @PathVariable Long id, @RequestBody AdminActions adminAction) {

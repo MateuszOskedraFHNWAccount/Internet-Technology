@@ -33,6 +33,7 @@ public class ForumPostController {
             new Exception("ForumPost not found with ID: " + postId);
         }
         return null;
+    }
     
     @DeleteMapping("/api/forum/delete/{postId}")
     public ResponseEntity<String> deleteForumPost(@PathVariable Long postId) {
