@@ -423,6 +423,9 @@ For the frontend, the Budibase was used. The theme focused on the FHNWs standard
 Exported Budibase projects are to be found on Github.
 The export password is "CommunityFHNW"
 
+For the CommunityFHNW app, use the "CommunityFHNW-export-1718459908737.enc.tar" exported budibase file.
+For the Admin Management Service app, use the "employee portal 2-export-1718459957548.enc.tar" exported budibase file.
+
 ## Project Management
 
 The Project was split into Workpackages (Called Tasks)
