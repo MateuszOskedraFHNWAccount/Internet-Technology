@@ -1,6 +1,6 @@
 # Educational Peer Exchange Platform for Fachhochschule Nordwestschweiz Students (CommunityFHNW)
 
-This project aims to facilitate a peer-to-peer learning and support environment for students at the Fachhochschule Nordwestschweiz (FHNW). It includes features for peer tutoring, project collaboration, and a buddy system for exchange students.
+This projects aim is to to create a peer-to-peer learning and support environment for students at the Fachhochschule Nordwestschweiz (FHNW). It includes features for peer tutoring, project collaboration, and a buddy system for exchange students.
 
 [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -28,57 +28,56 @@ This project aims to facilitate a peer-to-peer learning and support environment 
 
 ### Scenario
 
-CommunityFHNW is designed to be a dynamic support and learning platform for students at Fachhochschule Nordwestschweiz (FHNW), fostering a strong sense of academic and social community. It's built on the idea that every student not only seeks knowledge but also has unique insights to share, creating a vibrant cycle of learning and teaching.
+CommunityFHNW is designed to be a user interactive support and learning platform for students at Fachhochschule Nordwestschweiz (FHNW), aiming to create a strong sense of academic and social community. It's built on the idea that every student not only looks for knowledge but also has their insights to share, creating a cycle of learning and teaching.
 
-The platform allows students to easily find or offer tutoring across a variety of subjects, manage project collaborations, and even volunteer as buddies for international peers, helping them adjust to life at FHNW and in Switzerland. Through CommunityFHNW, students can set up one-time or recurring tutoring sessions, kick-start independent projects beyond the regular curriculum, and create real-world meetings for collaborative work, all within a framework that encourages innovation and mutual support.
+The platform allows students to easily find or offer tutoring across different subjects, manage project collaborations, and even volunteer as buddies for international peers, helping them adjust to life at FHNW and in Switzerland. Through CommunityFHNW, students can set up one-time or recurring tutoring sessions, kick-start independent projects beyond the regular curriculum, and create real-world meetings for collaborative work, all within a framework of the application.
 
-For international students, the buddy system is a cornerstone of the platform, providing a welcoming introduction to the academic community and Swiss culture, thanks to the local students eager to share their knowledge and experiences.
+For international students, the buddy system is a important element of the platform, providing a welcoming introduction to the academic community and Swiss culture, thanks to the local students helping the international students out.
 
 Behind the scenes, admins ensure the platform runs smoothly, moderating content and managing accounts to keep the community safe and engaged. They have tools at their disposal to monitor activity, post needed advertisements for tutors or project collaborators, and pair international students with their local buddies. Super admins oversee this all, maintaining the high standards and vision of the platform.
 
-Available on various devices, CommunityFHNW ensures that whether you're on campus or on the move, you can stay connected, making learning flexible and accessible for everyone involved.
 
 ### User Stories
 
 **Student User Stories:**
 
-- **As a student**, I want to offer or find tutoring in various subjects, specifying if the session is recurring or one-time, create a title and description for the offer, and set the timeline.
+- **As a student**, I want to offer or find tutoring in various subjects, defining if the session is recurring or one-time, create a title and description for the offer, and set the timeline.
 
-- **As a student**, I want to offer mentoring for projects in different subjects, indicating if the mentoring is recurring or not, naming the offer, providing a description, and selecting timelines.
+- **As a student**, I want to offer mentoring for projects in different subjects, defining if the mentoring is recurring or not, naming the offer, providing a description, and selecting timelines.
 
-- **As a student**, I want to initiate independent projects, distinct from the curriculum, deciding if they're recurring or one-time, naming the project, detailing it, and scheduling timelines.
+- **As a student**, I want to create independent projects, sepatatly from the curriculum, deciding if they're recurring or one-time, naming the project, detailing it, and scheduling timelines.
 
-- **As a student**, I want to volunteer as a buddy for international students, aiding their adaptation to the academic and cultural environment at FHNW.
+- **As a student**, I want to volunteer as a buddy for international students, aiding their integration into the academic and cultural environment at FHNW.
 
 - **As a student**, I wish to assign rooms to the created mentoring or collaboration events.
 
-- *(optional, v2.0)* **As a student**, I want to create forum posts about any topic to share knowledge, seek advice, or discuss academic and non-academic matters with my peers.
+- *(optional, v2.0)* **As a student**, I want to create forum posts about any topic to share knowledge, search for advice, or discuss academic and non-academic matters with my peers.
 
-- *(optional, v2.0)* **As a student**, I want to respond to forum threads, allowing me to contribute to discussions, offer my insights, or seek further clarification on topics of interest.
+- *(optional, v2.0)* **As a student**, I want to respond to forum threads, allowing me to contribute to discussions, offer my insights, or search for further clarification on topics of interest.
 
 **Admin User Stories:**
 
-- **As an admin**, I need to modify or delete any tutoring offers or requests, project mentoring, collaborations, and buddy offers to ensure the platform's content remains relevant and appropriate.
+- **As an admin**, I need to modify or delete any tutoring offers or requests, project mentoring, collaborations, and buddy offers to ensure the platform's content remains relevant and correct.
 
-- **As an admin**, I want access to logs that monitor the creation of tutoring sessions, project collaborations, etc., including their titles and timelines, to maintain oversight.
+- **As an admin**, I want access to logs that monitor the creation of tutoring sessions, project collaborations, etc., including their titles and timelines, to maintain oversight and control.
 
 - **As an admin**, I need to post advertisements seeking buddies, tutors, mentors, or project collaborators to fill gaps in the community's needs.
 
-- **As an admin**, I should be able to assign international students to local buddies, ensuring a personalized and supportive integration experience.
+- **As an admin**, I should be able to assign international students to local buddies, ensuring that the integration will go smoothly, and is done by the right people.
 
-- **As an admin**, I must manage user accounts, including the ability to create, modify, or delete them, to ensure the platform's users are genuine and active.
+- **As an admin**, I must manage user accounts, including the ability to create, modify, or delete them, to ensure the platform's users are real and active.
 
-- *(optional)* **As an admin**, I want to add FHNW job advertisements to the platform, allowing students to access employment opportunities within the university and its affiliated institutions, enhancing their career prospects and integration into the professional community.
+- *(optional)* **As an admin**, I want to add FHNW job advertisements to the platform, allowing students to find employment opportunities within the university, improving their career posibilities and integration into the professional community.
 
-- *(optional, v2.0)* **As an admin**, I need the ability to modify or delete any forum post or response that violates our community guidelines to ensure discussions remain productive, respectful, and relevant.
+- *(optional, v2.0)* **As an admin**, I need the ability to modify or delete any forum post or response that violates our community guidelines to make sure the discussions remain productive, respectful, and relevant.
 
 **Super Admin Stories:**
 
-- **As a super admin**, I need to manage admin accounts, granting me the authority to create, alter, and delete admin profiles to maintain a high standard of platform oversight.
+- **As a super admin**, I need to manage admin accounts, giving me the authority to create, alter, and delete admin profiles to secure a high standard of platform oversight.
 
 **Common User Story:**
 
-- **As both an admin and a student (user)**, I require a web application that is accessible on various mobile devices and desktop computers, ensuring wide accessibility and usability.
+- **As both an admin and a student (user)**, I require a web application that is accessible on desktop computers, securing accessibility and usability.
 
 - **As a user**, regardless of being a student or an admin, I need to log in with different roles available on the platform, enabling personalized and role-appropriate access to features and functionalities.
 
@@ -88,17 +87,17 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 
 - **UC-1 [Offer/Find Tutoring]:** Students can offer or find tutoring in various subjects, specifying whether the session is recurring or one-time, creating a title and description for the offer, and setting the timeline.
 
-- **UC-2 [Offer Mentoring for Projects]:** Students can offer mentoring for projects in different subjects, indicating if the mentoring is recurring or not, naming the offer, providing a description, and selecting timelines.
+- **UC-2 [Offer Mentoring for Projects]:** Students can offer mentoring for projects in different subjects, specifying if the mentoring is recurring or not, naming the offer, providing a description, and selecting timelines.
 
-- **UC-3 [Initiate Independent Projects]:** Students can initiate independent projects, distinct from the curriculum, deciding if they're recurring or one-time, naming the project, detailing it, and scheduling timelines.
+- **UC-3 [Initiate Independent Projects]:** Students can create independent projects, independant from the curriculum, deciding if they're recurring or one-time, naming the project, describing it, and scheduling timelines.
 
-- **UC-4 [Volunteer as a Buddy]:** Students can volunteer as a buddy for international students, specifying the languages they can speak to aid in the adaptation to the academic and cultural environment at FHNW.
+- **UC-4 [Volunteer as a Buddy]:** Students can volunteer as a buddy for international students, defining the languages they can speak to aid in the buddy integration.
 
-- **UC-5 [Assign Rooms for Events]:** Students can assign rooms for mentoring or collaboration events, specifying if the event is recurring or one-time, and setting specific timeframes.
+- **UC-5 [Assign Rooms for Events]:** Students can assign rooms for mentoring or collaboration events, defining if the event is recurring or one-time, and setting specific timeframes.
 
-- **UC-6 [Create Forum Posts]:** *(optional, v2.0)* Students can create forum posts on a variety of topics, setting the stage for open discussions, sharing of ideas, or solicitation of academic help.
+- **UC-6 [Create Forum Posts]:** *(optional, v2.0)* Students can create forum posts on a variety of topics, creating an environment for open discussions, sharing of ideas, or searching for academic help.
 
-- **UC-7 [Respond to Forum Threads]:** *(optional, v2.0)* Students can answer and engage in ongoing discussions within forum threads, allowing for dynamic exchanges of knowledge and perspectives.
+- **UC-7 [Respond to Forum Threads]:** *(optional, v2.0)* Students can answer and engage in  discussions within forum threads, allowing for exchange of knowledge and perspectives.
 
 **Admin Use Cases:**
 
@@ -106,46 +105,46 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 
 - **UC-9 [Access Logs]:** Admins have access to logs that monitor the creation of tutoring sessions, project collaborations, etc., including their titles and timelines.
 
-- **UC-10 [Post Advertisements]:** Admins can post advertisements seeking buddies, tutors, mentors, or project collaborators to address community needs.
+- **UC-10 [Post Advertisements]:** Admins can post advertisements seeking buddies, tutors, mentors, or project collaborators.
 
-- **UC-11 [Assign International Students to Buddies]:** Admins can assign international students to local buddies based on language abilities and other relevant criteria for a supportive integration.
+- **UC-11 [Assign International Students to Buddies]:** Admins can assign international students to local buddies based on language abilities and other  criteria for the integration.
 
-- **UC-12 [Manage User Accounts]:** Admins can manage user accounts, with the ability to create, modify, or delete them to ensure authenticity and activity on the platform.
+- **UC-12 [Manage User Accounts]:** Admins can manage user accounts, with the ability to create, modify, or delete them to secure authenticity and activity on the platform.
 
 - **UC-13 [Add Job Advertisements]:** *(optional)* Admins can post job advertisements related to FHNW, including details about the role, requirements, application process, and deadlines, making it easier for students to find and apply for jobs that match their skills and interests.
 
-- **UC-14 [Moderate Forum Content]:** *(optional, v2.0)* Admins can modify or delete any forum post or response, exercising oversight to maintain the integrity and positivity of the forum environment.
+- **UC-14 [Moderate Forum Content]:** *(optional, v2.0)* Admins can modify or delete any forum post or response.
 
 **Super Admin Use Cases:**
 
-- **UC-15 [Manage Admin Accounts]:** Super admins have the authority to manage admin accounts, including the creation, alteration, and deletion of admin profiles to ensure platform integrity and oversight.
+- **UC-15 [Manage Admin Accounts]:** Super admins have the authority to manage admin accounts, such as the creation, alteration, and deletion of admin profiles.
 
 **Common Use Cases:**
 
-- **UC-16 [Login with Roles]:** Users, regardless of being students or admins, can log in with different roles available on the platform, enabling personalized and role-appropriate access to features and functionalities.
+- **UC-16 [Login with Roles]:** Users, regardless of being students or admins, can log in with different roles available on the platform.
 
-> use case diagram here
+
 
 ## Design
 
 **Color Scheme**
-- The color palette should reflect the official FHNW colors, ensuring a visual connection between the platform and the institution's brand identity.
+- The color palette should match the official FHNW colors, ensuring that the application matches the official look of the FHNW websites.
 
 **Graphics**
-- Use graphics that are stylistically similar to those found on FHNW's web presence, maintaining brand consistency.
+- Some of the user graphics were used from the FHNW websites, and some of them are custom made.
 
 **Typography**
-- Typography choices should match those used by FHNW's official communications to maintain a cohesive look and feel.
+- Typography choices should match those used by FHNW's.
 
 **Layout**
-- The layout should be clean, organized, and navigable, much like FHNW's website, providing a user-friendly experience that aligns with the institution's standards.
+- The layout should be clean, organized, and  easly navigable, much like FHNW's website, providing a user-friendly platform that matches the institution's standards.
 
 **User Experience (UX)**
-- UX design should prioritize ease of use and intuitive navigation, considering the familiarity of the user base with FHNW's existing digital touchpoints.
+- UX design should focus on the ease of use and intuitive navigation, considering the familiarity of the user base with FHNW's existing web solutions.
 
-*All design decisions must be made with FHNW's CI guidelines at the forefront to create a seamless and integrated user experience that resonates with the community.*
+*All design decisions must be made with FHNW's CI guidelines*
 
-> add UI Design images
+
 
 ### Wireframe
 > Add smth here
@@ -267,9 +266,9 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 
 - Each **Forum Post** and **Forum Response** is authored by a **User**.
 
-- **Forum Responses** are linked to their respective **Forum Posts**.
+- **Forum Responses** are linked to respective **Forum Posts**.
 
-- **Admin Actions** are performed by **Admins** and target various entities within the system.
+- **Admin Actions** are performed by **Admins** and target entities within the system.
 
 - **Job Advertisements** are posted by **Admins**.
 
@@ -304,34 +303,34 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
   - Search: `/api/projects/mentorship/search?subject={subject}&recurring={true|false}`
 
 **UC-3 [Initiate Independent Projects]**
-- **Service Description**: Allows students to initiate their independent projects, detailing the project's nature, objectives, and required timeline.
+- **Service Description**: Allows students to start with their independent projects, defining the project's type, objectives, and timeline.
 - **HTTP Method**: `POST`
 - **Path**: `/api/projects/independent`
 
 **UC-4 [Volunteer as a Buddy]**
-- **Service Description**: Facilitates the matching of local students with international students based on specified languages and other preferences for a buddy program.
+- **Service Description**: Matching of local students with international students based on specified languages and other preferences for a buddy program.
 - **HTTP Method**: `POST` for volunteering, `GET` for matching.
 - **Path**:
   - Volunteer: `/api/buddy/volunteer`
   - Match: `/api/buddy/match?language={language}`
 
 **UC-5 [Assign Rooms for Events]**
-- **Service Description**: Enables students to book rooms for their tutoring or project collaboration events, specifying the event type and desired timeframe.
+- **Service Description**: Enables students to book rooms for their tutoring or project collaborations, defining the event type and timeframe.
 - **HTTP Method**: `POST`
 - **Path**: `/api/rooms/assign`
 
 **UC-6 [Create Forum Posts] *(optional, v2.0)***
-- **Service Description**: Students can create forum posts to initiate discussions on various topics.
+- **Service Description**: Students can create forum posts to discuss various topics.
 - **HTTP Method**: `POST`
 - **Path**: `/api/forum/posts`
 
 **UC-7 [Respond to Forum Threads] *(optional, v2.0)***
-- **Service Description**: Students can respond to existing forum threads, contributing to the community discussion.
+- **Service Description**: Students can respond to existing forum threads, contributing to the discussion.
 - **HTTP Method**: `POST`
 - **Path**: `/api/forum/posts/{postId}/responses`
 
 **UC-8 [Modify/Delete Offers and Requests]**
-- **Service Description**: Admins can modify or delete tutoring and project offers and requests to ensure content relevance and appropriateness.
+- **Service Description**: Admins can modify or delete tutoring and project offers and requests.
 - **HTTP Method**: `PUT` for modifications, `DELETE` for removals.
 - **Path**: 
   - Modify: `/api/admin/modify/{type}/{id}`
@@ -358,12 +357,12 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
 - **Path**: `/api/admin/users/manage`
 
 **UC-13 [Add Job Advertisements] *(optional)***
-- **Service Description**: Admins can post job opportunities related to FHNW, detailing roles and application processes.
+- **Service Description**: Admins can post job opportunities related to FHNW, defining roles and application processes.
 - **HTTP Method**: `POST`
 - **Path**: `/api/admin/jobs`
 
 **UC-14 [Moderate Forum Content] *(optional, v2.0)***
-- **Service Description**: Admins can moderate forum content, editing or removing posts and responses as necessary to maintain a respectful and productive discussion environment.
+- **Service Description**: Admins can moderate forum content, editing or removing posts and responses in order of maintaining respectful and productive discussion environment.
 - **HTTP Method**: `PUT` for editing, `DELETE` for removing.
 - **Path**: 
   - Edit: `/api/forum/edit/{postId}`
@@ -378,17 +377,17 @@ Available on various devices, CommunityFHNW ensures that whether you're on campu
   - Delete: `/api/superadmin/admins/delete/{adminId}`
 
 **UC-16 [Login with Roles]**
-- **Service Description**: Facilitates a secure login process for all users, with role-based access control ensuring appropriate permissions and functionalities are available according to the user's role (Student, Admin, Super Admin).
+- **Service Description**: Secure login process for all users, with role-based access control securing that the permissions and functionalities are available according to the user's role (Student, Admin, Super Admin).
 - **HTTP Method**: `POST`
 - **Path**: `/api/auth/login`
 
 **Associations and Further Details:**
 
-- **Tutoring Sessions**, **Mentorships**, and **Independent Projects** are directly linked to the user who creates them. Admins can manage these entities to ensure quality and appropriateness.
+- **Tutoring Sessions**, **Mentorships**, and **Independent Projects** are directly linked to the user who creates them. Admins can manage these entities to ensure quality.
 
 - **Buddy System** associations are based on language preferences and other specified criteria to optimize the matching process.
 
-- **Forum Posts** and **Responses** allow for dynamic community interactions, with admin oversight to maintain community standards.
+- **Forum Posts** and **Responses** allow for community interactions, with admin oversight to maintain community standards.
 
 - **Room Assignments** are tied to specific events, requiring details about the event and preferred timings.
 
@@ -420,19 +419,16 @@ The Kanban method was implemented to track the project status.
 ![image](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/a1f0d143-78a7-4547-a10a-d394373b41c3)
 
 
-For the Kanban Board, the ClickUp was used. The Kanban Board is accessable under the following link:
-
-https://app.clickup.com/9015494227/v/li/901503724333
 
 ### Roles
 
 - Backend Developer: Responsible for API development, database management, and server-side logic.
 
-- Frontend Developer: Focuses on the user interface, ensuring a seamless and intuitive user experience.
+- Frontend Developer: Responsible for the user interface, ensuring a good user experience.
 
-- Project Manager: Oversees the project timeline, ensuring milestones are met and resources are allocated efficiently.
+- Project Manager: Responsible for the project timeline, ensuring milestones are met and resources are secured.
 
-- Product Manager: Guides the platform's development strategy, focusing on aligning features with user needs and business objectives. Coordinates between users, technical teams, and stakeholders to prioritize and refine product features, ensuring CommunityFHNW meets its goals effectively.
+- Product Manager: Guides the platform's development strategy, focusing on aligning features with user needs and business objectives. 
 
 ### Stakeholders
 
@@ -460,18 +456,12 @@ https://app.clickup.com/9015494227/v/li/901503724333
 
 #### Maintainers
 
-- Mateusz Oskedra (special boi)
+- Mateusz Oskedra 
 
-- Emirhan Akgün (ma man)
+- Emirhan Akgün 
 
 #### License
 
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-### Copyright
 
-Copyright © 2024 Mateusz Oskedra and Emirhan Akgün. All rights reserved.
-
-No part of the CommunityFHNW project, including its ideas, documentation, code, and content, may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the author, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law. For permission requests, write to the author, addressed “Copyright permission,” at the address below.
-
-oskedram@gmail.com
