@@ -8,6 +8,13 @@
             "type": "java",
             "name": "CollaborationApplication",
             "request": "launch",
+            "mainClass": "services.src.main.java.CollaborationApplication",
+            "projectName": "Internet-Technology_ea3c05f6"
+        },
+        {
+            "type": "java",
+            "name": "CollaborationApplication",
+            "request": "launch",
             "mainClass": "ch.fhnw.pizza.CollaborationApplication",
             "projectName": "pizza"
         },

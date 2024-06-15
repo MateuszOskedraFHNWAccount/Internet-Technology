@@ -1,4 +1,4 @@
-package ch.fhnw.pizza.data.domain;
+package services.src.main.java.data.domain;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.Column;
