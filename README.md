@@ -137,10 +137,10 @@ The Use Case Models are to be found on github.
 - Typography choices should match those used by FHNW's.
 
 **Layout**
-- The layout should be clean, organized, and  easly navigable, much like FHNW's website, providing a user-friendly platform that matches the institution's standards.
+- The layout should be clean, organized, and  easly navigable, much like FHNW's website, .
 
 **User Experience (UX)**
-- UX design should focus on the ease of use and intuitive navigation, considering the familiarity of the user base with FHNW's existing web solutions.
+- UX design should focus on the ease of use and intuitive navigation.
 
 *All design decisions must be made with FHNW's CI guidelines*
 
@@ -149,6 +149,8 @@ The Use Case Models are to be found on github.
 Prototype was designed using the business functionality and the design definitions. From it, the frontend was created, and the functionality was adjusted. 
 
 Later, the color scheme and other elements were changed, due to different design opinions of the group participants.
+
+The backend functionality of the prototype was never created, leading to additional issues later on in the project.
 
 ![image](https://github.com/MateuszOskedraFHNWAccount/Internet-Technology/assets/164078789/0cc300e5-f9f9-4696-97e3-63bb06ce1a0c)
 
@@ -399,16 +401,21 @@ Later, the color scheme and other elements were changed, due to different design
 - **User Account Management** involves sensitive operations such as creation, modification, and deletion, emphasizing the need for secure authentication and authorization mechanisms.
 
 ## Implementation
-> Add smth here
+
+The work was split between 4 participants of the group. 1 of the participants was creating the backend, 1 the frontend, 1 the APIs and 1 the documentation.
+
+The issues arose when we couldnt connect the backend to the APIs and the frontend. The backend has still errors, influencing the usability and not allowing us to connect all the parts of the project together. Due to this issue, the project couldnt be tested, and 2 of the project participants, responsible for the frontend and the APIs, left the group.
 
 ### Backend Technology
-> Add smth here
+
+For the backend Technology, java was used. The files are to be found in the repository on github. It was based on the example provided by the course, and expanded to cover the webapplications functionalities and needs.
+
+For the APIs, the Postman was used to create and test connections with the website.
 
 ### Frontend Technology
-> Add smth here
 
-## Execution
-> Add smth here
+For the frontend, the Budibase was used. The theme focused on the FHNWs standards, and added this project elements to cover the functionality, ease of use and understanding of the website. It also was choosen due to easy visual orientation and understanding of the website. As mentioned, from this base, the frontend was expanded to cover all of the webapplications functionalities split onto different sites.
+
 
 ## Project Management
 
@@ -459,8 +466,16 @@ The Kanban method was implemented to track the project status.
 
 - Mateusz Oskedra 
 
-- Emirhan Akgün 
+- Emirhan Akgün
 
+#### Group participants
+
+2 left the group
+
+- Mateusz Oskedra 
+
+- Emirhan Akgün
+  
 #### License
 
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
