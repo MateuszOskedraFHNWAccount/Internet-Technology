@@ -4,6 +4,7 @@ import data.domain.ForumPost;
 import data.repository.ForumPostRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class ForumPostController {
         ForumPost savedPost = forumPostRepository.save(forumPost);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPost);
     }
-    
+
     @PutMapping(path = "/api/forum/edit/{postId}")
     public ResponseEntity<ForumPost> updateForumPost(@PathVariable Long postId, @RequestBody ForumPost updatedPost) throws Exception {
         ForumPost existingPost;
@@ -32,5 +33,14 @@ public class ForumPostController {
             new Exception("ForumPost not found with ID: " + postId);
         }
         return null;
-}
+    
+    @DeleteMapping("/api/forum/delete/{postId}")
+    public ResponseEntity<String> deleteForumPost(@PathVariable Long postId) {
+        try {
+            forumPostRepository.deleteByPostId(postId);
+            return ResponseEntity.ok("Forum post deleted successfully");
+        } catch (EmptyResultDataAccessException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

@@ -43,15 +43,7 @@ public class AdminActionsController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Admin action not found.");
         }
 }
-    @DeleteMapping("/api/forum/delete/{postId}")
-    public ResponseEntity<String> deleteForumPost(@PathVariable Long postId) {
-        try {
-            forumPostRepository.deleteByPostId(postId);
-            return ResponseEntity.ok("Forum post deleted successfully");
-        } catch (EmptyResultDataAccessException e) {
-            return ResponseEntity.notFound().build();
-        }
-}
+    
     
     @GetMapping(path = "/api/auth/login/{adminId}",produces = "application/json")
     public ResponseEntity<String> showAdminContent(Principal principal) {
