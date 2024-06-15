@@ -1,7 +1,7 @@
-package ch.fhnw.pizza.controller;
+package services.src.main.java.controller;
 
-import ch.fhnw.pizza.data.domain.MentoringForProjects;
-import ch.fhnw.pizza.data.repository.MentoringForProjectsRepository;
+import services.src.main.java.data.domain.MentoringForProjects;
+import services.src.main.java.data.repository.MentoringForProjectsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

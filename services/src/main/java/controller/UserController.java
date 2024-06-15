@@ -1,7 +1,7 @@
-package ch.fhnw.pizza.controller;
+package services.src.main.java.controller;
 
-import ch.fhnw.pizza.data.domain.User;
-import ch.fhnw.pizza.data.repository.UserRepository;
+import services.src.main.java.data.domain.User;
+import services.src.main.java.data.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

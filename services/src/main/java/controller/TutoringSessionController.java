@@ -1,7 +1,7 @@
-package ch.fhnw.pizza.controller;
+package services.src.main.java.controller;
 
-import ch.fhnw.pizza.data.domain.TutoringSession;
-import ch.fhnw.pizza.data.repository.TutoringSessionRepository;
+import services.src.main.java.data.domain.TutoringSession;
+import services.src.main.java.data.repository.TutoringSessionRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

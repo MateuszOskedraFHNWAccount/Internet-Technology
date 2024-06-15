@@ -1,7 +1,7 @@
-package ch.fhnw.pizza.controller;
+package services.src.main.java.controller;
 
-import ch.fhnw.pizza.data.domain.JobAdvertisement;
-import ch.fhnw.pizza.data.repository.JobAdvertisementRepository;
+import services.src.main.java.data.domain.JobAdvertisement;
+import services.src.main.java.data.repository.JobAdvertisementRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
