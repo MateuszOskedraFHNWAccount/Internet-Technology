@@ -10,4 +10,6 @@ public interface AdvertisementRepository extends JpaRepository<Advertisement, Lo
 
     Object findBytitle(String gettitle);
 
+    Advertisement save(Advertisement advertisement);
+
 }

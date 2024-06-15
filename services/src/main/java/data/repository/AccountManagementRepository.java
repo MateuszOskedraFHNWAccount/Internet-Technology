@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import services.src.main.java.data.domain.AccountManagement;
+import services.src.main.java.data.domain.AccountManagement.Actiontype;
 import services.src.main.java.data.repository.AccountManagementRepository;
 
 @Repository
@@ -11,4 +12,10 @@ public interface AccountManagementRepository extends JpaRepository<AccountManage
 
     Object findByActionType(Actiontype actionType);
     // You can add custom query methods here if needed
+
+    AccountManagement save(AccountManagement existingAccount);
+
+    boolean existsById(long managementID);
+
+    void deleteById(long managementID);
 }
