@@ -1,9 +1,9 @@
-package services.src.main.java.controller;
+package controller;
 
-import services.src.main.java.data.repository.AdminActionsRepository;
-import services.src.main.java.data.repository.ForumPostRepository;
-import services.src.main.java.data.domain.AdminActions;
-import services.src.main.java.data.domain.ForumPost;
+import data.repository.AdminActionsRepository;
+import data.repository.ForumPostRepository;
+import data.domain.AdminActions;
+import data.domain.ForumPost;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;

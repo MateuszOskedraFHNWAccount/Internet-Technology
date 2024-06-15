@@ -1,7 +1,7 @@
-package services.src.main.java.controller;
+package controller;
 
-import services.src.main.java.data.domain.Advertisement;
-import services.src.main.java.data.repository.AdvertisementRepository;
+import data.domain.Advertisement;
+import data.repository.AdvertisementRepository;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

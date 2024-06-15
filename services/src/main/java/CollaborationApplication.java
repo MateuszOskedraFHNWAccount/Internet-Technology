@@ -1,31 +1,30 @@
-package services.src.main.java;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 
-import services.src.main.java.business.CollaborationsList;
-import services.src.main.java.data.domain.AccountManagement;
-import services.src.main.java.data.domain.AccountManagement.Actiontype;
-import services.src.main.java.data.domain.AdminActions;
-import services.src.main.java.data.domain.AdminActions.Actiontypes;
-import services.src.main.java.data.domain.Advertisement;
-import services.src.main.java.data.domain.BuddyAssignment;
-import services.src.main.java.data.domain.BuddySystem;
-import services.src.main.java.data.domain.BuddySystem.BuddyStatus;
+import business.CollaborationsList;
+import data.domain.AccountManagement;
+import data.domain.AccountManagement.Actiontype;
+import data.domain.AdminActions;
+import data.domain.AdminActions.Actiontypes;
+import data.domain.Advertisement;
+import data.domain.BuddyAssignment;
+import data.domain.BuddySystem;
+import data.domain.BuddySystem.BuddyStatus;
 
-import services.src.main.java.data.domain.ForumPost;
-import services.src.main.java.data.domain.ForumResponse;
-import services.src.main.java.data.domain.IndependentProject;
-import services.src.main.java.data.domain.JobAdvertisement;
-import services.src.main.java.data.domain.MentoringForProjects;
-import services.src.main.java.data.domain.RoomAssignment;
-import services.src.main.java.data.domain.SystemLog;
-import services.src.main.java.data.domain.TutoringSession;
-import services.src.main.java.data.domain.TutoringSession.SessionStatus;
-import services.src.main.java.data.domain.User;
-import services.src.main.java.data.domain.User.UserRole;
+import data.domain.ForumPost;
+import data.domain.ForumResponse;
+import data.domain.IndependentProject;
+import data.domain.JobAdvertisement;
+import data.domain.MentoringForProjects;
+import data.domain.RoomAssignment;
+import data.domain.SystemLog;
+import data.domain.TutoringSession;
+import data.domain.TutoringSession.SessionStatus;
+import data.domain.User;
+import data.domain.User.UserRole;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.annotation.PostConstruct;
