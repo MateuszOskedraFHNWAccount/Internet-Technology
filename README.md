@@ -22,9 +22,6 @@ This projects aim is to to create a peer-to-peer learning and support environmen
   - [Milestones](#milestones)
 - [Copyright](#copyright)
 
-### Analysis
-
-> Add smth here
 
 ### Scenario
 
@@ -404,7 +401,7 @@ The backend functionality of the prototype was never created, leading to additio
 
 The work was split between 4 participants of the group. 1 of the participants was creating the backend, 1 the frontend, 1 the APIs and 1 the documentation.
 
-The issues arose when we couldnt connect the backend to the APIs and the frontend. The backend has still errors, influencing the usability and not allowing us to connect all the parts of the project together. Due to this issue, the project couldnt be tested, and 2 of the project participants, responsible for the frontend and the APIs, left the group.
+The issues arose when we couldnt connect the backend to the APIs and the frontend. The backend has still errors, influencing the usability and not allowing us to connect all the parts of the project together. Due to this issue, the project couldnt be tested, and 1 of the project participants, responsible for the frontend and the APIs, left the group.
 
 ### Backend Technology
 
@@ -424,7 +421,7 @@ Exported Budibase projects are to be found on Github.
 The export password is "CommunityFHNW"
 
 For the CommunityFHNW app, use the "CommunityFHNW-export-1718459908737.enc.tar" exported budibase file.
-For the Admin Management Service app, use the "employee portal 2-export-1718459957548.enc.tar" exported budibase file.
+
 
 ## Project Management
 
@@ -475,15 +472,6 @@ The Kanban method was implemented to track the project status.
 
 - Mateusz Oskedra 
 
-- Emirhan Akgün
-
-#### Group participants
-
-2 left the group
-
-- Mateusz Oskedra 
-
-- Emirhan Akgün
   
 #### License
 
