@@ -1,38 +1,38 @@
-package ch.fhnw.pizza.business.service;
+package services.src.main.java.business;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ch.fhnw.pizza.data.domain.AccountManagement;
-import ch.fhnw.pizza.data.domain.AdminActions;
-import ch.fhnw.pizza.data.domain.Advertisement;
-import ch.fhnw.pizza.data.domain.BuddyAssignment;
-import ch.fhnw.pizza.data.domain.BuddySystem;
-import ch.fhnw.pizza.data.domain.ForumPost;
-import ch.fhnw.pizza.data.domain.ForumResponse;
-import ch.fhnw.pizza.data.domain.IndependentProject;
-import ch.fhnw.pizza.data.domain.JobAdvertisement;
-import ch.fhnw.pizza.data.domain.MentoringForProjects;
-import ch.fhnw.pizza.data.domain.RoomAssignment;
-import ch.fhnw.pizza.data.domain.SystemLog;
-import ch.fhnw.pizza.data.domain.TutoringSession;
-import ch.fhnw.pizza.data.domain.User;
-import ch.fhnw.pizza.data.repository.AccountManagementRepository;
-import ch.fhnw.pizza.data.repository.AdminActionsRepository;
-import ch.fhnw.pizza.data.repository.AdvertisementRepository;
-import ch.fhnw.pizza.data.repository.BuddyAssignmentRepository;
-import ch.fhnw.pizza.data.repository.BuddySystemRepository;
-import ch.fhnw.pizza.data.repository.ForumPostRepository;
-import ch.fhnw.pizza.data.repository.ForumResponseRepository;
-import ch.fhnw.pizza.data.repository.IndependentProjectRepository;
-import ch.fhnw.pizza.data.repository.JobAdvertisementRepository;
-import ch.fhnw.pizza.data.repository.MentoringForProjectsRepository;
-import ch.fhnw.pizza.data.repository.RoomAssignmentRepository;
-import ch.fhnw.pizza.data.repository.SystemLogRepository;
-import ch.fhnw.pizza.data.repository.TutoringSessionRepository;
-import ch.fhnw.pizza.data.repository.UserRepository;
+import services.src.main.java.data.domain.AccountManagement;
+import services.src.main.java.data.domain.AdminActions;
+import services.src.main.java.data.domain.Advertisement;
+import services.src.main.java.data.domain.BuddyAssignment;
+import services.src.main.java.data.domain.BuddySystem;
+import services.src.main.java.data.domain.ForumPost;
+import services.src.main.java.data.domain.ForumResponse;
+import services.src.main.java.data.domain.IndependentProject;
+import services.src.main.java.data.domain.JobAdvertisement;
+import services.src.main.java.data.domain.MentoringForProjects;
+import services.src.main.java.data.domain.RoomAssignment;
+import services.src.main.java.data.domain.SystemLog;
+import services.src.main.java.data.domain.TutoringSession;
+import services.src.main.java.data.domain.User;
+import services.src.main.java.data.repositoryAccountManagementRepository;
+import services.src.main.java.data.repositoryAdminActionsRepository;
+import services.src.main.java.data.repositoryAdvertisementRepository;
+import services.src.main.java.data.repositoryBuddyAssignmentRepository;
+import services.src.main.java.data.repositoryBuddySystemRepository;
+import services.src.main.java.data.repositoryForumPostRepository;
+import services.src.main.java.data.repositoryForumResponseRepository;
+import services.src.main.java.data.repositoryIndependentProjectRepository;
+import services.src.main.java.data.repositoryJobAdvertisementRepository;
+import services.src.main.java.data.repositoryMentoringForProjectsRepository;
+import services.src.main.java.data.repositoryRoomAssignmentRepository;
+import services.src.main.java.data.repositorySystemLogRepository;
+import services.src.main.java.data.repositoryTutoringSessionRepository;
+import services.src.main.java.data.repository.UserRepository;
 
 @Service
 public class CollaborationsList {
