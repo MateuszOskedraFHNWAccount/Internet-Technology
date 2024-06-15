@@ -1,4 +1,4 @@
-package services.src.main.java.business;
+package business;
 
 import java.util.List;
 

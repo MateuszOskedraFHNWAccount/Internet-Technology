@@ -1,4 +1,4 @@
-package services.src.main.java.data.domain;
+package data.domain;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.Column;
@@ -38,7 +38,7 @@ public void setActionID(long ActionID){
 public Actiontypes getActionType(){
     return ActionType;
 }
-public void setActionType(ch.fhnw.pizza.data.domain.AdminActions.Actiontypes delete){
+public void setActionType(data.domain.AdminActions.Actiontypes delete){
     this.ActionType = delete;
 }
 public enum Actiontypes {
