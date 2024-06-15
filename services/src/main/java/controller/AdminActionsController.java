@@ -1,7 +1,6 @@
 package controller;
 
 import data.repository.AdminActionsRepository;
-import data.repository.ForumPostRepository;
 import data.domain.AdminActions;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +38,6 @@ public class AdminActionsController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Admin action not found.");
         }
 }
-    
     
     @GetMapping(path = "/api/auth/login/{adminId}",produces = "application/json")
     public ResponseEntity<String> showAdminContent(Principal principal) {
