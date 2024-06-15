@@ -1,7 +1,7 @@
-package ch.fhnw.pizza.controller;
+package services.src.main.java.controller;
 
-import ch.fhnw.pizza.data.domain.AccountManagement;
-import ch.fhnw.pizza.data.repository.AccountManagementRepository;
+import services.src.main.java.data.domain.AccountManagement;
+import services.src.main.java.data.repository.AccountManagementRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

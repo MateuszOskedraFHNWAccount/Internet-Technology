@@ -1,4 +1,4 @@
-package ch.fhnw.pizza.controller;
+package services.src.main.java.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -6,8 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.*;
 
-import ch.fhnw.pizza.data.domain.BuddyAssignment;
-import ch.fhnw.pizza.data.repository.BuddyAssignmentRepository;
+import services.src.main.java.data.domain.BuddyAssignment;
+import services.src.main.java.data.repository.BuddyAssignmentRepository;
 
 public class BuddyAssignmentController {
 

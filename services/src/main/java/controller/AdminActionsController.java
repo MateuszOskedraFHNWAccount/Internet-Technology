@@ -1,9 +1,9 @@
-package ch.fhnw.pizza.controller;
+package services.src.main.java.controller;
 
-import ch.fhnw.pizza.data.repository.AdminActionsRepository;
-import ch.fhnw.pizza.data.repository.ForumPostRepository;
-import ch.fhnw.pizza.data.domain.AdminActions;
-import ch.fhnw.pizza.data.domain.ForumPost;
+import services.src.main.java.data.repository.AdminActionsRepository;
+import services.src.main.java.data.repository.ForumPostRepository;
+import services.src.main.java.data.domain.AdminActions;
+import services.src.main.java.data.domain.ForumPost;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;

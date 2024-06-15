@@ -1,7 +1,7 @@
-package ch.fhnw.pizza.controller;
+package services.src.main.java.controller;
 
-import ch.fhnw.pizza.data.domain.Advertisement;
-import ch.fhnw.pizza.data.repository.AdvertisementRepository;
+import services.src.main.java.data.domain.Advertisement;
+import services.src.main.java.data.repository.AdvertisementRepository;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

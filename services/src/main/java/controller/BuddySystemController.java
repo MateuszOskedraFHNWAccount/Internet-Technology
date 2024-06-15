@@ -1,7 +1,7 @@
-package ch.fhnw.pizza.controller;
+package services.src.main.java.controller;
 
-import ch.fhnw.pizza.data.domain.BuddySystem;
-import ch.fhnw.pizza.data.repository.BuddySystemRepository;
+import services.src.main.java.data.domain.BuddySystem;
+import services.src.main.java.data.repository.BuddySystemRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
